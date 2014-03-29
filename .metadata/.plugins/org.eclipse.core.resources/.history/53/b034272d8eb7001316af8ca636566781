@@ -12,21 +12,21 @@ public class Questions {
 	public HashMap<Integer, String[]> dependAnswers;
 	public ArrayList<String> dependQuestions;
 	
+	//if questions
+		//too tired, sleep through class
+		//grade too low, get tutor ($100)
+		//happiness too low, get meds ($100)
+		//cash too low, get loan ($1000)
+	
 	public Questions()
 	{
-		firstAnswers = new HashMap<Integer, String[]> ();
-		randAnswers = new HashMap<Integer, String[]> ();
-		dependAnswers = new HashMap<Integer, String[]> ();
-		firstQuestions = new ArrayList<String>();
-		randQuestions = new ArrayList<String>();
-		dependQuestions = new ArrayList<String>();
 		//-----------------------------------------------------------------------------------------------------------------------------
 		/* 0
 		 * On  : $2500, raises happiness by 10
 		 * Off : $1500, lowers energy by 10
 		 */
 		firstQuestions.add("Do you want live on or off campus?");
-		String[] arr0 = {"On ($2500)", "Off ($1500)"};
+		String[] arr0 = {"On", "Off"};
 		firstAnswers.put(0, arr0);
 		
 		/* 1
@@ -35,7 +35,7 @@ public class Questions {
 		 * Walk : Lowers energy by 10, lowers happiness by 5
 		 */
 		firstQuestions.add("Do you want a car, a bike, or to just walk campus?");
-		String[] arr1 = {"Car ($1000, $10/week)", "Bike ($150)", "Walk"};
+		String[] arr1 = {"Car", "Bike", "Walk"};
 		firstAnswers.put(1, arr1);
 		
 		/* 2
@@ -288,7 +288,7 @@ public class Questions {
 		randAnswers.put(27, arr027);
 		
 		/* 28
-		 * Go   : lowers cash by $350, raises happiness by 20
+		 * Go   : lowers cash by $359, raises happiness by 20
 		 * Miss : lowers happiness by 20
 		 */
 		randQuestions.add("Beyonce is in town and is playing a concert for one night only");
@@ -383,59 +383,5 @@ public class Questions {
 		//-----------------------------------------------------------------------------------------------------------------------------
 	}
 	
-	/**
-	 * Gets the question
-	 * @param type
-	 * 		  1 = First
-	 * 		  2 = Random
-	 * 		  3 = Dependent
-	 * @param index
-	 * 		  0 - 4 for First
-	 * 		  0 - 31 for Random
-	 * 		  0 - 4 for Dependent
-	 * @return
-	 *      Question
-	 */
-	public String getQuestion(int type, int index)
-	{
-		switch(type)
-		{
-			case 1:
-				return firstQuestions.get(index);
-			case 2:
-				return randQuestions.get(index);
-			case 3:
-				return dependQuestions.get(index);
-			default:
-				return randQuestions.get(index);
-		}
-	}
 	
-	/**
-	 * Gets the question
-	 * @param type
-	 * 		  1 = First
-	 * 		  2 = Random
-	 * 		  3 = Dependent
-	 * @param index
-	 * 		  0 - 4 for First
-	 * 		  0 - 31 for Random
-	 * 		  0 - 4 for Dependent
-	 * @return
-	 *      Answer
-	 */
-	public String[] getAnswer(int type, int index)
-	{
-		switch(type)
-		{
-			case 1:
-				return firstAnswers.get(index);
-			case 2:
-				return randAnswers.get(index);
-			case 3:
-				return dependAnswers.get(index);
-			default:
-				return randAnswers.get(index);
-		}
-	}
 }

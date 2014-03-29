@@ -12,21 +12,25 @@ public class Questions {
 	public HashMap<Integer, String[]> dependAnswers;
 	public ArrayList<String> dependQuestions;
 	
+	//if questions
+		//too tired, sleep through class
+		//grade too low, get tutor ($100)
+		//happiness too low, get meds ($100)
+		//cash too low, get loan ($1000)
+	
 	public Questions()
 	{
 		firstAnswers = new HashMap<Integer, String[]> ();
 		randAnswers = new HashMap<Integer, String[]> ();
 		dependAnswers = new HashMap<Integer, String[]> ();
-		firstQuestions = new ArrayList<String>();
-		randQuestions = new ArrayList<String>();
-		dependQuestions = new ArrayList<String>();
+		
 		//-----------------------------------------------------------------------------------------------------------------------------
 		/* 0
 		 * On  : $2500, raises happiness by 10
 		 * Off : $1500, lowers energy by 10
 		 */
 		firstQuestions.add("Do you want live on or off campus?");
-		String[] arr0 = {"On ($2500)", "Off ($1500)"};
+		String[] arr0 = {"On", "Off"};
 		firstAnswers.put(0, arr0);
 		
 		/* 1
@@ -35,7 +39,7 @@ public class Questions {
 		 * Walk : Lowers energy by 10, lowers happiness by 5
 		 */
 		firstQuestions.add("Do you want a car, a bike, or to just walk campus?");
-		String[] arr1 = {"Car ($1000, $10/week)", "Bike ($150)", "Walk"};
+		String[] arr1 = {"Car", "Bike", "Walk"};
 		firstAnswers.put(1, arr1);
 		
 		/* 2

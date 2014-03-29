@@ -1,0 +1,21 @@
+import java.util.Scanner;
+
+
+public class Tests {
+
+	public static void main(String[] args)
+	{
+		Player p = new Player(5000, 100, 100, 100, 0, 12000);
+		Scanner s = new Scanner(System.in);
+		for(int i = 0; i < 4; i++)
+		{
+			System.out.println("Cash: $" + p.getCash() + "0 Grade: %" + p.getGrades() + " Happiness: %" + p.getHappy() + " Energy: %" + p.getEnergy() + " Loan: $" + p.getLoan());
+			System.out.println(p.getQuestions().getQuestion(1, i));
+			for(int j = 0; j < p.getQuestions().getAnswer(1, i).length; j++)
+				System.out.print(p.getQuestions().getAnswer(1, i)[j] + " ");
+			System.out.println();
+			int answer = s.nextInt();
+			p.updateFirst(i, answer);
+		}
+	}
+}

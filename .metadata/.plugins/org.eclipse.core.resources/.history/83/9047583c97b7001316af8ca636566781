@@ -1066,7 +1066,7 @@ public class Player
 	}
 
 	public Questions getQuestions() {
-		return questions;
+		return question;
 	}
 	
 }

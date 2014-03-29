@@ -8,7 +8,6 @@ public class Player
 	public int week;
 	public int loan;
 	public String message;
-	public Questions questions;
 
 	public Player(double money, int happiness, int grade, int ener, int loan)
 	{
@@ -20,7 +19,7 @@ public class Player
 		week = 0;
 		this.loan = loan;
 		message = "";
-		questions = new Questions();
+		Questions questions = new Questions();
 	}
 
 	public void updateFirst(int type, int answerIndex)
@@ -1066,7 +1065,7 @@ public class Player
 	}
 
 	public Questions getQuestions() {
-		return questions;
+		return question;
 	}
 	
 }

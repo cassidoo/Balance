@@ -8,7 +8,6 @@ public class Player
 	public int week;
 	public int loan;
 	public String message;
-	public Questions questions;
 
 	public Player(double money, int happiness, int grade, int ener, int loan)
 	{
@@ -20,14 +19,9 @@ public class Player
 		week = 0;
 		this.loan = loan;
 		message = "";
-		questions = new Questions();
+		Questions questions = new Questions();
 	}
 
-	public Questions getQuestions()
-	{
-		return questions;
-	}
-	
 	public void updateFirst(int type, int answerIndex)
 	{
 		if (takeExam())
@@ -139,7 +133,9 @@ public class Player
 				}
 				break;
 
-			}
+			}//switch
+			checkStatus();
+			noOverload();
 		}
 	}
 
@@ -741,7 +737,9 @@ public class Player
 				}
 				break;
 
-			}
+			}//switch
+			checkStatus();
+			noOverload();
 		}
 	}
 
@@ -909,7 +907,9 @@ public class Player
 				}
 				break;
 
-			}
+			}//switch
+			checkStatus();
+			noOverload();
 		}
 	}
 
@@ -1010,6 +1010,9 @@ public class Player
 			}
 			energy -= 15;
 			week++;
+			
+			checkStatus();
+			noOverload();
 			return true;
 		}
 		return false;
@@ -1044,4 +1047,21 @@ public class Player
 			message +="You do not have enough money, you take out a $1,000 loan.";
 		}
 	}
+	
+	public void noOverload()
+	{
+		if(happy>=100)
+		{
+			happy=100;
+		}
+		if(energy>100)
+		{
+			energy=100;
+		}
+		if(grades>=100)
+		{
+			grades=100;
+		}
+	}
+	
 }

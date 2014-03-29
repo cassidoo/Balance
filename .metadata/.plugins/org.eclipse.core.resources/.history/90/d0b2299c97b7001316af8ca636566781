@@ -30,6 +30,7 @@ public class Player
 			return;
 		} else
 		{
+			week++;
 			switch (type)
 			{
 			/*

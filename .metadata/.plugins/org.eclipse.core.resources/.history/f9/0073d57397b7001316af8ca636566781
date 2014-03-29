@@ -17,7 +17,6 @@ public class Tests {
 			System.out.println();
 			int answer = s.nextInt();
 			p.updateFirst(i, answer);
-			System.out.println(p.getMsg());
 		}
 		
 		

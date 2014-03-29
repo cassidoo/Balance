@@ -1,0 +1,30 @@
+Style Guide
+
+Fonts: Droid Serif (http://www.google.com/fonts#UsePlace:use/Collection:Droid+Serif)
+
+Colors:
+#574c4c (gray 1)
+rgb(87,76,76)
+
+#8A7C6E (gray 2)
+rgb(138,124,110)
+
+#6e6762 (gray 3)
+rgb(110,103,98)
+
+#dc5753 (red)
+rgb(220,87,83)
+
+#ede76d (yellow)
+rgb(237,231,109)
+
+#69B34E (green)
+rgb(105,179,78)
+
+Background is in (gray 2)
+
+Header bar is in (gray 1)
+
+Buttons are in (gray 3)
+
+Text is white

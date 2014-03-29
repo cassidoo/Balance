@@ -1,0 +1,57 @@
+!SESSION 2014-03-29 12:23:21.161 -----------------------------------------------
+eclipse.buildId=v22.3.0-887826
+java.version=1.6.0_65
+java.vendor=Apple Inc.
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=en_US
+Framework arguments:  -product com.android.ide.eclipse.adt.package.product -product com.android.ide.eclipse.adt.package.product -keyring /Users/CamiWilliams/.eclipse_keyring -showlocation
+Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -product com.android.ide.eclipse.adt.package.product -data /Users/CamiWilliams/Documents/GitHub/Balance -product com.android.ide.eclipse.adt.package.product -keyring /Users/CamiWilliams/.eclipse_keyring -showlocation
+
+!ENTRY org.eclipse.core.net 1 0 2014-03-29 12:23:35.926
+!MESSAGE System property http.nonProxyHosts has been set to local|*.local|169.254/16|*.169.254/16 by an external source. This value will be overwritten using the values from the preferences
+
+!ENTRY org.tigris.subversion.subclipse.core 4 0 2014-03-29 12:24:53.134
+!MESSAGE No subversion client interface found.
+!STACK 0
+org.tigris.subversion.svnclientadapter.SVNClientException: No subversion client interface found.
+	at org.tigris.subversion.svnclientadapter.SVNClientAdapterFactory.getPreferredSVNClientType(SVNClientAdapterFactory.java:78)
+	at org.tigris.subversion.subclipse.core.SVNClientManager.setSvnClientInterface(SVNClientManager.java:58)
+	at org.tigris.subversion.subclipse.core.SVNClientManager.getSvnClientInterface(SVNClientManager.java:96)
+	at org.tigris.subversion.subclipse.core.SVNClientManager.createSVNClient(SVNClientManager.java:113)
+	at org.tigris.subversion.subclipse.core.SVNProviderPlugin.createSVNClient(SVNProviderPlugin.java:406)
+	at org.tigris.subversion.subclipse.core.SVNProviderPlugin.getAdminDirectoryName(SVNProviderPlugin.java:527)
+	at org.tigris.subversion.subclipse.core.SVNProviderPlugin.isManagedBySubversion(SVNProviderPlugin.java:556)
+	at org.tigris.subversion.subclipse.core.SVNProviderPlugin.isManagedBySubversion(SVNProviderPlugin.java:548)
+	at org.tigris.subversion.subclipse.core.SVNTeamProviderType.metaFilesDetected(SVNTeamProviderType.java:243)
+	at org.eclipse.team.internal.core.TeamResourceChangeListener.handleUnsharedProjectChanges(TeamResourceChangeListener.java:95)
+	at org.eclipse.team.internal.core.TeamResourceChangeListener.resourceChanged(TeamResourceChangeListener.java:54)
+	at org.eclipse.core.internal.events.NotificationManager$1.run(NotificationManager.java:291)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.NotificationManager.notify(NotificationManager.java:285)
+	at org.eclipse.core.internal.events.NotificationManager.broadcastChanges(NotificationManager.java:149)
+	at org.eclipse.core.internal.resources.Workspace.broadcastPostChange(Workspace.java:395)
+	at org.eclipse.core.internal.resources.Workspace.endOperation(Workspace.java:1530)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2353)
+	at org.eclipse.jdt.core.JavaCore.run(JavaCore.java:5204)
+	at org.eclipse.jdt.internal.ui.actions.WorkbenchRunnableAdapter.run(WorkbenchRunnableAdapter.java:106)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:121)
+
+!ENTRY org.eclipse.core.resources 4 2 2014-03-29 12:24:53.173
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.core.resources".
+!STACK 0
+java.lang.NullPointerException
+	at org.tigris.subversion.subclipse.core.SVNProviderPlugin.getAdminDirectoryName(SVNProviderPlugin.java:527)
+	at org.tigris.subversion.subclipse.core.SVNProviderPlugin.isManagedBySubversion(SVNProviderPlugin.java:556)
+	at org.tigris.subversion.subclipse.core.SVNProviderPlugin.isManagedBySubversion(SVNProviderPlugin.java:548)
+	at org.tigris.subversion.subclipse.core.SVNTeamProviderType.metaFilesDetected(SVNTeamProviderType.java:243)
+	at org.eclipse.team.internal.core.TeamResourceChangeListener.handleUnsharedProjectChanges(TeamResourceChangeListener.java:95)
+	at org.eclipse.team.internal.core.TeamResourceChangeListener.resourceChanged(TeamResourceChangeListener.java:54)
+	at org.eclipse.core.internal.events.NotificationManager$1.run(NotificationManager.java:291)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.NotificationManager.notify(NotificationManager.java:285)
+	at org.eclipse.core.internal.events.NotificationManager.broadcastChanges(NotificationManager.java:149)
+	at org.eclipse.core.internal.resources.Workspace.broadcastPostChange(Workspace.java:395)
+	at org.eclipse.core.internal.resources.Workspace.endOperation(Workspace.java:1530)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2353)
+	at org.eclipse.jdt.core.JavaCore.run(JavaCore.java:5204)
+	at org.eclipse.jdt.internal.ui.actions.WorkbenchRunnableAdapter.run(WorkbenchRunnableAdapter.java:106)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:121)

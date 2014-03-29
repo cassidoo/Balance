@@ -10,9 +10,8 @@ public class Questions {
 	
 	public Questions()
 	{
-		//-----------------------------------------------------------------------------------------------------------------------------
 		/* 0
-		 * On  : $2500, raises happiness by 10
+		 * On  : $2500, raises social by 10
 		 * Off : $1500, lowers energy by 10
 		 */
 		firstQuestions.add("Do you want live on or off campus?");
@@ -43,8 +42,6 @@ public class Questions {
 		firstQuestions.add("Classes start soon, you need books for class");
 		String[] arr3 = {"Buy books ($350)", "Don't buy books"};
 		firstAnswers.put(3, arr3);
-		//-----------------------------------------------------------------------------------------------------------------------------
-		
 		
 	}
 	

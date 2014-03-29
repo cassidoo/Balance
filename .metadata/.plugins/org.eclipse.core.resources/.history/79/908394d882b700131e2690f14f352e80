@@ -187,27 +187,17 @@ public class Questions {
 		 * Class : lowers energy by 15, raises grade by 5, lower happiness by 7
 		 * Skip  : raises energy by 10, lowers grade by 10, raises happiness by 3
 		 */
-		randQuestions.add("You stayed up too late marathoning your favorite TV show, you don't have enough time to sleep before class");
+		randQuestions.add("After a late night hanging out with friends, you don't have enough time to sleep before class");
 		String[] arr015 = {"Go to class", "Skip class"};
 		randAnswers.put(15, arr015);
 		
 		/* 15
-		 * Class : lowers energy by 5, raises grade by 5, lower happiness by 10
+		 * Class : lowers energy by 15, raises grade by 5, lower happiness by 10
 		 * Skip  : lowers grade by 10, raises happiness by 10
 		 */
-		randQuestions.add("Your crush invites you to breakfast during your morning class!");
+		randQuestions.add("Your crush invites you to breakfast in the morning!");
 		String[] arr016 = {"Go to class", "Skip class"};
 		randAnswers.put(16, arr016);
-		
-		/* 16
-		 * Class : lowers energy by 5, raises grade by 5, lower happiness by 10
-		 * Skip  : lowers energy by 5, lowers grade by 10, raises happiness by 10
-		 */
-		randQuestions.add("Your favorite band is playing at the local bar during your night class");
-		String[] arr017 = {"Go to class", "Skip class"};
-		randAnswers.put(17, arr017);
-		
-		
 		//----------------------------------------------------------------------------------------------------------------------------- THESE QUESTIONS NEED A MESSAGE AFTER THE ANSWER
 		/* 0
 		 * Apply : if grade >= 90, get $500, raise happiness by 10; else lower happiness by 10

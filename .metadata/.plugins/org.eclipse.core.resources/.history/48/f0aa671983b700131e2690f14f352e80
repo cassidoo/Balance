@@ -206,8 +206,6 @@ public class Questions {
 		randQuestions.add("Your favorite band is playing at the local bar during your night class");
 		String[] arr017 = {"Go to class", "Skip class"};
 		randAnswers.put(17, arr017);
-		
-		
 		//----------------------------------------------------------------------------------------------------------------------------- THESE QUESTIONS NEED A MESSAGE AFTER THE ANSWER
 		/* 0
 		 * Apply : if grade >= 90, get $500, raise happiness by 10; else lower happiness by 10

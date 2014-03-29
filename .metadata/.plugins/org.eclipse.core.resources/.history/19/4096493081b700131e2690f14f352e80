@@ -159,55 +159,13 @@ public class Questions {
 		String[] arr011 = {"Pay the ticket ($100)", "Contest in court and miss class ($50)"};
 		randAnswers.put(11, arr011);
 		
-		/* 11
+		/* 10
 		 * Party : lowers cash by $50, raises happiness by 10, lowers energy by 5
 		 * Skip  : lowers happiness by 10
 		 */
 		randQuestions.add("Your friend got engaged, and they are having party!");
 		String[] arr012 = {"Buy them a present ($50)", "Skip the party"};
-		randAnswers.put(12, arr012);
-		
-		/* 12
-		 * Party : lowers cash by $25, raises happiness by 10, lowers energy by 5
-		 * Skip  : lowers happiness by 10
-		 */
-		randQuestions.add("Your friends birthday is tonight, and they are having party!");
-		String[] arr013 = {"Buy them a present ($25)", "Skip the party"};
-		randAnswers.put(13, arr013);
-		
-		/* 13
-		 * Class : lowers energy by 15, raises grade by 5, lower happiness by 7
-		 * Skip  : raises energy by 10, lowers grade by 10, raises happiness by 3
-		 */
-		randQuestions.add("After a late night hanging out with friends, you don't have enough time to sleep before class");
-		String[] arr014 = {"Go to class", "Skip class"};
-		randAnswers.put(14, arr014);
-		
-		/* 14
-		 * Class : lowers energy by 15, raises grade by 5, lower happiness by 7
-		 * Skip  : raises energy by 10, lowers grade by 10, raises happiness by 3
-		 */
-		randQuestions.add("You stayed up too late marathoning your favorite TV show, you don't have enough time to sleep before class");
-		String[] arr015 = {"Go to class", "Skip class"};
-		randAnswers.put(15, arr015);
-		
-		/* 15
-		 * Class : lowers energy by 5, raises grade by 5, lower happiness by 10
-		 * Skip  : lowers grade by 10, raises happiness by 10
-		 */
-		randQuestions.add("Your crush invites you to breakfast during your morning class!");
-		String[] arr016 = {"Go to class", "Skip class"};
-		randAnswers.put(16, arr016);
-		
-		/* 16
-		 * Class : lowers energy by 5, raises grade by 5, lower happiness by 10
-		 * Skip  : lowers energy by 5, lowers grade by 10, raises happiness by 10
-		 */
-		randQuestions.add("Your favorite band is playing at the local bar during your night class");
-		String[] arr017 = {"Go to class", "Skip class"};
-		randAnswers.put(17, arr017);
-		
-		
+		randAnswers.put(11, arr012);
 		//----------------------------------------------------------------------------------------------------------------------------- THESE QUESTIONS NEED A MESSAGE AFTER THE ANSWER
 		/* 0
 		 * Apply : if grade >= 90, get $500, raise happiness by 10; else lower happiness by 10

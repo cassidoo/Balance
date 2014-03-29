@@ -5,12 +5,12 @@ import java.util.HashMap;
 public class Questions {
 
 	public HashMap<Integer, String[]> firstAnswers;
-	public ArrayList<String> firstQuestions; //5
+	public ArrayList<String> firstQuestions;
 	public HashMap<Integer, String[]> randAnswers;
-	public ArrayList<String> randQuestions; //32
+	public ArrayList<String> randQuestions;
 	//dependent questions
 	public HashMap<Integer, String[]> dependAnswers;
-	public ArrayList<String> dependQuestions; //5
+	public ArrayList<String> dependQuestions;
 	
 	public Questions()
 	{

@@ -270,55 +270,6 @@ public class Questions {
 		randQuestions.add("Your friends want to take a vacation this weekend, missing two days of class");
 		String[] arr025 = {"Go on vacation! ($500)", "Stay behind and study"};
 		randAnswers.put(25, arr025);
-		
-		/* 26
-		 * Go   : raises grade by 10, lowers happiness by 15, lowers energy by 15
-		 * Stay : raises energy by 10, raises happiness by 15
-		 */
-		randQuestions.add("You got snowed in, it's a snowpocalypse");
-		String[] arr026 = {"Weather the storm", "Stay in and skip class"};
-		randAnswers.put(26, arr026);
-		
-		/* 27
-		 * Participate : raises cash by $15, lowers happiness by 5
-		 * Don't go    : lowers happiness by 2
-		 */
-		randQuestions.add("The psychology club is offering $15 to students who participate in their research");
-		String[] arr027 = {"Participate", "Don't go"};
-		randAnswers.put(27, arr027);
-		
-		/* 28
-		 * Go   : lowers cash by $359, raises happiness by 20
-		 * Miss : lowers happiness by 20
-		 */
-		randQuestions.add("Beyonce is in town and is playing a concert for one night only");
-		String[] arr028 = {"Buy a ticket ($350)", "Miss out"};
-		randAnswers.put(28, arr028);
-		
-		/* 29
-		 * Buy   : lowers cash by $150, raises grade by 5
-		 * Don't : lowers grade by 10
-		 */
-		randQuestions.add("You lost your calculator and need to buy a new one for class");
-		String[] arr029 = {"Buy it ($150)", "Don't buy it"};
-		randAnswers.put(29, arr029);
-		
-		/* 30
-		 * Study : raises grade by 10, lowers energy by 15
-		 * Work  : raises cash by $100, lowers grade by 10, lowers energy by 15
-		 */
-		randQuestions.add("Your boss asks you to work the weekend. You have a study group planned for your project.");
-		String[] arr030 = {"Go work ($100)", "Go study"};
-		randAnswers.put(30, arr030);
-		
-		/* 31
-		 * Play  : raises cash by $50, raises happiness by 10, lowers energy by 20
-		 * Study : raises grade by 5, raises energy by 5
-		 */
-		randQuestions.add("Your friends wants you to join their band- they have a gig tonight that pays $50 each");
-		String[] arr031 = {"Rock out", "Stay in and study"};
-		randAnswers.put(31, arr031);
-		
 		//----------------------------------------------------------------------------------------------------------------------------- THESE QUESTIONS NEED A MESSAGE AFTER THE ANSWER
 		/* 0
 		 * Apply : if grade >= 90, get $500, raise happiness by 10; else lower happiness by 10

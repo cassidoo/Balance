@@ -109,7 +109,7 @@ public class Questions {
 		randAnswers.put(5, arr05);
 		
 		/* 6
-		 * Give   : $10, raises happiness by 10
+		 * Give   : $10, raises happiness by 5
 		 * Reject : lowers happiness by 5
 		 */
 		randQuestions.add("Your best friend asks you to borrow money for a book.");

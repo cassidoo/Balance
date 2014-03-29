@@ -108,13 +108,13 @@ public class Questions {
 		String[] arr05 = {"Join clubs! ($25)", "Be antisocial"};
 		randAnswers.put(5, arr05);
 		
-		/* 6
-		 * Give   : $10, raises happiness by 10
-		 * Reject : lowers happiness by 5
+		/* 5
+		 * Join clubs!   : $25, raises happiness by 5
+		 * Be antisocial : lowers happiness by 5
 		 */
-		randQuestions.add("Your best friend asks you to borrow money for a book.");
-		String[] arr06 = {"Give it up ($10)", "Reject them"};
-		randAnswers.put(6, arr06);
+		randQuestions.add("Club Fest is on campus!");
+		String[] arr05 = {"Join clubs! ($25)", "Be antisocial"};
+		randAnswers.put(5, arr05);
 	}
 	
 	

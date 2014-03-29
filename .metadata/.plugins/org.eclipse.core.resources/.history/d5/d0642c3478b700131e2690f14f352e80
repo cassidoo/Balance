@@ -37,7 +37,7 @@ public class Questions {
 		
 		/* 2
 		 * On-campus Tutor              : $7/hour, increases grade by 3
-		 * Off-campus Restaurant Server : $8.50/hour, decreases grade by 10, decreases energy by 5
+		 * Off-campus Restaurant Server : $8.50/hour, decreases grade by 3, decreases energy by 5
 		 */
 		firstQuestions.add("Time to pick a job");
 		String[] arr2 = {"On-campus: Tutor ($7/hour, 3 hours/day)", "Off-campus: Restaurant Server ($8.50/hour 5 hours/day)"};
@@ -107,14 +107,6 @@ public class Questions {
 		randQuestions.add("Club Fest is on campus!");
 		String[] arr05 = {"Join clubs! ($25)", "Be antisocial"};
 		randAnswers.put(5, arr05);
-		
-		/* 6
-		 * Give   : $10, raises happiness by 10
-		 * Reject : lowers happiness by 5
-		 */
-		randQuestions.add("Your best friend asks you to borrow money for a book.");
-		String[] arr06 = {"Give it up ($10)", "Reject them"};
-		randAnswers.put(6, arr06);
 	}
 	
 	

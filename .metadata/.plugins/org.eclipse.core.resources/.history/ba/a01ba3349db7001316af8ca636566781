@@ -752,8 +752,6 @@ public class Player
 
 	public void updateDepend(int type, int answerIndex)
 	{
-		message = "";
-		errorMessage = "";
 		if (takeExam())
 		{
 			return;

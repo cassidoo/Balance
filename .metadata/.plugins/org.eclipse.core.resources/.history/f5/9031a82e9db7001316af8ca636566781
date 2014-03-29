@@ -27,8 +27,6 @@ public class Player
 
 	public void updateFirst(int type, int answerIndex)
 	{
-		message = "";
-		errorMessage = "";
 		if (takeExam())
 		{
 			return;
@@ -752,8 +750,6 @@ public class Player
 
 	public void updateDepend(int type, int answerIndex)
 	{
-		message = "";
-		errorMessage = "";
 		if (takeExam())
 		{
 			return;

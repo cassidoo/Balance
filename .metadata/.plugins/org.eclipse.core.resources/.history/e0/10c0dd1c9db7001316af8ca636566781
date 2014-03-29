@@ -27,8 +27,6 @@ public class Player
 
 	public void updateFirst(int type, int answerIndex)
 	{
-		message = "";
-		errorMessage = "";
 		if (takeExam())
 		{
 			return;
@@ -145,8 +143,6 @@ public class Player
 
 	public void updateRan(int type, int answerIndex)
 	{
-		message = "";
-		errorMessage = "";
 		if (takeExam())
 		{
 			return;
@@ -646,7 +642,7 @@ public class Player
 			 * 26
 			 * Go : raises grade by 10, lowers happiness by 15, lowers energy by
 			 * 15
-			 * Stay : raises energy by 10, raises happiness by 15, grade lowers by 5
+			 * Stay : raises energy by 10, raises happiness by 15
 			 */
 			case 26:
 				if (answerIndex == 0)
@@ -752,8 +748,6 @@ public class Player
 
 	public void updateDepend(int type, int answerIndex)
 	{
-		message = "";
-		errorMessage = "";
 		if (takeExam())
 		{
 			return;

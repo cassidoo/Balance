@@ -143,7 +143,7 @@ public class Questions {
 		String[] arr09 = {"Research", "Work extra hours this weekend"};
 		randAnswers.put(9, arr09);
 		
-		/* 10
+		/* 9
 		 * Semester : lowers cash by $500
 		 * Week     : lowers cash by $100/week
 		 */
@@ -151,7 +151,7 @@ public class Questions {
 		String[] arr010 = {"Buy meals for the semester ($500)", "Buy meals by the week ($100/week)"};
 		randAnswers.put(10, arr010);
 		
-		/* 11
+		/* 10
 		 * Ticket : lowers cash by $100
 		 * Court  : lowers cash by $50, lowers grade by 5, lowers happiness by 5, lowers energy by 5
 		 */
@@ -159,7 +159,7 @@ public class Questions {
 		String[] arr011 = {"Pay the ticket ($100)", "Contest in court and miss class ($50)"};
 		randAnswers.put(11, arr011);
 		
-		/* 12
+		/* 11
 		 * Party : lowers cash by $50, raises happiness by 10, lowers energy by 5
 		 * Skip  : lowers happiness by 10
 		 */
@@ -167,7 +167,7 @@ public class Questions {
 		String[] arr012 = {"Buy them a present ($50)", "Skip the party"};
 		randAnswers.put(12, arr012);
 		
-		/* 13
+		/* 12
 		 * Party : lowers cash by $25, raises happiness by 10, lowers energy by 5
 		 * Skip  : lowers happiness by 10
 		 */
@@ -175,7 +175,7 @@ public class Questions {
 		String[] arr013 = {"Buy them a present ($25)", "Skip the party"};
 		randAnswers.put(13, arr013);
 		
-		/* 14
+		/* 13
 		 * Class : lowers energy by 15, raises grade by 5, lower happiness by 7
 		 * Skip  : raises energy by 10, lowers grade by 10, raises happiness by 3
 		 */
@@ -183,7 +183,7 @@ public class Questions {
 		String[] arr014 = {"Go to class", "Skip class"};
 		randAnswers.put(14, arr014);
 		
-		/* 15
+		/* 14
 		 * Class : lowers energy by 15, raises grade by 5, lower happiness by 7
 		 * Skip  : raises energy by 10, lowers grade by 10, raises happiness by 3
 		 */
@@ -191,7 +191,7 @@ public class Questions {
 		String[] arr015 = {"Go to class", "Skip class"};
 		randAnswers.put(15, arr015);
 		
-		/* 16
+		/* 15
 		 * Class : lowers energy by 5, raises grade by 5, lower happiness by 10
 		 * Skip  : lowers grade by 10, raises happiness by 10
 		 */
@@ -199,7 +199,7 @@ public class Questions {
 		String[] arr016 = {"Go to class", "Skip class"};
 		randAnswers.put(16, arr016);
 		
-		/* 17
+		/* 16
 		 * Class : lowers energy by 5, raises grade by 5, lower happiness by 10
 		 * Skip  : lowers energy by 5, lowers grade by 10, raises happiness by 10
 		 */
@@ -207,7 +207,7 @@ public class Questions {
 		String[] arr017 = {"Go to class", "Skip class"};
 		randAnswers.put(17, arr017);
 		
-		/* 18
+		/* 17
 		 * Pay  : $50, raises grade by 5, raises energy by 5, raises happiness by 5
 		 * Stay : lowers energy by 10, raises grade by 10, lowers happiness by 10
 		 */
@@ -215,7 +215,7 @@ public class Questions {
 		String[] arr018 = {"Pay them to do it ($50)", "Stay up all night to do it"};
 		randAnswers.put(18, arr018);
 		
-		/* 19
+		/* 18
 		 * Do    : raises cash by $50, raises grade by 5, lowers energy by 15, raises happiness by 3
 		 * Sleep : raises energy by 10, lowers happiness by 2
 		 */
@@ -223,38 +223,13 @@ public class Questions {
 		String[] arr019 = {"Offer to do it for $50", "Go to bed"};
 		randAnswers.put(19, arr019);
 		
-		/* 20
-		 * Go       : lowers cash by $15, lowers grade by 5, lowers energy by 15, raises happiness by 10
-		 * Miss out : raises energy by 10, lowers happiness by 10, raises grade by 5
+		/* 19
+		 * Do    : raises cash by $50, raises grade by 5, lowers energy by 15, raises happiness by 3
+		 * Sleep : raises energy by 10, lowers happiness by 2
 		 */
-		randQuestions.add("The midnight premiere for Hunger Games: Mocking Jay is Thursday night.");
-		String[] arr020 = {"Go watch the spectacle ($15)", "Stay in and study"};
+		randQuestions.add("Your");
+		String[] arr020 = {"Offer to do it for $50", "Go to bed"};
 		randAnswers.put(20, arr020);
-		
-		/* 21
-		 * Doctor : lowers cash by $300, raises energy by 5, raises happiness by 10
-		 * Ignore : lowers energy by 20, lowers happiness by 20
-		 */
-		randQuestions.add("You slip on ice running to class and think you broke your arm");
-		String[] arr021 = {"Pay Hospital bill ($300)", "Ignore the pain"};
-		randAnswers.put(21, arr021);
-		
-		/* 22
-		 * Help  : raises cash by $20, lowers energy by 7, raises happiness by 7
-		 * Sleep : raises energy by 5, lowers happiness by 5
-		 */
-		randQuestions.add("Your friend is moving and offers you $20 to help!");
-		String[] arr022 = {"Help out", "Stay in and nap"};
-		randAnswers.put(22, arr022);
-		
-		/* 23
-		 * Let them go : lowers happiness by 15
-		 * Stay        : lowers cash by $25, raises happiness by 10
-		 */
-		randQuestions.add("Your significant other wants to break up with you");
-		String[] arr023 = {"Let them go", "Buy them a gift to stay ($25)"};
-		randAnswers.put(23, arr023);
-		
 		//----------------------------------------------------------------------------------------------------------------------------- THESE QUESTIONS NEED A MESSAGE AFTER THE ANSWER
 		/* 0
 		 * Apply : if grade >= 90, get $500, raise happiness by 10; else lower happiness by 10

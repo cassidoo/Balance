@@ -248,8 +248,8 @@ public class Questions {
 		randAnswers.put(22, arr022);
 		
 		/* 23
-		 * Let them go : lowers happiness by 15
-		 * Stay        : lowers cash by $25, raises happiness by 10
+		 * Help  : raises cash by $20, lowers energy by 7, raises happiness by 7
+		 * Sleep : raises energy by 5, lowers happiness by 5
 		 */
 		randQuestions.add("Your significant other wants to break up with you");
 		String[] arr023 = {"Let them go", "Buy them a gift to stay ($25)"};

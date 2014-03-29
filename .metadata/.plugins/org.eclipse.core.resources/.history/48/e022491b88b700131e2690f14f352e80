@@ -246,15 +246,6 @@ public class Questions {
 		randQuestions.add("Your friend is moving and offers you $20 to help!");
 		String[] arr022 = {"Help out", "Stay in and nap"};
 		randAnswers.put(22, arr022);
-		
-		/* 23
-		 * Let them go : lowers happiness by 15
-		 * Stay        : lowers cash by $25, raises happiness by 10
-		 */
-		randQuestions.add("Your significant other wants to break up with you");
-		String[] arr023 = {"Let them go", "Buy them a gift to stay ($25)"};
-		randAnswers.put(23, arr023);
-		
 		//----------------------------------------------------------------------------------------------------------------------------- THESE QUESTIONS NEED A MESSAGE AFTER THE ANSWER
 		/* 0
 		 * Apply : if grade >= 90, get $500, raise happiness by 10; else lower happiness by 10

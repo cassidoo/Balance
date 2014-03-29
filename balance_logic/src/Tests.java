@@ -20,22 +20,38 @@ public class Tests {
 			System.out.println(p.getMsg());
 		}
 		
+		int overall = 1;
+		Random rand = new Random();
 		
-		int dependCount = 0;
-		int randCount = 0;
-		Random rand = new Random(32);
-		Random depR = new Random(5);
-		
-		//DEPENDENT
-		for(int i = 0; i < 5; i++)
+		while(overall < 33)
 		{
-			System.out.println("Cash: $" + p.getCash() + "0  Grade: %" + p.getGrades() + "  Happiness: %" + p.getHappy() + "  Energy: %" + p.getEnergy() + "  Loan: $" + p.getLoan() + "0");
-			System.out.println(p.getQuestions().getQuestion(3, i));
-			for(int j = 0; j < p.getQuestions().getAnswer(3, i).length; j++)
-				System.out.print(p.getQuestions().getAnswer(3, i)[j] + " ");
-			System.out.println();
-			int answer = s.nextInt();
-			p.updateDepend(i, answer);
+			System.out.println("Week: " + p.getWeek() + " Cash: $" + p.getCash() + "0  Grade: %" + p.getGrades() + "  Happiness: %" + p.getHappy() + "  Energy: %" + p.getEnergy() + "  Loan: $" + p.getLoan() + "0");
+			//dependent
+			if(rand.nextInt(10) < 3)
+			{
+				int x = rand.nextInt(5);
+				System.out.println(p.getQuestions().getQuestion(3, x));
+				for(int j = 0; j < p.getQuestions().getAnswer(3, x).length; j++)
+					System.out.print(p.getQuestions().getAnswer(3, x)[j] + " ");
+				System.out.println();
+				int answer = s.nextInt();
+				p.updateDepend(x, answer);
+				System.out.println(p.getMsg());
+			}
+			//random
+			else
+			{
+				int x = rand.nextInt(32);
+				System.out.println(p.getQuestions().getQuestion(2, x));
+				for(int j = 0; j < p.getQuestions().getAnswer(2, x).length; j++)
+					System.out.print(p.getQuestions().getAnswer(2, x)[j] + " ");
+				System.out.println();
+				int answer = s.nextInt();
+				p.updateRan(x, answer);
+				System.out.println(p.getMsg());
+			}
+			
+			overall++;
 		}
 	}
 }

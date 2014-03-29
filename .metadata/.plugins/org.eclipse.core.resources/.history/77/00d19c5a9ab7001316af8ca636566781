@@ -1,0 +1,59 @@
+import java.util.Random;
+import java.util.Scanner;
+
+
+public class Tests {
+
+	public static void main(String[] args)
+	{
+		Player p = new Player(5000, 100, 100, 100, 12000);
+		Scanner s = new Scanner(System.in);
+		for(int i = 0; i < 5; i++)
+		{
+			System.out.println("Week: " + p.getWeek() + " Cash: $" + p.getCash() + "0  Grade: %" + p.getGrades() + "  Happiness: %" + p.getHappy() + "  Energy: %" + p.getEnergy() + "  Loan: $" + p.getLoan() + "0");
+			System.out.println(p.getQuestions().getQuestion(1, i));
+			for(int j = 0; j < p.getQuestions().getAnswer(1, i).length; j++)
+				System.out.print(p.getQuestions().getAnswer(1, i)[j] + " ");
+			System.out.println();
+			int answer = s.nextInt();
+			p.updateFirst(i, answer);
+			System.out.println(p.getMsg());
+		}
+		
+		int overall = 1;
+		Random rand = new Random();
+		Random depR = new Random();
+		Random choose = new Random();
+		
+		while(overall < 33)
+		{
+			System.out.println("Week: " + p.getWeek() + " Cash: $" + p.getCash() + "0  Grade: %" + p.getGrades() + "  Happiness: %" + p.getHappy() + "  Energy: %" + p.getEnergy() + "  Loan: $" + p.getLoan() + "0");
+			//dependent
+			if(choose.nextInt(2) == 0)
+			{
+				int x = depR.nextInt(5);
+				System.out.println(p.getQuestions().getQuestion(3, x));
+				for(int j = 0; j < p.getQuestions().getAnswer(3, x).length; j++)
+					System.out.print(p.getQuestions().getAnswer(3, x)[j] + " ");
+				System.out.println();
+				int answer = s.nextInt();
+				p.updateDepend(depR.nextInt(), answer);
+				System.out.println(p.getMsg());
+			}
+			//random
+			else
+			{
+				int x = rand.nextInt(32);
+				System.out.println(p.getQuestions().getQuestion(2, x));
+				for(int j = 0; j < p.getQuestions().getAnswer(2, x).length; j++)
+					System.out.print(p.getQuestions().getAnswer(2, x)[j] + " ");
+				System.out.println();
+				int answer = s.nextInt();
+				p.updateRan(depR.nextInt(), answer);
+				System.out.println(p.getMsg());
+			}
+			
+			overall++;
+		}
+	}
+}

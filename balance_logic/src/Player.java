@@ -9,6 +9,7 @@ public class Player
 	public int loan;
 	public String message;
 	public Questions questions;
+	public String errorMessage;
 
 	public Player(double money, int happiness, int grade, int ener, int loan)
 	{
@@ -20,6 +21,7 @@ public class Player
 		week = 0;
 		this.loan = loan;
 		message = "";
+		errorMessage = "";
 		questions = new Questions();
 	}
 
@@ -970,7 +972,7 @@ public class Player
 
 	public String getMsg()
 	{
-		return message;
+		return message + '\n' + errorMessage;
 	}
 
 	public double constantExpenses(int num, double updateNum)
@@ -1020,31 +1022,30 @@ public class Player
 	
 	public void checkStatus()
 	{
-		message="";
 		if(grades<=50)
 		{
 			cash-=525;
 			grades+=25;
 			energy-=10;
-			message +="Your grades are too low, you hired a tutor for $250."+'\n';
+			errorMessage +="Your grades are too low, you hired a tutor for $250."+'\n';
 		}
 		if(energy<=30)
 		{
 			energy+=25;
 			grades-=25;
-			message +="Your energy is too low, you slept through your classes."+'\n';
+			errorMessage +="Your energy is too low, you slept through your classes."+'\n';
 		}
 		if(happy<=25)
 		{
 			cash-=250;
 			happy+=25;
-			message +="Your happiness is too low, you bought anti-depressants for $250."+'\n';
+			errorMessage +="Your happiness is too low, you bought anti-depressants for $250."+'\n';
 		}
 		if(cash<=0)
 		{
 			loan+=1000;
 			cash+=1000;
-			message +="You do not have enough money, you take out a $1,000 loan.";
+			errorMessage +="You do not have enough money, you take out a $1,000 loan.";
 		}
 	}
 	

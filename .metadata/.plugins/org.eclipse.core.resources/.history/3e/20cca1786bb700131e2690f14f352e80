@@ -6,9 +6,8 @@ public class Player {
 	public int grades;
 	public int energy;
 	public int week;
-	public int loan;
 	
-	public Player(int money, int happiness, int grade, int ener, int time, int loan)
+	public Player(int money, int happiness, int grade, int ener, int time)
 	{
 		//week 1 money is $1000
 		cash = money;
@@ -16,7 +15,6 @@ public class Player {
 		grades = grade;
 		energy = ener;
 		week = time;
-		this.loan = loan;
 	}
 	
 	public int getCash()
@@ -44,11 +42,6 @@ public class Player {
 		return week;
 	}
 	
-	public int getLoan()
-	{
-		return loan;
-	}
-	
 	public void addCash(int x)
 	{
 		cash += x;
@@ -72,10 +65,5 @@ public class Player {
 	public void addWeek(int x)
 	{
 		week += x;
-	}
-	
-	public void addLoan(int x)
-	{
-		loan += x;
 	}
 }

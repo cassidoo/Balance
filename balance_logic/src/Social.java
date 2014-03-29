@@ -1,0 +1,13 @@
+import java.util.HashMap;
+
+
+public class Social {
+	
+	public HashMap<String, String[]> questions;
+	
+	public Social()
+	{
+	}
+	
+	
+}

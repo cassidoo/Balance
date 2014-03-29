@@ -8,9 +8,6 @@ public class Questions {
 	public ArrayList<String> firstQuestions;
 	public HashMap<Integer, String[]> randAnswers;
 	public ArrayList<String> randQuestions;
-	//dependent questions
-	public HashMap<Integer, String[]> dependAnswers;
-	public ArrayList<String> dependQuestions;
 	
 	//if questions
 		//too tired, sleep through class
@@ -55,8 +52,8 @@ public class Questions {
 		firstAnswers.put(3, arr3);
 		
 		/* 4
-		 * Buy laptop       : $750, raises grade by 10 points, raises happiness by 10 
-		 * Don't buy laptop : lowers grade by 5
+		 * Buy books       : $750, raises grade by 10 points, raises happiness by 10 
+		 * Don't buy books : lowers grade by 5
 		 */
 		firstQuestions.add("Do you want a laptop for school?");
 		String[] arr4 = {"Buy laptop ($750)", "Don't buy laptop"};
@@ -118,48 +115,6 @@ public class Questions {
 		randQuestions.add("Your best friend asks you to borrow money for a book.");
 		String[] arr06 = {"Give it up ($10)", "Reject them"};
 		randAnswers.put(6, arr06);
-	
-		/* 7
-		 * Love   : $500, raises happiness by 30
-		 * Single : lowers happiness by 15
-		 */
-		randQuestions.add("Someone lovely asks you out on a date");
-		String[] arr07 = {"Have a love life ($500)", "Be single"};
-		randAnswers.put(7, arr07);
-		
-		/* 8
-		 * Go   : $250, raises happiness by 5, raises grade by 15
-		 * Skip : lowers grade by 5
-		 */
-		randQuestions.add("There is a conference in town that could benefit your career");
-		String[] arr08 = {"Go to conference ($250)", "Skip the conference"};
-		randAnswers.put(8, arr08);
-		
-		/* 9
-		 * Research : raises grade by 10, raises happiness by 3
-		 * Work     : raise by $50, lowers grade by 3, lowers energy by 5, lowers happiness by 3
-		 */
-		randQuestions.add("There is a research opportunity this weekend for students in your major");
-		String[] arr09 = {"Research", "Work extra hours this weekend"};
-		randAnswers.put(9, arr09);
-		//-----------------------------------------------------------------------------------------------------------------------------
-		/* 0
-		 * Apply : if grade > 90, get $500, raise happiness by 10; else lower happiness by 10
-		 * Study : raise grade by 5, lower energy by 5
-		 */
-		dependQuestions.add("Your guidance councelor emailed you a scholarship application");
-		String[] arr10 = {"Apply", "Study"};
-		dependAnswers.put(0, arr10);
-		
-		/* 1
-		 * Apply : if grade > 85, raise happiness by 10, raise grade by 5; else lower happiness by 10
-		 * Study : raise grade by 5, lower energy by 5
-		 */
-		dependQuestions.add("The honors college is looking for senior applicants.");
-		String[] arr11 = {"Apply", "Study"};
-		dependAnswers.put(1, arr11);
-		
-		
 	}
 	
 	

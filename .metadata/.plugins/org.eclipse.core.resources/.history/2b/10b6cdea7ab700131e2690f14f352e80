@@ -158,8 +158,6 @@ public class Questions {
 		dependQuestions.add("The honors college is looking for senior applicants.");
 		String[] arr11 = {"Apply", "Study"};
 		dependAnswers.put(1, arr11);
-		
-		
 	}
 	
 	

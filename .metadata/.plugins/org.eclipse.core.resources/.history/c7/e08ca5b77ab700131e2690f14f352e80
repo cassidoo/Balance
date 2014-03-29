@@ -145,7 +145,7 @@ public class Questions {
 		//-----------------------------------------------------------------------------------------------------------------------------
 		/* 0
 		 * Apply : if grade > 90, get $500, raise happiness by 10; else lower happiness by 10
-		 * Study : raise grade by 5, lower energy by 5
+		 * Study : raise grade by 10
 		 */
 		dependQuestions.add("Your guidance councelor emailed you a scholarship application");
 		String[] arr10 = {"Apply", "Study"};
@@ -153,13 +153,11 @@ public class Questions {
 		
 		/* 1
 		 * Apply : if grade > 85, raise happiness by 10, raise grade by 5; else lower happiness by 10
-		 * Study : raise grade by 5, lower energy by 5
+		 * Study : raise grade by 10
 		 */
-		dependQuestions.add("The honors college is looking for senior applicants.");
+		dependQuestions.add("The honors college is looking for applicants");
 		String[] arr11 = {"Apply", "Study"};
 		dependAnswers.put(1, arr11);
-		
-		
 	}
 	
 	

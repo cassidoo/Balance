@@ -146,10 +146,6 @@ public class Questions {
 		/* 0
 		 * Apply : if grade >= 90, get $500, raise happiness by 10; else lower happiness by 10
 		 * Study : raise grade by 5, lower energy by 5
-		 * Message: if true
-		 * 		    You won the scholarship, congrats!
-		 * 		    else
-		 *          You didn't get the scholarship, you feel depressed from defeat.
 		 */
 		dependQuestions.add("Your guidance councelor emailed you a scholarship application");
 		String[] arr10 = {"Apply", "Study"};
@@ -158,10 +154,6 @@ public class Questions {
 		/* 1
 		 * Apply : if grade >= 85, raise happiness by 10, raise grade by 5; else lower happiness by 10
 		 * Study : raise grade by 5, lower energy by 5
-		 * Message: if true
-		 * 		    You got into the honors college, congrats!
-		 * 		    else
-		 *          You didn't get into the honors college, you feel depressed from defeat.
 		 */
 		dependQuestions.add("The honors college is looking for senior applicants.");
 		String[] arr11 = {"Apply", "Study"};
@@ -170,10 +162,6 @@ public class Questions {
 		/* 2
 		 * Try Out : if energy >= 85 and happiness >= 85, raise happiness by 10; else lower happiness by 10
 		 * Practice : lower energy by 10, raise happiness by 5
-		 * Message: if true
-		 * 		    You got the spot on the team, congrats!
-		 * 		    else
-		 *          You didn't get the spot on the team, you feel depressed from defeat.
 		 */
 		dependQuestions.add("The intramural sports team has one spot open!");
 		String[] arr12 = {"Try out!", "Practice"};

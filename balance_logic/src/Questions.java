@@ -288,7 +288,7 @@ public class Questions {
 		randAnswers.put(27, arr027);
 		
 		/* 28
-		 * Go   : lowers cash by $359, raises happiness by 20
+		 * Go   : lowers cash by $350, raises happiness by 20
 		 * Miss : lowers happiness by 20
 		 */
 		randQuestions.add("Beyonce is in town and is playing a concert for one night only");

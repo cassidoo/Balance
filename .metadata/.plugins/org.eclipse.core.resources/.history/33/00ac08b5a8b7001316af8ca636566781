@@ -631,7 +631,7 @@ public class Player
 				break;
 			/*
 			 * 25
-			 * Vacation : lowers cash $500, lowers grade by 15, raises happiness by 15, raises
+			 * Vacation : lowers grade by 15, raises happiness by 15, raises
 			 * energy
 			 * by 15
 			 * Study : lowers energy by 5, raises grade by 7, lowers happiness

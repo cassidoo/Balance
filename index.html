@@ -28,6 +28,20 @@
 
             });
 		</script>
+
+		<script>
+            ! function(d, s, id)
+            {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if(!d.getElementById(id))
+                {
+                    js = d.createElement(s);
+                    js.id = id;
+                    js.src = "https://platform.twitter.com/widgets.js";
+                    fjs.parentNode.insertBefore(js, fjs);
+                }
+            }(document, "script", "twitter-wjs");
+		</script>
 	</head>
 	<body>
 		<div class="weekbar row">
@@ -56,20 +70,34 @@
 				</div>
 			</div>
 			<div class="col question">
-				<div class="row quest">
-					<h1>Scenario</h1>
-					<div id="change">
-						Welcome to Balance. Your goal is to complete your senior year of college debt-free.
+				<div class="row quest" id="quest">
+					<div id="stuff">
+						<h1>Scenario</h1>
+						<div id="change">
+							Welcome to Balance. Your goal is to complete your senior year of college debt-free.
+						</div>
+						<button id="left" style="display: none;" onclick="determine(0);">
+							Try it
+						</button>
+						<button id="center" onclick="determine(1)">
+							Try it
+						</button>
+						<button id="right" style="display: none;" onclick="determine(1);">
+							Try it
+						</button>
 					</div>
-					<button id="left" style="display: none;" onclick="determine(0)">
-						Try it
-					</button>
-					<button id="center" onclick="determine(1)">
-						Try it
-					</button>
-					<button id="right" style="display: none;" onclick="determine(1)">
-						Try it
-					</button>
+					<div class="declaration">
+						<h1>You Lose!</h1>
+						You could share this.  <a onClick="document.location.reload(true)">Or you could try playing again.</a><br>
+						<a href="https://twitter.com/intent/tweet?button_hashtag=BalanceGame&text=Ugh%20I%20lost%20the%20Balance%20game" class="twitter-share-button" data-url="https://cassidoo.github.io/Balance" data-lang="en" data-related="superandomness" data-count="vertical">Tweet</a>
+
+					</div>
+					<div class="declarationw">
+						<h1>You Win!</h1>
+						Congratulations!  You beat the odds.  You could share this.  <a onClick="document.location.reload(true)">Or you could try playing again.</a><br>
+						<a href="https://twitter.com/intent/tweet?button_hashtag=BalanceGame&text=I%20magically%20won%20the%20Balance%20game!" class="twitter-share-button" data-url="https://cassidoo.github.io/Balance" data-lang="en" data-related="superandomness" data-count="vertical">Tweet</a>
+
+					</div>
 				</div>
 				<div class="row logo">
 					logo image

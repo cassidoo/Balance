@@ -6,6 +6,12 @@ body
 	overflow: hidden;
 }
 
+a
+{
+	color: #e7dc04;
+	text-decoration: underline;
+}
+
 .weekbar
 {
 	height: 50px;
@@ -35,6 +41,16 @@ body
 	text-align: center;
 }
 
+.declaration
+{
+	display: none;
+}
+
+.declarationw
+{
+	display: none;
+}
+
 /*Loan amount and job*/
 .info
 {
@@ -44,7 +60,7 @@ body
 /*Big question*/
 .question
 {
-	
+
 }
 
 .logo

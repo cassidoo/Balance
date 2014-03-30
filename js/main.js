@@ -9,6 +9,24 @@ function populateWeeks()
     }
 }
 
+function ending()
+{
+    if(week >= 33)
+    {
+        $("#stuff").fadeOut("slow", function()
+        {
+            if(loan > 0)
+            {
+                $(".declaration").css("display", "block");
+            }
+            else
+            {
+                $(".declarationw").css("display", "block");
+            }
+        });
+    }
+}
+
 function nextWeek()
 {
     $("#weeks").children().first().fadeOut("fast", function()

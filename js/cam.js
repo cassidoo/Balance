@@ -1086,6 +1086,7 @@ function show(type)
 
 function determine(butt)
 {
+    ending();
     if(firstIndex == -1)
     {
         current_week = 0;

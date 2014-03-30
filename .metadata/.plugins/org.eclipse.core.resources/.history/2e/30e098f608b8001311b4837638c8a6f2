@@ -254,7 +254,7 @@ public class MainActivity extends Activity {
 					public void onClick(DialogInterface dialog,int id) {
 						// if this button is clicked, just close
 						// the dialog box and do nothing
-						MainActivity.this.finish();
+						dialog.cancel();
 					}
 				});
 	        }
@@ -266,7 +266,7 @@ public class MainActivity extends Activity {
 					public void onClick(DialogInterface dialog,int id) {
 						// if this button is clicked, just close
 						// the dialog box and do nothing
-						MainActivity.this.finish();
+						dialog.cancel();
 					}
 				});
 	        }

@@ -245,35 +245,7 @@ public class MainActivity extends Activity {
     	}
     	else
     	{
-    		AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
-	        if(p.getLoan() == 0)
-	        {
-	        	alertDialogBuilder.setTitle("You Won!");
-	        	alertDialogBuilder.setMessage("You're Score: " + (p.getCash() + p.getEnergy() + p.getGrades() + p.getHappy())).setCancelable(false)
-				.setNegativeButton("Goodbye",new DialogInterface.OnClickListener() {
-					public void onClick(DialogInterface dialog,int id) {
-						// if this button is clicked, just close
-						// the dialog box and do nothing
-						MainActivity.this.finish();
-					}
-				});
-	        }
-	        else
-	        {
-	        	alertDialogBuilder.setTitle("You Lose!");
-	        	alertDialogBuilder.setMessage("Better luck next time!").setCancelable(false)
-				.setNegativeButton("Goodbye",new DialogInterface.OnClickListener() {
-					public void onClick(DialogInterface dialog,int id) {
-						// if this button is clicked, just close
-						// the dialog box and do nothing
-						MainActivity.this.finish();
-					}
-				});
-	        }
-					// create alert dialog
-					AlertDialog alertDialog = alertDialogBuilder.create();
-					// show it
-					alertDialog.show();
+    		// the end of the semester, check the loans.
     	}
     	getValue();
     	setViews();

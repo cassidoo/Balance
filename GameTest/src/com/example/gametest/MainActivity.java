@@ -47,12 +47,11 @@ public class MainActivity extends Activity {
     private int energyBarProgress;
     private int week;
     
-    private Player p;
+    public static Player p;
     private String[] answers;
     private String question;
     private Random r;
-    private Random r1;
-    private Random r2;
+    
     private int counter; 
     private final static int OTHER_SCREEN = 1;
     
@@ -67,8 +66,7 @@ public class MainActivity extends Activity {
         question="";
         answers = new String[3];
         r = new Random();
-        r1 = new Random();
-        r2 = new Random();
+    
         counter=1;
         
         p = new Player(5000,100,100,100,12000);
@@ -136,6 +134,15 @@ public class MainActivity extends Activity {
             public void onClick(View view) {
             	weeklyUpdate(1);
         		counter++;
+            }
+        });
+        
+        btn_payLoan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+            	Intent i = new Intent(getApplicationContext(), PayLoan.class);
+                startActivityForResult(i, OTHER_SCREEN);
+                
             }
         });
   	 
@@ -306,33 +313,6 @@ public class MainActivity extends Activity {
         return super.onOptionsItemSelected(item);
     }
 
-
-    @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR2)
-    private void addNumButtons(int numButtons, String scenario1, String scenario2, String scenario3){
-        if(numButtons == 1){
-            btn_opt1.setText(scenario1);
-            btn_ll.addView(btn_opt1, btn_lp);
-        }
-        else if(numButtons == 2){
-            btn_opt1.setText(scenario1);
-            btn_opt2.setText(scenario2);
-
-            if(btn_opt3.getVisibility() == View.VISIBLE){
-                btn_ll.removeView(btn_opt3);
-            }
-
-        }
-        else if(numButtons == 3){
-            btn_opt1.setText(scenario1);
-            btn_opt2.setText(scenario2);
-
-            btn_ll.addView(btn_opt3, btn_lp);
-            btn_opt3.setText(scenario3);
-        }
-        else{
-            //Do nothing
-        }
-    }
 
     
 

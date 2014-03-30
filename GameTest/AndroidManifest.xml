@@ -11,11 +11,11 @@
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
-        android:label="@string/app_name">
+        android:label="Balance">
        
         <activity
             android:name="com.example.gametest.MainActivity"
-            android:label="@string/app_name" >
+            android:label="Balance" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

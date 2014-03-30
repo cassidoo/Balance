@@ -27,7 +27,7 @@
 		}
 	}
 	
-	function updateFirst(type, answerIndex) {
+	this.updateFirst = function(type, answerIndex) {
 		switch (type)
 		{
 			case 0:
@@ -112,7 +112,7 @@
 	}
 	
 	
-	function updateRan(type, answerIndex) {
+	this.updateRan = function(type, answerIndex) {
 		message = "";
 		errorMessage = "";
 		var x = takeExam();
@@ -540,7 +540,7 @@
 		}
 	}
 		
-	function updateDepend(type, answerIndex) {
+	this.updateDepend = function(type, answerIndex) {
 		message = "";
 		errorMessage = "";
 		var y = takeExam();

@@ -27,7 +27,7 @@
 		}
 	}
 	
-	function updateFirst(type, answerIndex) {
+	this.updateFirst = function(type, answerIndex) {
 		switch (type)
 		{
 			case 0:

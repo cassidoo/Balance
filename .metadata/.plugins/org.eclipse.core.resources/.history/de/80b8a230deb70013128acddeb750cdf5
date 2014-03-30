@@ -27,7 +27,7 @@
 		}
 	}
 	
-	function updateFirst(type, answerIndex) {
+	this.updateFirst = function(type, answerIndex) {
 		switch (type)
 		{
 			case 0:
@@ -112,7 +112,7 @@
 	}
 	
 	
-	function updateRan(type, answerIndex) {
+	this.updateRan = function(type, answerIndex) {
 		message = "";
 		errorMessage = "";
 		var x = takeExam();
@@ -540,7 +540,7 @@
 		}
 	}
 		
-	function updateDepend(type, answerIndex) {
+	this.updateDepend = function(type, answerIndex) {
 		message = "";
 		errorMessage = "";
 		var y = takeExam();
@@ -696,43 +696,43 @@
 		}
 	}
 	
-	function getCash(){
+	this.getCash = function(){
 		return cash;
 	}
 	
-	function getHappy(){
+	this.getHappy = function(){
 		return happy;
 	}
 	
-	function getGrades(){
+	this.getGrades = function(){
 		return grades;
 	}
 	
-	function getEnergy(){
+	this.getEnergy = function(){
 		return energy;
 	}
 	
-	function getWeek(){
+	this.getWeek = function(){
 		return week;
 	}
 	
-	function getLoan(){
+	this.getLoan = function(){
 		return loan;
 	}
 	
-	function addCash(x){
+	this.addCash = function(x){
 		cash += x;
 	}
 	
-	function addHappy(x){
+	this.addHappy = function(x){
 		happy += x;
 	}
 	
-	function addGrades(x){
+	this.addGrades = function(x){
 		grades += x;
 	}
 	
-	function addEnergy(x){
+	this.addEnergy = function(x){
 		energy += x;
 	}
 	

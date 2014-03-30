@@ -1,0 +1,80 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Balance</title>
+
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+
+		<script src="js/jquery-1.10.2.js"></script>
+		<script src="js/main.js"></script>
+		<script src="js/cam.js"></script>
+
+		<link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+
+		<link href='css/deadsimplegrid/grid.css' rel='stylesheet' type='text/css'>
+		<link href='css/deadsimplegrid/screen.css' rel='stylesheet' type='text/css'>
+
+		<script>
+            $(document).ready(function()
+            {
+
+                var i = 0;
+                var looper = setInterval(function()
+                {
+                    verbage(i);
+                    i++;
+                    if(i === 6)
+                    {
+                        i = 0;
+                    }
+                }, 3000);
+
+            });
+
+            function verbage(i)
+            {
+                var words = ["There are approximately 37 million student loan borrowers with outstanding student loans today.", "There is roughly somewhere between $902 billion and $1 trillion in total outstanding student loan debt in the United States today.", "7 million have had their credit trashed as a result of their student loans and can have 25 percent in penalties added onto their total student loan debts.", "Since 1999, student debt has increased more than 500 percent.", "The Congressional Budget Office projects that the Federal Government made about $50 billion on student loans in 2013. This is $5 billion more than ExxonMobile, the most profitable company in the country.", "From 2008 to 2012, debt at graduation (federal and private loans combined) increased an average of six percent each year."];
+
+                $("#fillin").fadeOut(500, function()
+                {
+                    $(this).text(words[i]).fadeIn(500);
+
+                });
+            }
+		</script>
+		<style>
+			body
+			{
+				color: white;
+				font-family: 'Droid Serif', serif;
+				background-image: url("assets/crissxcross.png");
+			}
+			#splashlogo
+			{
+				width: 100%;
+				margin-left: auto;
+				margin-right: auto;
+			}
+			.bigsplashparty
+			{
+				position: fixed;
+				left: 50%;
+				width: 900px;
+				margin-left: -450px;
+			}
+			#fillin
+			{
+				text-align: center;
+				font-size: 2em;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="bigsplashparty">
+			<img id="splashlogo" src="assets/balance.png" onclick="window.location.assign('index.html')"/>
+			<br>
+			<div id="fillin">Of the 20 million Americans who attend college, close to 12 million – or 60% - borrow annually to help cover costs.</div>
+		</div>
+	</body>
+</html>

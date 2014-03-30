@@ -66,3 +66,4 @@ function setProgress(id, level, val)
         levelBar.addClass("low");
     }
 }
+

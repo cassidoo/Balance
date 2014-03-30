@@ -44,12 +44,13 @@ body
 /*Big question*/
 .question
 {
-
+	
 }
 
-.quest
+.logo
 {
-	margin-top: 50px;
+	position: absolute;
+	bottom: 0px;
 }
 
 /*Progress bars and paying loans*/

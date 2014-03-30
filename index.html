@@ -21,10 +21,10 @@
             $(document).ready(function()
             {
                 populateWeeks();
-                setProgress("moneybar", 100, 100);
-                setProgress("gradebar", 100);
-                setProgress("happybar", 100);
-                setProgress("energybar", 100);
+                setProgress("moneybar", 100, getCash());
+                setProgress("gradebar", 100, getGrades());
+                setProgress("happybar", 100, getHappy());
+                setProgress("energybar", 100, getEnergy());
 
             });
 		</script>
@@ -37,7 +37,7 @@
 			<div class="col info">
 				<div class="row loans">
 					<h1>Loans</h1>
-					<div id = "loanNum"><h2>12000</h2></div>
+					<div id="loanNum"><h2>$12000</h2></div>
 				</div>
 				<div class="row job">
 					<h1>Job</h1>
@@ -47,7 +47,7 @@
 			<div class="col question">
 				<div class="row quest">
 					<h1>Scenario</h1>
-						<div id="change"> Welcome to Balance. Your goal is to complete your senior year of college with absolutely no loans.</div>
+						<div id="change"> Welcome to Balance. Your goal is to complete your senior year of college debt-free.</div>
 						<button id="left" style="display: none;" onclick="determine(0)">Try it</button>
 						<button id="center" onclick="determine(1)">Try it</button>
 						<button id="right" style="display: none;" onclick="determine(1)">Try it</button>

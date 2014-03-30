@@ -7,9 +7,7 @@ var week = 0;
 var message = "";
 var errorMessage = "";
 var workType = 0;
-var takeExam = false;
-
-
+var takeE = false;
 
 function payLoan(num)
 {
@@ -35,12 +33,12 @@ function updateFirst(type, answerIndex)
     switch (type)
     {
         case 0:
-            if(answerIndex == 0)
+            if(answerIndex === 0)
             {
                 cash -= 2500;
                 happy += 10;
             }
-            else if(answerIndex == 1)
+            else if(answerIndex === 1)
             {
                 cash -= 1500;
                 energy -= 15;
@@ -48,7 +46,7 @@ function updateFirst(type, answerIndex)
             }
             break;
         case 1:
-            if(answerIndex == 0)
+            if(answerIndex === 0)
             {
                 cash -= 1000;
                 happy += 10;
@@ -57,20 +55,15 @@ function updateFirst(type, answerIndex)
                 cash -= constantExpenses(32, 10);
 
             }
-            else if(answerIndex == 1)
+            else if(answerIndex === 1)
             {
                 cash -= 150;
                 energy -= 5;
                 happy -= 5;
             }
-            else if(answerIndex == 2)
-            {
-                energy -= 15;
-                happy -= 15;
-            }
             break;
         case 2:
-            if(answerIndex == 0)
+            if(answerIndex === 0)
             {
 
                 grades += 3;
@@ -78,7 +71,7 @@ function updateFirst(type, answerIndex)
                 cash += constantExpenses(21, 7);
                 workType = 1;
             }
-            else if(answerIndex == 1)
+            else if(answerIndex === 1)
             {
                 grades -= 3;
                 energy -= 10;
@@ -87,29 +80,31 @@ function updateFirst(type, answerIndex)
             }
             break;
         case 3:
-            if(answerIndex == 0)
+            if(answerIndex === 0)
             {
                 cash -= 250;
                 grades += 20;
             }
-            else if(answerIndex == 1)
+            else if(answerIndex === 1)
             {
                 grades -= 20;
             }
             break;
         case 4:
-            if(answerIndex == 0)
+            if(answerIndex === 0)
             {
                 cash -= 750;
                 grades += 10;
                 happy += 10;
             }
-            else if(answerIndex == 1)
+            else if(answerIndex === 1)
             {
                 grades -= 5;
             }
             break;
 
+        default:
+            break;
     }
     checkStatus();
     noOverload();
@@ -120,7 +115,7 @@ function updateRan(type, answerIndex)
     message = "";
     errorMessage = "";
     var x = takeExam();
-    if(takeExam)
+    if(takeE)
     {
         return x;
     }
@@ -130,39 +125,39 @@ function updateRan(type, answerIndex)
         switch (type)
         {
             case 0:
-                if(answerIndex == 0)
+                if(answerIndex === 0)
                 {
                     happy += 15;
                     energy -= 5;
                 }
-                else if(answerIndex == 1)
+                else if(answerIndex === 1)
                 {
                     happy -= 3;
                     energy += 1;
                 }
                 break;
             case 1:
-                if(answerIndex == 0)
+                if(answerIndex === 0)
                 {
                     grades -= 10;
                     energy += 7;
                     happy += 5;
                 }
-                else if(answerIndex == 1)
+                else if(answerIndex === 1)
                 {
                     grades += 7;
                     energy -= 3;
                 }
                 break;
             case 2:
-                if(answerIndex == 0)
+                if(answerIndex === 0)
                 {
                     cash -= 100;
                     grades -= 5;
                     energy += 5;
                     happy += 5;
                 }
-                else if(answerIndex == 1)
+                else if(answerIndex === 1)
                 {
                     grades -= 5;
                     energy -= 5;
@@ -170,14 +165,14 @@ function updateRan(type, answerIndex)
                 }
                 break;
             case 3:
-                if(answerIndex == 0)
+                if(answerIndex === 0)
                 {
                     cash -= 75;
                     grades -= 2;
                     energy -= 15;
                     happy += 15;
                 }
-                else if(answerIndex == 1)
+                else if(answerIndex === 1)
                 {
                     grades += 10;
                     energy += 10;
@@ -185,13 +180,13 @@ function updateRan(type, answerIndex)
                 }
                 break;
             case 4:
-                if(answerIndex == 0)
+                if(answerIndex === 0)
                 {
                     cash -= 35;
                     energy += 15;
                     happy += 15;
                 }
-                else if(answerIndex == 1)
+                else if(answerIndex === 1)
                 {
                     grades += 10;
                     energy += 10;
@@ -199,57 +194,57 @@ function updateRan(type, answerIndex)
                 }
                 break;
             case 5:
-                if(answerIndex == 0)
+                if(answerIndex === 0)
                 {
                     cash -= 25;
                     happy += 5;
                 }
-                else if(answerIndex == 1)
+                else if(answerIndex === 1)
                 {
                     happy -= 5;
                 }
                 break;
             case 6:
-                if(answerIndex == 0)
+                if(answerIndex === 0)
                 {
                     cash += 10;
                     happy += 10;
                 }
-                else if(answerIndex == 1)
+                else if(answerIndex === 1)
                 {
                     happy -= 5;
                 }
                 break;
             case 7:
-                if(answerIndex == 0)
+                if(answerIndex === 0)
                 {
                     cash -= 500;
                     happy += 30;
                 }
-                else if(answerIndex == 1)
+                else if(answerIndex === 1)
                 {
                     happy -= 15;
                 }
                 break;
             case 8:
-                if(answerIndex == 0)
+                if(answerIndex === 0)
                 {
                     cash -= 250;
                     happy += 5;
                     grades += 15;
                 }
-                else if(answerIndex == 1)
+                else if(answerIndex === 1)
                 {
                     grades -= 5;
                 }
                 break;
             case 9:
-                if(answerIndex == 0)
+                if(answerIndex === 0)
                 {
                     grades += 10;
                     happy += 3;
                 }
-                else if(answerIndex == 1)
+                else if(answerIndex === 1)
                 {
                     cash += 50;
                     grades -= 3;
@@ -257,21 +252,21 @@ function updateRan(type, answerIndex)
                 }
                 break;
             case 10:
-                if(answerIndex == 0)
+                if(answerIndex === 0)
                 {
                     cash -= 500;
                 }
-                else if(answerIndex == 1)
+                else if(answerIndex === 1)
                 {
                     cash -= constantExpenses(33 - week, 100);
                 }
                 break;
             case 11:
-                if(answerIndex == 0)
+                if(answerIndex === 0)
                 {
                     cash -= 100;
                 }
-                else if(answerIndex == 1)
+                else if(answerIndex === 1)
                 {
                     cash -= 50;
                     grades -= 5;
@@ -280,37 +275,37 @@ function updateRan(type, answerIndex)
                 }
                 break;
             case 12:
-                if(answerIndex == 0)
+                if(answerIndex === 0)
                 {
                     cash -= 50;
                     happy += 10;
                     energy -= 5;
                 }
-                else if(answerIndex == 1)
+                else if(answerIndex === 1)
                 {
                     happy -= 10;
                 }
                 break;
             case 13:
-                if(answerIndex == 0)
+                if(answerIndex === 0)
                 {
                     cash -= 25;
                     happy += 10;
                     energy -= 5;
                 }
-                else if(answerIndex == 1)
+                else if(answerIndex === 1)
                 {
                     happy -= 10;
                 }
                 break;
             case 14:
-                if(answerIndex == 0)
+                if(answerIndex === 0)
                 {
                     energy -= 15;
                     grades += 5;
                     happy -= 7;
                 }
-                else if(answerIndex == 1)
+                else if(answerIndex === 1)
                 {
                     energy += 10;
                     grades -= 10;
@@ -318,13 +313,13 @@ function updateRan(type, answerIndex)
                 }
                 break;
             case 15:
-                if(answerIndex == 0)
+                if(answerIndex === 0)
                 {
                     energy -= 15;
                     grades += 5;
                     happy -= 7;
                 }
-                else if(answerIndex == 1)
+                else if(answerIndex === 1)
                 {
                     energy += 10;
                     grades -= 10;
@@ -332,26 +327,26 @@ function updateRan(type, answerIndex)
                 }
                 break;
             case 16:
-                if(answerIndex == 0)
+                if(answerIndex === 0)
                 {
                     energy -= 5;
                     grades += 5;
                     happy -= 10;
                 }
-                else if(answerIndex == 1)
+                else if(answerIndex === 1)
                 {
                     grades -= 10;
                     happy += 10;
                 }
                 break;
             case 17:
-                if(answerIndex == 0)
+                if(answerIndex === 0)
                 {
                     energy -= 5;
                     grades += 5;
                     happy -= 10;
                 }
-                else if(answerIndex == 1)
+                else if(answerIndex === 1)
                 {
                     energy -= 5;
                     grades -= 10;
@@ -359,14 +354,14 @@ function updateRan(type, answerIndex)
                 }
                 break;
             case 18:
-                if(answerIndex == 0)
+                if(answerIndex === 0)
                 {
                     cash -= 50;
                     grades += 5;
                     energy += 5;
                     happy += 5;
                 }
-                else if(answerIndex == 1)
+                else if(answerIndex === 1)
                 {
                     energy -= 10;
                     grades += 10;
@@ -374,27 +369,27 @@ function updateRan(type, answerIndex)
                 }
                 break;
             case 19:
-                if(answerIndex == 0)
+                if(answerIndex === 0)
                 {
                     cash += 50;
                     grades += 5;
                     energy -= 15;
                 }
-                else if(answerIndex == 1)
+                else if(answerIndex === 1)
                 {
                     energy += 10;
                     happy -= 2;
                 }
                 break;
             case 20:
-                if(answerIndex == 0)
+                if(answerIndex === 0)
                 {
                     cash -= 15;
                     grades -= 5;
                     energy -= 15;
                     happy += 10;
                 }
-                else if(answerIndex == 1)
+                else if(answerIndex === 1)
                 {
                     energy += 10;
                     happy -= 10;
@@ -402,63 +397,63 @@ function updateRan(type, answerIndex)
                 }
                 break;
             case 21:
-                if(answerIndex == 0)
+                if(answerIndex === 0)
                 {
                     cash -= 300;
                     energy += 5;
                     happy += 10;
                 }
-                else if(answerIndex == 1)
+                else if(answerIndex === 1)
                 {
                     energy -= 20;
                     happy -= 20;
                 }
                 break;
             case 22:
-                if(answerIndex == 0)
+                if(answerIndex === 0)
                 {
                     cash += 20;
                     energy -= 7;
                     happy += 7;
                 }
-                else if(answerIndex == 1)
+                else if(answerIndex === 1)
                 {
                     energy += 5;
                     happy -= 5;
                 }
                 break;
             case 23:
-                if(answerIndex == 0)
+                if(answerIndex === 0)
                 {
                     happy -= 15;
                 }
-                else if(answerIndex == 1)
+                else if(answerIndex === 1)
                 {
                     cash -= 25;
                     happy += 10;
                 }
                 break;
             case 24:
-                if(answerIndex == 0)
+                if(answerIndex === 0)
                 {
                     grades += 10;
                     happy -= 5;
                     energy -= 10;
                 }
-                else if(answerIndex == 1)
+                else if(answerIndex === 1)
                 {
                     energy += 7;
                 }
                 break;
             case 25:
-                if(answerIndex == 0)
+                if(answerIndex === 0)
                 {
                     grades -= 15;
                     happy += 15;
                     energy += 15;
                     cash -= 500;
                 }
-                else if(answerIndex == 1)
+                else if(answerIndex === 1)
                 {
                     energy -= 5;
                     grades += 7;
@@ -466,13 +461,13 @@ function updateRan(type, answerIndex)
                 }
                 break;
             case 26:
-                if(answerIndex == 0)
+                if(answerIndex === 0)
                 {
                     grades += 10;
                     happy -= 15;
                     energy -= 15;
                 }
-                else if(answerIndex == 1)
+                else if(answerIndex === 1)
                 {
                     energy += 10;
                     happy += 15;
@@ -480,71 +475,71 @@ function updateRan(type, answerIndex)
                 }
                 break;
             case 27:
-                if(answerIndex == 0)
+                if(answerIndex === 0)
                 {
                     cash += 15;
                     happy -= 5;
                 }
-                else if(answerIndex == 1)
+                else if(answerIndex === 1)
                 {
                     happy -= 2;
                 }
                 break;
             case 28:
-                if(answerIndex == 0)
+                if(answerIndex === 0)
                 {
                     cash -= 350;
                     happy += 20;
                 }
-                else if(answerIndex == 1)
+                else if(answerIndex === 1)
                 {
                     happy -= 20;
                 }
                 break;
             case 29:
-                if(answerIndex == 0)
+                if(answerIndex === 0)
                 {
                     cash -= 150;
                     grades += 5;
                 }
-                else if(answerIndex == 1)
+                else if(answerIndex === 1)
                 {
                     grades -= 10;
                 }
                 break;
             case 30:
-                if(answerIndex == 0)
+                if(answerIndex === 0)
                 {
                     cash += 150;
                     grades -= 10;
                     energy -= 15;
                 }
-                else if(answerIndex == 1)
+                else if(answerIndex === 1)
                 {
                     grades += 10;
                     energy -= 15;
                 }
                 break;
             case 31:
-                if(answerIndex == 0)
+                if(answerIndex === 0)
                 {
                     cash += 50;
                     happy += 10;
                     energy -= 20;
                 }
-                else if(answerIndex == 1)
+                else if(answerIndex === 1)
                 {
                     grades += 5;
                     energy += 5;
                 }
                 break;
             case 32:
-                if(answerIndex == 0)
+                if(answerIndex === 0)
                 {
                     cash -= 500;
                     happy -= 10;
                 }
-                else if(answerIndex == 1)
+                else if(answerIndex === 1)
                 {
                     grades -= 10;
                     cash -= 250;
@@ -552,17 +547,20 @@ function updateRan(type, answerIndex)
                 }
                 break;
             case 33:
-                if(answerIndex == 0)
+                if(answerIndex === 0)
                 {
                     cash += Math.floor((Math.random() * 50) + 1);
                     happy += 5;
                     energy -= 7;
                 }
-                else if(answerIndex == 1)
+                else if(answerIndex === 1)
                 {
                     grades += 5;
                     energy -= 5;
                 }
+                break;
+
+            default:
                 break;
         }//switch
         var hw = weeklyHW();
@@ -578,7 +576,7 @@ function updateDepend(type, answerIndex)
     message = "";
     errorMessage = "";
     var z = takeExam();
-    if(takeExam)
+    if(takeE)
     {
         return z;
     }
@@ -588,7 +586,7 @@ function updateDepend(type, answerIndex)
         switch (type)
         {
             case 0:
-                if(answerIndex == 0)
+                if(answerIndex === 0)
                 {
                     if(grades >= 95)
                     {
@@ -610,14 +608,14 @@ function updateDepend(type, answerIndex)
                         message = "You didn't get the scholarship, you feel depressed from defeat.";
                     }
                 }
-                else if(answerIndex == 1)
+                else if(answerIndex === 1)
                 {
                     grades += 15;
                     energy -= 7;
                 }
                 break;
             case 1:
-                if(answerIndex == 0)
+                if(answerIndex === 0)
                 {
                     if(grades >= 85)
                     {
@@ -632,14 +630,14 @@ function updateDepend(type, answerIndex)
                     }
 
                 }
-                else if(answerIndex == 1)
+                else if(answerIndex === 1)
                 {
                     grades += 10;
                     energy -= 7;
                 }
                 break;
             case 2:
-                if(answerIndex == 0)
+                if(answerIndex === 0)
                 {
                     if(energy >= 85 && happy >= 85)
                     {
@@ -654,14 +652,14 @@ function updateDepend(type, answerIndex)
                         message = "You didn't get the spot on the team, you feel depressed from defeat.";
                     }
                 }
-                else if(answerIndex == 1)
+                else if(answerIndex === 1)
                 {
                     energy -= 10;
                     happy += 5;
                 }
                 break;
             case 3:
-                if(answerIndex == 0)
+                if(answerIndex === 0)
                 {
                     if(grades >= 75 && happy >= 80)
                     {
@@ -674,14 +672,14 @@ function updateDepend(type, answerIndex)
                         message = "You didn't get the position, you feel depressed from defeat.";
                     }
                 }
-                else if(answerIndex == 1)
+                else if(answerIndex === 1)
                 {
                     grades += 10;
                     energy -= 7;
                 }
                 break;
             case 4:
-                if(answerIndex == 0)
+                if(answerIndex === 0)
                 {
                     if(happy >= 70)
                     {
@@ -697,13 +695,13 @@ function updateDepend(type, answerIndex)
                         message = "You lost the contest, you feel depressed from defeat.";
                     }
                 }
-                else if(answerIndex == 1)
+                else if(answerIndex === 1)
                 {
                     happy += 10;
                 }
                 break;
             case 5:
-                if(answerIndex == 0)
+                if(answerIndex === 0)
                 {
                     if(grades >= 95)
                     {
@@ -725,11 +723,13 @@ function updateDepend(type, answerIndex)
                         message = "You didn't get the scholarship, you feel depressed from defeat.";
                     }
                 }
-                else if(answerIndex == 1)
+                else if(answerIndex === 1)
                 {
                     grades += 10;
                     energy -= 7;
                 }
+                break;
+            default:
                 break;
 
         }//switch
@@ -746,14 +746,14 @@ function getCash()
     return cash;
 }
 
-function getHappy()
-{
-    return happy;
-}
-
 function getGrades()
 {
     return grades;
+}
+
+function getHappy()
+{
+    return happy;
 }
 
 function getEnergy()
@@ -809,8 +809,8 @@ function constantExpenses(num, updateNum)
 function takeExam()
 {
     var y = "";
-    takeExam = false;
-    if(week == 4 || week == 9 || week == 15 || week == 19 || week == 24 || week == 31)
+    takeE = false;
+    if(week === 4 || week === 9 || week === 15 || week === 19 || week === 24 || week === 31)
     {
         if(grades >= 90)
         {
@@ -845,7 +845,7 @@ function takeExam()
 
         checkStatus();
         noOverload();
-        takeExam = true;
+        takeE = true;
         return "You had an exam this week. Your grade " + y + " to " + grades + "%.";
     }
     return y;
@@ -898,12 +898,12 @@ function noOverload()
 
 function weeklyPaid()
 {
-    if(workType == 1)
+    if(workType === 1)
     {
         updateFirst(2, 0);
 
     }
-    else if(workType == 2)
+    else if(workType === 2)
     {
         updateFirst(2, 1);
     }
@@ -942,7 +942,7 @@ var firstMap =
 };
 var firstArray = ["Do you want live on or off campus?", "Do you want a car, a bike, or to just walk campus?", "Time to pick a job", "Classes start soon, you need books for class", "Do you want a laptop for school?"];
 var arr0 = ["On ($2500)", "Off ($1500)"];
-var arr1 = ["Car ($1000, $10/week)", "Bike ($150)", "Walk"];
+var arr1 = ["Car ($1000, $10/week)", "Bike ($150)"];
 var arr2 = ["On-campus: Tutor ($7/hour, 3 hours/day)", "Off-campus: Restaurant Server ($9/hour 5 hours/day)"];
 var arr3 = ["Buy books ($350)", "Don't buy books"];
 var arr4 = ["Buy laptop ($750)", "Don't buy laptop"];
@@ -1074,8 +1074,7 @@ function getAnswer(type, index)
 }
 
 var weekNums = [];
-var firstIndex = 0;
-var current_week = 0;
+var firstIndex = -1;
 //Button stuff
 function hide(type)
 {
@@ -1091,45 +1090,88 @@ function show(type)
 
 function determine(butt)
 {
-    if(firstIndex < 5)
+    if(firstIndex == -1)
     {
         current_week = 0;
+        setText(1, 0, "change");
+        setButtons(1, 0, "left", "center", "right");
+        firstIndex++;
+
+    }
+    else if(firstIndex == 0)
+    {
+        updateFirst(firstIndex, butt);
+
+        setProgress("moneybar", 100, getCash());
+        setProgress("gradebar", getGrades(), getGrades());
+        setProgress("happybar", getHappy(), getHappy());
+        setProgress("energybar", getEnergy(), getEnergy());
+        firstIndex++;
         setText(1, firstIndex, "change");
         setButtons(1, firstIndex, "left", "center", "right");
-        if(firstIndex == 3)
+    }
+    
+else if(firstIndex < 4)
+    {
+        current_week = 0;
+        if(firstIndex == 2)
         {
             var div = document.getElementById("job");
-            var answer = getAnswer(1, firstIndex - 1);
-            div.innerHTML = answer[butt];
+            var answer = getAnswer(1, firstIndex);
+            div.innerHTML = "<h2>" + answer[butt] + "</h2>";
         }
+
+        updateFirst(firstIndex, butt);
+
+        setProgress("moneybar", 100, getCash());
+        setProgress("gradebar", getGrades(), getGrades());
+        setProgress("happybar", getHappy(), getHappy());
+        setProgress("energybar", getEnergy(), getEnergy());
         firstIndex++;
-        updateFirst();
+        setText(1, firstIndex, "change");
+        setButtons(1, firstIndex, "left", "center", "right");
     }
     else
     {
-        while(current_week < 33)
+        updateFirst(firstIndex, butt);
+
+        setProgress("moneybar", 100, getCash());
+        setProgress("gradebar", getGrades(), getGrades());
+        setProgress("happybar", getHappy(), getHappy());
+        setProgress("energybar", getEnergy(), getEnergy());
+
+        var current_week = 1;
+        var choose;
+        var depRand;
+        var randRand;
+
+        if(current_week < 33)
         {
             current_week++;
-            var choose = Math.floor((Math.random() * 10));
-            var depRand = Math.floor((Math.random() * 5));
-            var randRand = Math.floor((Math.random() * 32));
+            choose = Math.floor((Math.random() * 10));
+            depRand = Math.floor((Math.random() * 5));
+            randRand = Math.floor((Math.random() * 32));
             if(choose < 3)
             {
                 setText(3, depRand, "change");
                 setButtons(3, depRand, "left", "center", "right");
-                alert(updateDepend(depRand, butt) + '\n' + getMsg());
+                updateDepend(depRand, butt);
+                getMsg();
+                //alert(updateDepend(depRand, butt) + '\n' + getMsg());
             }
             else
             {
                 setText(2, randRand, "change");
                 setButtons(2, randRand, "left", "center", "right");
-                alert(updateDepend(randRand, butt) + '\n' + getMsg());
+                updateRan(depRand, butt);
+                getMsg();
+                //alert(updateRan(randRand, butt) + '\n' + getMsg());
             }
 
-            setProgress("moneybar", cash);
-            setProgress("gradebar", grades);
-            setProgress("happybar", happy);
-            setProgress("energybar", energy);
+            setProgress("moneybar", 100, getCash());
+            setProgress("gradebar", getGrades(), getGrades());
+            setProgress("happybar", getHappy(), getHappy());
+            setProgress("energybar", getEnergy(), getEnergy());
         }
 
     }
@@ -1147,7 +1189,12 @@ function pay()
     var amount = document.getElementById("payloan").value;
     payLoan(amount);
     var div = document.getElementById("loanNum");
-    div.innerHTML = "$" + loan;
+    div.innerHTML = "<h2>$" + loan + "</h2>";
+
+    setProgress("moneybar", 100, getCash());
+    setProgress("gradebar", getGrades(), getGrades());
+    setProgress("happybar", getHappy(), getHappy());
+    setProgress("energybar", getEnergy(), getEnergy());
     //amount.value = "";
 }
 
@@ -1160,7 +1207,7 @@ function setButtons(kind, index, type1, type2, type3)
     var answer = getAnswer(kind, index);
     var size = answer.length;
 
-    if(size == 2)
+    if(size === 2)
     {
         hide(type2);
         show(type1);

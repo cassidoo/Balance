@@ -1,6 +1,26 @@
 body
 {
-	margin: 0;
-	padding: 0;
+	color: white;
+	font-family: 'Droid Serif', serif;
 	background-image: url("../assets/crissxcross.png");
+	overflow: hidden;
+}
+
+.weekbar
+{
+	height: 50px;
+	padding: 10px;
+	font-size: 60px;
+	line-height: 50px;
+	background-color: #261919;
+}
+
+#weeks
+{
+	position: absolute;
+}
+
+#weeks span
+{
+	margin-right: 70px;
 }

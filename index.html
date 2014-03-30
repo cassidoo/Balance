@@ -1,13 +1,36 @@
 <!doctype html>
 <html>
 	<head>
-		<title>
-			Balance
-		</title>
-		<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+		<title> Balance </title>
+		<script src="js/jquery-1.10.2.js"></script>
+		<script src="js/main.js"></script>
+		<link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
 		<link href='css/main.css' rel='stylesheet' type='text/css'>
+		<link href='css/deadsimplegrid/grid.css' rel='stylesheet' type='text/css'>
+		<link href='css/deadsimplegrid/screen.css' rel='stylesheet' type='text/css'>
 	</head>
 	<body>
-		Hello, World!
+		<div class="weekbar row">
+			<span id="weeks"> </span>
+		</div>
+		<div class="content row">
+			<div class="col info">
+				<div class="row loans">
+					Loans
+				</div>
+				<div class="row job">
+					Job
+				</div>
+			</div>
+			<div class="col question">
+				This is for the big question
+			</div>
+			<div class="col progress">
+				<div class="row">
+					Progress bars go here
+				</div>
+				<div class="row payloan">Pay off loan</div>
+			</div>
+		</div>
 	</body>
 </html>

@@ -151,6 +151,7 @@ public class Player
 
 	public void updateRan(int type, int answerIndex)
 	{
+		
 		message = "";
 		errorMessage = "";
 		if (takeExam())
@@ -751,6 +752,8 @@ public class Player
 				break;
 
 			}//switch
+			weeklyHW();
+			weeklyPaid();
 			checkStatus();
 			noOverload();
 		}
@@ -923,6 +926,8 @@ public class Player
 				break;
 
 			}//switch
+			weeklyHW();
+			weeklyPaid();
 			checkStatus();
 			noOverload();
 		}
@@ -1064,6 +1069,7 @@ public class Player
 	
 	public void noOverload()
 	{
+		
 		if(happy>=100)
 		{
 			happy=100;
@@ -1076,19 +1082,19 @@ public class Player
 		{
 			grades=100;
 		}
-		weeklyHW();
-		weelyPaid();
+		
 	}
 
 	public Questions getQuestions() {
 		return questions;
 	}
 	
-	public void weelyPaid()
+	public void weeklyPaid()
 	{
 		if(workType == 1)
 		{
 			updateFirst(2,0);
+			
 		}
 		else if (workType == 2)
 		{

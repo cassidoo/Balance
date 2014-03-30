@@ -214,7 +214,7 @@ input[type="text"]
 	text-shadow: 0px 1px 0px rgba(0,0,0,0.5);
 }
 
-input[type="button"]
+button, input[type="button"]
 {
 	color: #ebebeb;
 	width: 70%;
@@ -222,6 +222,8 @@ input[type="button"]
 	padding: 10px;
 	margin-left: auto;
 	margin-right: auto;
+	margin-top: 10px;
+	margin-bottom: 10px;
 	-webkit-border-radius: 3px;
 	border-radius: 3px;
 	-webkit-box-shadow: inset 0px 1px 0px 0px #868686, 0px 1px 1px 0px #2d2d2d;
@@ -239,9 +241,10 @@ input[type="button"]
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#5d5d5d', endColorstr='#404040',GradientType=0 );
 }
 
-input[type="button"]:active, .tdbutton input[type="button"]:focus
+button:active, input[type="button"]:active, input[type="button"]:focus
 {
 	-webkit-box-shadow: inset 0px 1px 1px 0px #292929;
 	box-shadow: inset 0px 1px 1px 0px #292929;
 	background: #333;
 }
+

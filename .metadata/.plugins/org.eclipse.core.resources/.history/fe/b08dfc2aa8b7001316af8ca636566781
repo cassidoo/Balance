@@ -542,21 +542,20 @@ public class Player
 				break;
 			/*
 			 * 20
-			 * Go       : lowers cash by $15, lowers grade by 5, lowers energy by 15, raises happiness by 10
-			 * Miss out : raises energy by 10, lowers happiness by 10, raises grade by 5
+			 * Do : raises cash by $50, raises grade by 5, lowers energy by 15,
+			 * raises happiness by 3
+			 * Sleep : raises energy by 10, lowers happiness by 2
 			 */
 			case 20:
 				if (answerIndex == 0)
 				{
-					cash -= 15;
-					grades -= 5;
+					cash += 50;
+					grades += 5;
 					energy -= 15;
-					happy += 10;
 				} else if (answerIndex == 1)
 				{
 					energy += 10;
-					happy -= 10;
-					grades += 5;
+					happy -= 2;
 				}
 				break;
 			/*

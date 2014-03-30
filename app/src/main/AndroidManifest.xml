@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.balance.app" >
+    package="com.example.balance" >
 
     <application
         android:label="@string/app_name"
         android:theme="@style/NoActionBar" >
         <activity
-            android:name="com.example.balance.app.MainActivity"
+            android:name="com.example.balance.MainActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -15,7 +15,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.example.balance.app.PayScreen"
+            android:name="com.example.balance.PayScreen"
             android:label="@string/title_activity_pay_screen" >
         </activity>
     </application>

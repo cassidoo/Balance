@@ -223,6 +223,57 @@ to
 	}
 }
 
+@media only screen and (max-width: 1400px)
+{
+	.logo img
+	{
+		max-width: 700px;
+	}
+}
+
+@media only screen and (max-width: 1200px)
+{
+	.logo img
+	{
+		max-width: 600px;
+	}
+}
+
+@media only screen and (max-width: 1000px)
+{
+	.logo img
+	{
+		max-width: 500px;
+	}
+}
+
+
+@media only screen and (max-width: 800px)
+{
+	.logo img
+	{
+		max-width: 450px;
+	}
+}
+
+@media only screen and (max-width: 600px)
+{
+	.logo img
+	{
+		max-width: 400px;
+	}
+}
+
+@media only screen and (max-width: 320px)
+{
+	.logo img
+	{
+		position: absolute;
+		bottom: 0;
+		max-width: 320px;
+	}
+}
+
 input[type="text"]
 {
 	font-weight: 300;

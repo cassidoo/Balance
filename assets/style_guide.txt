@@ -29,3 +29,7 @@ Header bar is in (gray 0)
 Buttons are in (gray 3)
 
 Text is white
+
+Dark green: #254f15
+Dark yellow: #e7dc04
+Dark red: #8c0c08

@@ -23,7 +23,7 @@ function setProgress(id, level)
     {
         levelBar.addClass("high");
     }
-    else if(level >= 35)
+    else if(level >= 45)
     {
         levelBar.addClass("medium");
     }

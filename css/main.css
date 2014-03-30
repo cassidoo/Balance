@@ -10,9 +10,14 @@ body
 {
 	height: 50px;
 	padding: 10px;
-	font-size: 60px;
+	font-size: 50px;
 	line-height: 50px;
 	background-color: #181716;
+}
+
+.bumpit
+{
+	margin-right: 30px;
 }
 
 #weeks
@@ -39,7 +44,12 @@ body
 /*Big question*/
 .question
 {
+	
+}
 
+.quest
+{
+	margin-top: 50px;
 }
 
 /*Progress bars and paying loans*/
@@ -50,28 +60,45 @@ body
 
 .pb
 {
+	display: inline-block;
 	width: 70%;
-	margin: 10px;
+	margin: 0 5px;
 	height: 30px;
-	border: 1px solid #000;
+	border: 1px solid #181716;
+	background-color: #6e6762;
+	-moz-box-shadow: inset 0 0 10px #000000;
+	-webkit-box-shadow: inset 0 0 10px #000000;
+	box-shadow: inset 0 0 10px #000000;
 }
 
 .high
 {
 	background-color: #69B34E;
+	border: 1px solid #254f15;
+	-moz-box-shadow: inset 0 -10px 20px #254f15;
+	-webkit-box-shadow: inset 0 -10px 20px #254f15;
+	box-shadow: inset 0 -10px 20px #254f15;
 }
 .medium
 {
 	background-color: #ede76d;
+	border: 1px solid #e7dc04;
+	-moz-box-shadow: inset 0 -10px 20px #e7dc04;
+	-webkit-box-shadow: inset 0 -10px 20px #e7dc04;
+	box-shadow: inset 0 -10px 20px #e7dc04;
 }
 .low
 {
 	background-color: #dc5753;
+	border: 1px solid #8c0c08;
+	-moz-box-shadow: inset 0 -10px 20px #8c0c08;
+	-webkit-box-shadow: inset 0 -10px 20px #8c0c08;
+	box-shadow: inset 0 -10px 20px #8c0c08;
 }
 
 .pb .level
 {
-	height: 100%;
+	height: 28px;
 }
 
 .bub
@@ -144,4 +171,60 @@ to
 	{
 		width: 25%;
 	}
+}
+
+input[type="text"]
+{
+	font-weight: 300;
+	padding: 10px;
+	color: #c4c4c4;
+	margin: 5px 0 5px 4px;
+	border: none;
+	background-color: #181716;
+	width: 70%;
+	height: 25px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	-webkit-box-shadow: 0px 1px 0px 0px #5d5d5d;
+	box-shadow: 0px 1px 0px 0px #5d5d5d;
+	text-align: left;
+	font-size: 30px;
+	text-shadow: 0px 1px 0px rgba(0,0,0,0.5);
+}
+
+input[type="button"]
+{
+	color: #ebebeb;
+	width: 70%;
+	height: 60px;
+	padding: 10px;
+	margin-left: auto;
+	margin-right: auto;
+	
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+	
+	-webkit-box-shadow: inset 0px 1px 0px 0px #868686, 0px 1px 1px 0px #2d2d2d;
+	box-shadow: inset 0px 1px 0px 0px #868686, 0px 1px 1px 0px #2d2d2d;
+	
+	border: 1px solid #181716;
+	font-weight: bold;
+	font-size: 1em;
+	text-shadow: 0px -1px 0px #2d2d2d;
+	
+	background: #181716;
+	background: -moz-linear-gradient(top,  #5d5d5d 0%, #404040 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#5d5d5d), color-stop(100%,#404040));
+	background: -webkit-linear-gradient(top,  #5d5d5d 0%,#404040 100%);
+	background: -o-linear-gradient(top,  #5d5d5d 0%,#404040 100%);
+	background: linear-gradient(to bottom,  #5d5d5d 0%,#404040 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#5d5d5d', endColorstr='#404040',GradientType=0 );
+}
+
+input[type="button"]:active, .tdbutton input[type="button"]:focus
+{
+	-webkit-box-shadow: inset 0px 1px 1px 0px #292929;
+	box-shadow: inset 0px 1px 1px 0px #292929;
+	background: #333;
 }

@@ -3,8 +3,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.example.balance.app.MainActivity" >
     
-    <item android:id="@+id/action_settings"
-        android:title="@string/action_settings"
+
+    <item android:id="@+id/gameName"
+        android:title="Loans: "
+        android:orderInCategory="100"
+        app:showAsAction="never" />
+    <item android:id="@+id/weekCount"
+        android:title="1"
         android:orderInCategory="100"
         app:showAsAction="never" />
 </menu>

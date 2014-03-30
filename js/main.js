@@ -11,9 +11,9 @@ function populateWeeks()
 
 function nextWeek()
 {
-    $("#weeks").children().first().fadeOut("slow", function()
+    $("#weeks").children().first().fadeOut("fast", function()
     {
-        //$("#weeks").children().first().remove();
+        $("#weeks").children().first().remove();
     });
     weekNums.splice(0, 1);
 }
@@ -30,7 +30,6 @@ function setProgress(id, level, val)
     }
 
     bar.innerHTML += '</div>';
-    console.log(bar.innerHTML);
 
     var levelBar = $("#" + id + " .level");
 

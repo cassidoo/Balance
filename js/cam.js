@@ -16,11 +16,6 @@ function payLoan(num)
         loan -= cash;
         cash = 0;
     }
-    else if(num < 0)
-    {
-        loan -= num;
-        cash -= num;
-    }
     else
     {
         loan -= num;
@@ -121,7 +116,7 @@ function updateRan(type, answerIndex)
     }
     else
     {
-        week++;
+        //week++;
         switch (type)
         {
             case 0:
@@ -582,7 +577,7 @@ function updateDepend(type, answerIndex)
     }
     else
     {
-        week++;
+        //week++;
         switch (type)
         {
             case 0:
@@ -809,6 +804,7 @@ function constantExpenses(num, updateNum)
 function takeExam()
 {
     var y = "";
+    
     takeE = false;
     if(week === 4 || week === 9 || week === 15 || week === 19 || week === 24 || week === 31)
     {
@@ -841,7 +837,7 @@ function takeExam()
             y = "lowered";
         }
         energy -= 15;
-        week++;
+        //week++;
 
         checkStatus();
         noOverload();
@@ -911,8 +907,8 @@ function weeklyPaid()
 
 function weeklyHW()
 {
-    var ranScore = Math.floor((Math.random() * 45) + 1);
-    ;
+    var ranScore = Math.floor((Math.random() * 35) + 1);
+
     var HWGrade = 55 + ranScore;
     if(HWGrade <= 60)
     {
@@ -1110,8 +1106,7 @@ function determine(butt)
         setText(1, firstIndex, "change");
         setButtons(1, firstIndex, "left", "center", "right");
     }
-    
-else if(firstIndex < 4)
+    else if(firstIndex < 4)
     {
         current_week = 0;
         if(firstIndex == 2)
@@ -1156,24 +1151,28 @@ else if(firstIndex < 4)
                 setText(3, depRand, "change");
                 setButtons(3, depRand, "left", "center", "right");
                 updateDepend(depRand, butt);
-                getMsg();
-                //alert(updateDepend(depRand, butt) + '\n' + getMsg());
+                //getMsg();
+                $("#message h2").text("");
+                $("#message h3").text(updateRan(randRand, butt) + '\n' + getMsg());
+                nextWeek();
             }
             else
             {
                 setText(2, randRand, "change");
                 setButtons(2, randRand, "left", "center", "right");
-                updateRan(depRand, butt);
-                getMsg();
-                //alert(updateRan(randRand, butt) + '\n' + getMsg());
+                updateRan(depRand, butt);             
+                //getMsg();
+                $("#message h2").text("");
+                $("#message h3").text(updateRan(randRand, butt) + '\n' + getMsg());
+                nextWeek();
             }
-
+            
             setProgress("moneybar", 100, getCash());
             setProgress("gradebar", getGrades(), getGrades());
             setProgress("happybar", getHappy(), getHappy());
             setProgress("energybar", getEnergy(), getEnergy());
         }
-
+        addWeek(1);
     }
 }
 
@@ -1187,9 +1186,11 @@ function setText(kind, index, type)
 function pay()
 {
     var amount = document.getElementById("payloan").value;
+    console.log("Before paying: " + getLoan());
     payLoan(amount);
+    console.log("After paying: " + getLoan());
     var div = document.getElementById("loanNum");
-    div.innerHTML = "<h2>$" + loan + "</h2>";
+    div.innerHTML = "<h2>$" + getLoan() + "</h2>";
 
     setProgress("moneybar", 100, getCash());
     setProgress("gradebar", getGrades(), getGrades());

@@ -2,6 +2,7 @@ import java.util.Random;
 
 public class Player
 {
+
 	public int cash;
 	public int happy;
 	public int grades;
@@ -202,6 +203,9 @@ public class Player
 			 * Don't do it : lowers grade by 10, raises energy by 5, raises
 			 * happiness by 5
 			 * Study for 3 hours : raises grade by 5, lowers energy by 5
+			 * Stay up all night to study : raises grade by 10, lowers energy by
+			 * 10,
+			 * lowers happiness by 2
 			 */
 			case 1:
 				if (answerIndex == 0)
@@ -213,7 +217,12 @@ public class Player
 				{
 					grades += 7;
 					energy -= 3;
-				} 
+				} else if (answerIndex == 2)
+				{
+					grades += 15;
+					energy -= 15;
+					happy -= 2;
+				}
 				break;
 			/*
 			 * 2

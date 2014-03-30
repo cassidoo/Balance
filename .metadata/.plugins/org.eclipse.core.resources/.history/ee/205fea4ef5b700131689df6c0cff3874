@@ -76,7 +76,7 @@ public class Questions {
 		 * Stay up all night to study : raises grade by 10, lowers energy by 10, lowers happiness by 2
 		 */
 		randQuestions.add("You have an assignment due for your hardest class.");
-		String[] arr01 = {"Don't do it", "Study for 3 hours"};
+		String[] arr01 = {"Don't do it", "Study for 3 hours", "Stay up all night to study"};
 		randAnswers.put(1, arr01);
 		
 		/* 2

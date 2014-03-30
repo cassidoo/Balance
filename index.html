@@ -21,9 +21,9 @@
             {
                 populateWeeks();
                 setProgress("moneybar", 100);
-                setProgress("gradebar", 70);
-                setProgress("happybar", 50);
-                setProgress("energybar", 40);
+                setProgress("gradebar", 100);
+                setProgress("happybar", 100);
+                setProgress("energybar", 100);
             });
 		</script>
 	</head>
@@ -35,17 +35,20 @@
 			<div class="col info">
 				<div class="row loans">
 					<h1>Loans</h1>
-					<h2>$12,000</h2>
+					<div id = "loanNum"><h2>12000</h2></div>
 				</div>
 				<div class="row job">
 					<h1>Job</h1>
-					<h2>No Job Yet</h2>
+					<div id = "job"><h2>No Job Yet</h2></div>
 				</div>
 			</div>
 			<div class="col question">
 				<div class="row quest">
-					<h1>Scenario</h1>
-					Hello this is a question hi how are you I'm good will you date me no sorry you're hideous
+					<h1>Balance</h1>
+						<div id = "change"> Welcome to Balance. Your goal is to complete your senior year of college with absolutely no loans.</div>
+						<button id = "left" style="DISPLAY: none;" onclick="determine(0)">Try it</button>
+						<button id = "center" onclick="determine(1)">Try it</button>
+						<button id = "right" style="DISPLAY: none;" onclick="determine(1)">Try it</button>
 				</div>
 				<div class="row logo">
 					logo image
@@ -67,7 +70,7 @@
 					<h1>Pay off loan</h1>
 
 					<input type="text" name="payloan" id="payloan" placeholder="$" />
-					<input type="button" value="Pay Loan" id="payloanbtn" onclick="" />
+					<input type="button" value="Pay Loan" id="payloanbtn" onclick="pay()" />
 				</div>
 			</div>
 		</div>

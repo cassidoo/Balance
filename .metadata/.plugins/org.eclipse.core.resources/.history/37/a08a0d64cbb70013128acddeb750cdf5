@@ -856,6 +856,14 @@ public class Player
 						happy += 15;
 						message = "You won a $" + x + " scholarship, congrats!";
 					}
+					else if(grades >= 80)
+					{
+						int x = 250;
+						cash += x;
+						happy += 10;
+						message = "You won a $" + x + " scholarship, congrats!";
+					}
+
 					else
 					{
 						happy -= 10;

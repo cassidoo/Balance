@@ -71,16 +71,5 @@ public class Tests {
 			
 			System.out.println();
 		}
-		
-		if(p.getLoan() < 0)
-		{
-			System.out.println();
-			System.out.println("The game is over, you lost");
-		}
-		else
-		{
-			System.out.println("The game is over, you won!");
-			System.out.println("Final score: " + (p.getCash() + p.getEnergy() + p.getGrades() + p.getHappy()));
-		}
 	}
 }

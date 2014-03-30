@@ -856,6 +856,14 @@ public class Player
 						happy += 15;
 						message = "You won a $" + x + " scholarship, congrats!";
 					}
+					else if(grades >= 80)
+					{
+						int x = 250;
+						cash += x;
+						happy += 10;
+						message = "You won a $" + x + " scholarship, congrats!";
+					}
+					
 					else
 					{
 						happy -= 10;
@@ -863,8 +871,8 @@ public class Player
 					}
 				} else if (answerIndex == 1)
 				{
-					grades += 15;
-					energy -= 7;
+					grades += 5;
+					energy -= 5;
 				}
 				break;
 			/*
@@ -884,7 +892,6 @@ public class Player
 				{
 					if (grades >= 85)
 					{
-						grades += 15;
 						happy += 10;
 						message = "You got into the honors college, congrats!";
 					} else
@@ -895,8 +902,8 @@ public class Player
 
 				} else if (answerIndex == 1)
 				{
-					grades += 10;
-					energy -= 7;
+					grades += 5;
+					energy -= 5;
 				}
 				break;
 			/*
@@ -956,8 +963,8 @@ public class Player
 					}
 				} else if (answerIndex == 1)
 				{
-					grades += 10;
-					energy -= 7;
+					grades += 5;
+					energy -= 5;
 				}
 				break;
 			/*
@@ -979,12 +986,10 @@ public class Player
 					{
 						happy += 10;
 						cash += 10;
-						energy += 7;
 						message = "You won the contest, congrats!";
 					} else
 					{
 						happy -= 10;
-						energy -= 2;
 						message = "You lost the contest, you feel depressed from defeat.";
 					}
 				} else if (answerIndex == 1)
@@ -1027,8 +1032,8 @@ public class Player
 					}
 				} else if (answerIndex == 1)
 				{
-					grades += 10;
-					energy -= 7;
+					grades += 5;
+					energy -= 5;
 				}
 				break;
 

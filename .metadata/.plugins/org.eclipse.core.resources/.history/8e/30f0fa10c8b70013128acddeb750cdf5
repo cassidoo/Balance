@@ -108,7 +108,7 @@ public class Player
 			/*
 			 * 2
 			 * On-campus Tutor : $7/hour, increases grade by 3 /week
-			 * Off-campus Restaurant Server : $9/hour, decreases grade by 10,
+			 * Off-campus Restaurant Server : $8.50/hour, decreases grade by 10,
 			 * /week
 			 * decreases energy by 5
 			 */
@@ -124,7 +124,7 @@ public class Player
 				{
 					grades -= 3;
 					energy -= 10;
-					cash += constantExpenses(35, 9);
+					cash += constantExpenses(35, 8.50);
 					workType = 2;
 				}
 				break;
@@ -846,16 +846,24 @@ public class Player
 					{
 						int x = 500 + r.nextInt(4500);
 						cash += x;
-						happy += 20;
+						happy += 10;
 						message = "You won a $" + x + " scholarship, congrats!";
 					} 
 					else if(grades >= 90)
 					{
 						int x = 500 + r.nextInt(1500);
 						cash += x;
-						happy += 15;
+						happy += 10;
 						message = "You won a $" + x + " scholarship, congrats!";
 					}
+					else if(grades >= 80)
+					{
+						int x = 250;
+						cash += x;
+						happy += 10;
+						message = "You won a $" + x + " scholarship, congrats!";
+					}
+					
 					else
 					{
 						happy -= 10;
@@ -863,8 +871,8 @@ public class Player
 					}
 				} else if (answerIndex == 1)
 				{
-					grades += 15;
-					energy -= 7;
+					grades += 5;
+					energy -= 5;
 				}
 				break;
 			/*
@@ -884,7 +892,6 @@ public class Player
 				{
 					if (grades >= 85)
 					{
-						grades += 15;
 						happy += 10;
 						message = "You got into the honors college, congrats!";
 					} else
@@ -895,8 +902,8 @@ public class Player
 
 				} else if (answerIndex == 1)
 				{
-					grades += 10;
-					energy -= 7;
+					grades += 5;
+					energy -= 5;
 				}
 				break;
 			/*
@@ -956,8 +963,8 @@ public class Player
 					}
 				} else if (answerIndex == 1)
 				{
-					grades += 10;
-					energy -= 7;
+					grades += 5;
+					energy -= 5;
 				}
 				break;
 			/*
@@ -979,12 +986,10 @@ public class Player
 					{
 						happy += 10;
 						cash += 10;
-						energy += 7;
 						message = "You won the contest, congrats!";
 					} else
 					{
 						happy -= 10;
-						energy -= 2;
 						message = "You lost the contest, you feel depressed from defeat.";
 					}
 				} else if (answerIndex == 1)
@@ -1010,14 +1015,14 @@ public class Player
 					{
 						int x = 500 + r.nextInt(4500);
 						cash += x;
-						happy += 20;
+						happy += 10;
 						message = "You won a $" + x + " scholarship, congrats!";
 					} 
 					else if(grades >= 90)
 					{
 						int x = 500 + r.nextInt(1500);
 						cash += x;
-						happy += 15;
+						happy += 10;
 						message = "You won a $" + x + " scholarship, congrats!";
 					}
 					else
@@ -1027,8 +1032,8 @@ public class Player
 					}
 				} else if (answerIndex == 1)
 				{
-					grades += 10;
-					energy -= 7;
+					grades += 5;
+					energy -= 5;
 				}
 				break;
 
@@ -1190,7 +1195,7 @@ public class Player
 		{
 			happy=100;
 		}
-		if(energy>=100)
+		if(energy>100)
 		{
 			energy=100;
 		}
@@ -1224,23 +1229,23 @@ public class Player
 		int HWGrade = 55+ranScore;
 		if(HWGrade <= 60)
 		{
-			grades -= 15;
+			grades-=20;
 		}
 		else if(HWGrade <=70 && HWGrade>=61)
 		{
-			grades -= 7;
+			grades-=10;
 		}
 		else if(HWGrade <=80 && HWGrade>=71)
 		{
-			grades += 3;
+			
 		}
 		else if(HWGrade <=90 && HWGrade>=81)
 		{
-			grades += 7;
+			grades+=3;
 		}
 		else 
 		{
-			grades += 15;
+			grades+=5;
 		}
 		return "You got " + HWGrade+ "% on your homework for Week " + week;
 	}

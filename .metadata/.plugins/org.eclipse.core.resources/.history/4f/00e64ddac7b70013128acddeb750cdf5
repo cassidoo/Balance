@@ -43,7 +43,7 @@ public class Questions {
 		 * Off-campus Restaurant Server : $8.50/hour, decreases grade by 10, decreases energy by 10		/WEEK
 		 */
 		firstQuestions.add("Time to pick a job");
-		String[] arr2 = {"On-campus: Tutor ($7/hour, 3 hours/day)", "Off-campus: Restaurant Server ($9/hour 5 hours/day)"};
+		String[] arr2 = {"On-campus: Tutor ($7/hour, 3 hours/day)", "Off-campus: Restaurant Server ($8.50/hour 5 hours/day)"};
 		firstAnswers.put(2, arr2);
 		
 		/* 3
@@ -308,7 +308,7 @@ public class Questions {
 		 * Work  : raises cash by $100, lowers grade by 10, lowers energy by 15
 		 */
 		randQuestions.add("Your boss asks you to work the weekend. You have a study group planned for your project.");
-		String[] arr030 = {"Go work ($150)", "Go study"};
+		String[] arr030 = {"Go work ($100)", "Go study"};
 		randAnswers.put(30, arr030);
 		
 		/* 31

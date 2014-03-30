@@ -35,9 +35,8 @@ public class Tests {
 				System.out.println("How much?");
 				int num = s.nextInt();
 				p.payLoan(num);
-				p.addEnergy(10);
-				p.addHappy(10);
 				System.out.println("Week: " + p.getWeek() + " Cash: $" + p.getCash() + "0  Grade: %" + p.getGrades() + "  Happiness: %" + p.getHappy() + "  Energy: %" + p.getEnergy() + "  Loan: $" + p.getLoan() + "0");
+				
 			}
 			
 			System.out.println();
@@ -45,8 +44,7 @@ public class Tests {
 			//dependent
 			if(rand.nextInt(10) < 3)
 			{
-				overall++;
-				int x = rand.nextInt(6);
+				int x = rand.nextInt(5);
 				System.out.println(p.getQuestions().getQuestion(3, x));
 				for(int j = 0; j < p.getQuestions().getAnswer(3, x).length; j++)
 					System.out.print(p.getQuestions().getAnswer(3, x)[j] + " ");
@@ -58,7 +56,6 @@ public class Tests {
 			//random
 			else
 			{
-				overall++;
 				int x = rand.nextInt(32);
 				System.out.println(p.getQuestions().getQuestion(2, x));
 				for(int j = 0; j < p.getQuestions().getAnswer(2, x).length; j++)
@@ -70,17 +67,7 @@ public class Tests {
 			}
 			
 			System.out.println();
-		}
-		
-		if(p.getLoan() < 0)
-		{
-			System.out.println();
-			System.out.println("The game is over, you lost");
-		}
-		else
-		{
-			System.out.println("The game is over, you won!");
-			System.out.println("Final score: " + (p.getCash() + p.getEnergy() + p.getGrades() + p.getHappy()));
+			overall++;
 		}
 	}
 }

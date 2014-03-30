@@ -43,7 +43,7 @@ public class Questions {
 		 * Off-campus Restaurant Server : $8.50/hour, decreases grade by 10, decreases energy by 10		/WEEK
 		 */
 		firstQuestions.add("Time to pick a job");
-		String[] arr2 = {"On-campus: Tutor ($7/hour, 3 hours/day)", "Off-campus: Restaurant Server ($9/hour 5 hours/day)"};
+		String[] arr2 = {"On-campus: Tutor ($7/hour, 3 hours/day)", "Off-campus: Restaurant Server ($8.50/hour 5 hours/day)"};
 		firstAnswers.put(2, arr2);
 		
 		/* 3

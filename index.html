@@ -20,6 +20,7 @@
 		<script>
             $(document).ready(function()
             {
+            	setLogo();
                 populateWeeks();
                 setProgress("moneybar", 100, getCash());
                 setProgress("gradebar", 100, getGrades());
@@ -100,7 +101,7 @@
 					</div>
 				</div>
 				<div class="row logo">
-					logo image
+					<img id="logoimage" src="assets/balance.png"/>
 				</div>
 			</div>
 			<div class="col progress">

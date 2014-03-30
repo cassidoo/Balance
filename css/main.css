@@ -67,6 +67,14 @@ a
 {
 	position: absolute;
 	bottom: 0px;
+	text-align: center;
+}
+
+.logo img
+{
+	position: relative;
+	bottom: 0;
+	width: 612px;
 }
 
 /*Progress bars and paying loans*/

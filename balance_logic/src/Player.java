@@ -72,7 +72,7 @@ public class Player
 					happy += 10;
 					energy += 5;
 					// 16 weeks per semester, 12 weeks during summer
-					cash -= constantExpenses(1, 10);
+					cash -= constantExpenses(32, 10);
 
 				} else if (answerIndex == 1)
 				{
@@ -191,16 +191,16 @@ public class Player
 				if (answerIndex == 0)
 				{
 					grades -= 10;
-					energy += 5;
+					energy += 7;
 					happy += 5;
 				} else if (answerIndex == 1)
 				{
-					grades += 5;
-					energy -= 5;
+					grades += 7;
+					energy -= 3;
 				} else if (answerIndex == 2)
 				{
-					grades += 10;
-					energy -= 10;
+					grades += 15;
+					energy -= 15;
 					happy -= 2;
 				}
 				break;
@@ -1045,13 +1045,13 @@ public class Player
 		if(grades<=50)
 		{
 			cash-=525;
-			grades+=25;
+			grades+=35;
 			energy-=10;
 			errorMessage +="Your grades are too low, you hired a tutor for $250."+'\n';
 		}
 		if(energy<=30)
 		{
-			energy+=25;
+			energy+=35;
 			grades-=25;
 			errorMessage +="Your energy is too low, you slept through your classes."+'\n';
 		}

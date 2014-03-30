@@ -44,7 +44,7 @@ body
 /*Big question*/
 .question
 {
-	
+
 }
 
 .quest
@@ -56,6 +56,19 @@ body
 .progress
 {
 
+}
+
+.stats .row
+{
+	height: 36px;
+	position: relative;
+}
+
+.stats .row img
+{
+	position: absolute;
+	top: 0;
+	left: 5%;
 }
 
 .pb
@@ -99,6 +112,14 @@ body
 .pb .level
 {
 	height: 28px;
+}
+
+.pval
+{
+	position: relative;
+	top: -25px;
+	font-size: 20px;
+	z-index: 50;
 }
 
 .bub
@@ -201,18 +222,14 @@ input[type="button"]
 	padding: 10px;
 	margin-left: auto;
 	margin-right: auto;
-	
 	-webkit-border-radius: 3px;
 	border-radius: 3px;
-	
 	-webkit-box-shadow: inset 0px 1px 0px 0px #868686, 0px 1px 1px 0px #2d2d2d;
 	box-shadow: inset 0px 1px 0px 0px #868686, 0px 1px 1px 0px #2d2d2d;
-	
 	border: 1px solid #181716;
 	font-weight: bold;
 	font-size: 1em;
 	text-shadow: 0px -1px 0px #2d2d2d;
-	
 	background: #181716;
 	background: -moz-linear-gradient(top,  #5d5d5d 0%, #404040 100%);
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#5d5d5d), color-stop(100%,#404040));

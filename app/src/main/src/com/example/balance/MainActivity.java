@@ -1,4 +1,4 @@
-package com.example.balance.app;
+package com.example.balance;
 
 import android.annotation.TargetApi;
 import android.app.ActionBar;

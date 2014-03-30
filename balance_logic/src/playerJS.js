@@ -895,7 +895,7 @@ function Player (cash, happy, grade, energy, loan) {
 
 
 
-function Question() {
+function Questions() {
 	
 	var firstMap = {};
 	var firstArray = {"Do you want live on or off campus?",

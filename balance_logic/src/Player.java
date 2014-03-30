@@ -13,6 +13,7 @@ public class Player
 	public Questions questions;
 	public String errorMessage;
 	public int workType;
+	public Random r;
 
 	public Player(double money, int happiness, int grade, int ener, int loan)
 	{
@@ -26,13 +27,14 @@ public class Player
 		message = "";
 		errorMessage = "";
 		questions = new Questions();
+		r = new Random();
 		workType = 0;
 	}
 
 	public void updateFirst(int type, int answerIndex)
 	{
-		message = "";
-		errorMessage = "";
+		//message = "";
+		//errorMessage = "";
 		if (takeExam())
 		{
 			return;
@@ -775,7 +777,7 @@ public class Player
 			{
 			/*
 			 * 0
-			 * Apply : if grade >= 90, get $500, raise happiness by 10; else
+			 * Apply : if grade >= 95, get up to $5000, grade >= 90, get up to $2000, raise happiness by 10; else
 			 * lower
 			 * happiness by 10
 			 * Study : raise grade by 5, lower energy by 5
@@ -787,12 +789,21 @@ public class Player
 			case 0:
 				if (answerIndex == 0)
 				{
-					if (grades >= 90)
+					if (grades >= 95)
 					{
-						cash += 500;
+						int x = 500 + r.nextInt(4500);
+						cash += x;
 						happy += 10;
-						message = "You won the scholarship, congrats!";
-					} else
+						message = "You won a $" + x + " scholarship, congrats!";
+					} 
+					else if(grades >= 90)
+					{
+						int x = 500 + r.nextInt(1500);
+						cash += x;
+						happy += 10;
+						message = "You won a $" + x + " scholarship, congrats!";
+					}
+					else
 					{
 						happy -= 10;
 						message = "You didn't get the scholarship, you feel depressed from defeat.";
@@ -1106,7 +1117,6 @@ public class Player
 	
 	public void weeklyHW()
 	{
-		Random r = new Random();
 		int ranScore = r.nextInt(46);
 		int HWGrade = 55+ranScore;
 		if(HWGrade <= 60)

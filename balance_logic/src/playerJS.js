@@ -11,7 +11,7 @@ function Player (cash, happy, grade, energy, loan) {
 	var workType = 0;
 	var takeExam = false;
     
-	this.payLoan = function(num) {
+	function payLoan(num) {
 		if(num > cash)
 		{
 			loan -= cash;

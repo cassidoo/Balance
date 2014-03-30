@@ -1,0 +1,21 @@
+function Player (money, happy, grade, energy, loan) {
+    this.money = money;
+    this.happy = happy;
+    this.grade = grade;
+    this.energy = energy;
+    this.loan = loan;
+    this.week = 0;
+	this.message = "";
+	this.errorMessage = "";
+	this.questions = new Questions();
+	//Math.floor((Math.random()*100)+1);      1 to 100
+	workType = 0;
+	takeExam = false;
+    this.getInfo = function() {
+        return this.color + ' ' + this.type + ' apple';
+    };
+}
+
+function Question() {
+	
+}

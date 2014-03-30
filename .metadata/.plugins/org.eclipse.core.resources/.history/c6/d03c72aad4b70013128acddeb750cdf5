@@ -1,0 +1,254 @@
+function Player (money, happy, grade, energy, loan) {
+    this.money = money;
+    this.happy = happy;
+    this.grade = grade;
+    this.energy = energy;
+    this.loan = loan;
+    this week = 0;
+	this.message = "";
+	this.errorMessage = "";
+	this.questions = new Questions();
+	//Math.floor((Math.random()*100)+1);      1 to 100
+	workType = 0;
+	takeExam = false;
+    this.getInfo = function() {
+        return this.color + ' ' + this.type + ' apple';
+    };
+}
+
+function Question() {
+	
+	var firstMap = {};
+	var firstArray = {"Do you want live on or off campus?",
+			"Do you want a car, a bike, or to just walk campus?",
+			"Time to pick a job",
+			"Classes start soon, you need books for class",
+			"Do you want a laptop for school?"
+			};
+	var arr0 = {"On ($2500)", "Off ($1500)"};
+	var arr1 = {"Car ($1000, $10/week)", "Bike ($150)", "Walk"};
+	var arr2 = {"On-campus: Tutor ($7/hour, 3 hours/day)", "Off-campus: Restaurant Server ($9/hour 5 hours/day)"};
+	var arr3 = {"Buy books ($350)", "Don't buy books"};
+	var arr4 = {"Buy laptop ($750)", "Don't buy laptop"};
+	firstMap[0] = arr0;
+	firstMap[1] = arr1;
+	firstMap[2] = arr2;
+	firstMap[3] = arr3;
+	firstMap[4] = arr4;
+	
+	var randMap = {};
+	var randArray = {"There is a volunteer opportunity on campus this week.",
+			"You have an assignment due for your hardest class.",
+			"You are very sick.",
+			"You have a free night tonight!",
+			"You have a free weekend!",
+			"Club Fest is on campus!",
+			"Your best friend asks you to borrow money for a book.",
+			"Someone lovely asks you out on a date",
+			"There is a conference in town that could benefit your career",
+			"There is a research opportunity this weekend for students in your major",
+			"You have run out of meals on your meal plan.",
+			"You borrowed your friend's car for the weekend and got a speeding ticket",
+			"Your friend got engaged, and they are having party!",
+			"Your friends birthday is tonight, and they are having party!",
+			"After a late night hanging out with friends, you don't have enough time to sleep before class",
+			"You stayed up too late marathoning your favorite TV show, you don't have enough time to sleep before class",
+			"Your crush invites you to breakfast during your morning class!",
+			"Your favorite band is playing at the local bar during your night class",
+			"You forgot to do an assignment due tomorrow, and your neighbor has it done",
+			"Your friend forgot to do an assignment due tomorrow, and you have it done",
+			"The midnight premiere for Hunger Games: Mocking Jay is Thursday night.",
+			"You slip on ice running to class and think you broke your arm",
+			"Your friend is moving and offers you $20 to help!",
+			"Your significant other wants to break up with you",
+			"Your teacher offers you extra credit if you write a research paper",
+			"Your friends want to take a vacation this weekend, missing two days of class",
+			"You got snowed in, it's a snowpocalypse",
+			"The psychology club is offering $15 to students who participate in their research",
+			"Beyonce is in town and is playing a concert for one night only",
+			"You lost your calculator and need to buy a new one for class",
+			"Your boss asks you to work the weekend. You have a study group planned for your project.",
+			"Your friends wants you to join their band- they have a gig tonight that pays $50 each",
+			"You left your backpack unattended at the library and it was stolen",
+		
+		
+		};
+	var arr00 = {"Volunteer", "Don't volunteer"};
+	var arr01 = {"Don't do it", "Study for 3 hours", "Stay up all night to study"};
+	var arr02 = {"Go to Doctor ($100)", "Stay sick"};
+	var arr03 = {"Go out and PARTY ($75)", "Stay in and study"};
+	var arr04 = {"Go home to visit your parents ($35)", "Stay and study all weekend"};
+	var arr05 = {"Join clubs! ($25)", "Be antisocial"};
+	var arr06 = {"Give it up ($10)", "Reject them"};
+	var arr07 = {"Have a love life ($500)", "Be single"};
+	var arr08 = {"Go to conference ($250)", "Skip the conference"};
+	var arr09 = {"Research", "Work extra hours this weekend"};
+	var arr010 = {"Buy meals for the semester ($500)", "Buy meals by the week ($100/week)"};
+	var arr011 = {"Pay the ticket ($100)", "Contest in court and miss class ($50)"};
+	var arr012 = {"Buy them a present ($50)", "Skip the party"};
+	var arr013 = {"Buy them a present ($25)", "Skip the party"};
+	var arr014 = {"Go to class", "Skip class"};
+	var arr015 = {"Go to class", "Skip class"};
+	var arr016 = {"Go to class", "Skip class"};
+	var arr017 = {"Go to class", "Skip class"};
+	var arr018 = {"Pay them to do it ($50)", "Stay up all night to do it"};
+	var arr019 = {"Offer to do it for $50", "Go to bed"};
+	var arr020 = {"Go watch the spectacle ($15)", "Stay in and study"};
+	var arr021 = {"Pay Hospital bill ($300)", "Ignore the pain"};
+	var arr022 = {"Help out", "Stay in and nap"};
+	var arr023 = {"Let them go", "Buy them a gift to stay ($25)"};
+	var arr024 = {"Write it", "Don't do it"};
+	var arr025 = {"Go on vacation! ($500)", "Stay behind and study"};
+	var arr026 = {"Weather the storm", "Stay in and skip class"};
+	var arr027 = {"Participate", "Don't go"};
+	var arr028 = {"Buy a ticket ($350)", "Miss out"};
+	var arr029 = {"Buy it ($150)", "Don't buy it"};
+	var arr030 = {"Go work ($150)", "Go study"};
+	var arr031 = {"Rock out", "Stay in and study"};
+	var arr032 = {"Replace everything ($500)", "Replace only the essentials ($250)"};
+	randAnswers.put(32, arr032);
+	
+	/* 33
+	 * Call  : raises cash by random, raises happiness by 5, lowers energy by 7
+	 * Study : raises grade by 5, lowers energy by 5
+	 */
+	randQuestions.add("You haven't called your parents in a while... Maybe they will give you cash?");
+	String[] arr033 = {"Call Mom and Dad", "Go study"};
+	randAnswers.put(33, arr033);
+	
+	//----------------------------------------------------------------------------------------------------------------------------- THESE QUESTIONS NEED A MESSAGE AFTER THE ANSWER
+	/* 0
+	 * Apply : if grade >= 90, get $500, raise happiness by 10; else lower happiness by 10
+	 * Study : raise grade by 5, lower energy by 5
+	 * Message: if true
+	 * 		    You won the scholarship, congrats!
+	 * 		    else
+	 *          You didn't get the scholarship, you feel depressed from defeat.
+	 */
+	dependQuestions.add("Your guidance councelor emailed you a scholarship application");
+	String[] arr10 = {"Apply", "Study"};
+	dependAnswers.put(0, arr10);
+	
+	/* 1
+	 * Apply : if grade >= 85, raise happiness by 10, raise grade by 5; else lower happiness by 10
+	 * Study : raise grade by 5, lower energy by 5
+	 * Message: if true
+	 * 		    You got into the honors college, congrats!
+	 * 		    else
+	 *          You didn't get into the honors college, you feel depressed from defeat.
+	 */
+	dependQuestions.add("The honors college is looking for senior applicants.");
+	String[] arr11 = {"Apply", "Study"};
+	dependAnswers.put(1, arr11);
+	
+	/* 2
+	 * Try Out : if energy >= 85 and happiness >= 85, raise happiness by 10; else lower happiness by 10
+	 * Practice : lower energy by 10, raise happiness by 5
+	 * Message: if true
+	 * 		    You got the spot on the team, congrats!
+	 * 		    else
+	 *          You didn't get the spot on the team, you feel depressed from defeat.
+	 */
+	dependQuestions.add("The intramural sports team has one spot open!");
+	String[] arr12 = {"Try out!", "Practice"};
+	dependAnswers.put(2, arr12);
+	
+	/* 3
+	 * Apply : if grade >= 75 and happiness >= 80, raise happiness by 10, raise grade by 10; else lower happiness by 10
+	 * Study : raise grade by 5, lower energy by 5
+	 * Message: if true
+	 * 		    You got the position, congrats!
+	 * 		    else
+	 *          You didn't get the position, you feel depressed from defeat.
+	 */
+	dependQuestions.add("There is a leadership position open in your major.");
+	String[] arr13 = {"Apply", "Study"};
+	dependAnswers.put(3, arr13);
+	
+	/* 4
+	 * Eat   : if happiness >= 70, raise happiness by 10, raise cash by $10; else lower happiness by 10
+	 * Watch : raise happiness by 10
+	 * 
+	 * Message: if true
+	 * 		    You won the contest, congrats!
+	 * 		    else
+	 *          You lost the contest, you feel depressed from defeat.
+	 */
+	dependQuestions.add("There is a pie-eating contest on central campus- winner gets $10!");
+	String[] arr14 = {"Eat!", "Just watch"};
+	dependAnswers.put(4, arr14);
+	
+	/* 5
+	 * Apply : if grade >= 90, get $500, raise happiness by 10; else lower happiness by 10
+	 * Study : raise grade by 5, lower energy by 5
+	 * Message: if true
+	 * 		    You won the scholarship, congrats!
+	 * 		    else
+	 *          You didn't get the scholarship, you feel depressed from defeat.
+	 */
+	dependQuestions.add("Your guidance councelor emailed you a scholarship application");
+	String[] arr15 = {"Apply", "Study"};
+	dependAnswers.put(5, arr15);
+	//-----------------------------------------------------------------------------------------------------------------------------
+}
+
+/**
+ * Gets the question
+ * @param type
+ * 		  1 = First
+ * 		  2 = Random
+ * 		  3 = Dependent
+ * @param index
+ * 		  0 - 4 for First
+ * 		  0 - 31 for Random
+ * 		  0 - 4 for Dependent
+ * @return
+ *      Question
+ */
+public String getQuestion(int type, int index)
+{
+	switch(type)
+	{
+		case 1:
+			return firstQuestions.get(index);
+		case 2:
+			return randQuestions.get(index);
+		case 3:
+			return dependQuestions.get(index);
+		default:
+			return randQuestions.get(index);
+	}
+}
+
+/**
+ * Gets the question
+ * @param type
+ * 		  1 = First
+ * 		  2 = Random
+ * 		  3 = Dependent
+ * @param index
+ * 		  0 - 4 for First
+ * 		  0 - 31 for Random
+ * 		  0 - 4 for Dependent
+ * @return
+ *      Answer
+ */
+public String[] getAnswer(int type, int index)
+{
+	switch(type)
+	{
+		case 1:
+			return firstAnswers.get(index);
+		case 2:
+			return randAnswers.get(index);
+		case 3:
+			return dependAnswers.get(index);
+		default:
+			return randAnswers.get(index);
+	}
+}
+	
+	
+	
+	
+}

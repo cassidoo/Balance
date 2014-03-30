@@ -1,0 +1,11 @@
+function Player (money, happy, grade, energy, loan) {
+    this.money = money;
+    this.happy = happy;
+    this.grade = grade;
+    this.energy = energy;
+    this.loan = loan;
+    this.color = "red";
+    this.getInfo = function() {
+        return this.color + ' ' + this.type + ' apple';
+    };
+}

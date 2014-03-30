@@ -1,0 +1,1391 @@
+function Player (cash, happy, grade, energy, loan) {
+    this.cash = cash;
+    this.happy = happy;
+    this.grade = grade;
+    this.energy = energy;
+    this.loan = loan;
+    var week = 0;
+	var message = "";
+	var errorMessage = "";
+	var questions = new Questions();
+	//Math.floor((Math.random()*100)+1);      1 to 100
+	var workType = 0;
+	var takeExam = false;
+    
+	this.payLoan = function(num) {
+		if(num > cash)
+		{
+			loan -= cash;
+			cash = 0;
+		}
+		else if(num < 0)
+		{
+			loan -= num;
+			cash -= num;
+		}
+		else
+		{
+			loan -= num;
+			cash -= num;
+		}
+	}
+	
+	this.updateFirst = function(type, answerIndex) {
+		switch (type)
+		{
+			case 0:
+				if (answerIndex == 0)
+				{
+					cash -= 2500;
+					happy += 10;
+				} 
+				else if (answerIndex == 1)
+				{
+					cash -= 1500;
+					energy -= 15;
+					happy -= 10;
+				}
+				break;
+			case 1:
+				if (answerIndex == 0)
+				{
+					cash -= 1000;
+					happy += 10;
+					energy += 5;
+					// 16 weeks per semester, 12 weeks during summer
+					cash -= constantExpenses(32, 10);
+
+				} 
+				else if (answerIndex == 1)
+				{
+					cash -= 150;
+					energy -= 5;
+					happy -= 5;
+				} 
+				else if (answerIndex == 2)
+				{
+					energy -= 15;
+					happy -= 15;
+				}
+				break;
+			case 2:
+				if (answerIndex == 0)
+				{
+
+					grades += 3;
+					//weekly paid
+					cash += constantExpenses(21, 7);
+					workType = 1;
+				} 
+				else if (answerIndex == 1)
+				{
+					grades -= 3;
+					energy -= 10;
+					cash += constantExpenses(35, 9);
+					workType = 2;
+				}
+				break;
+			case 3:
+				if (answerIndex == 0)
+				{
+					cash -= 250;
+					grades += 20;
+				} 
+				else if (answerIndex == 1)
+				{
+					grades -= 20;
+				}
+				break;
+			case 4:
+				if (answerIndex == 0)
+				{
+					cash -= 750;
+					grades += 10;
+					happy += 10;
+				} 
+				else if (answerIndex == 1)
+				{
+					grades -= 5;
+				}
+				break;
+
+			}
+			checkStatus();
+			noOverload();
+	}
+	
+}
+
+
+
+public String updateRan(int type, int answerIndex)
+{
+	message = "";
+	errorMessage = "";
+	String x = takeExam();
+	if (takeExam)
+	{
+		return x;
+	} else
+	{
+		week++;
+		switch (type)
+		{
+		/*
+		 * 0
+		 * Volunteer : raises happiness by 15, lowers energy by 5
+		 * Don't volunteer : lowers happiness by 3, raises energy by 1
+		 */
+		case 0:
+			if (answerIndex == 0)
+			{
+				happy += 15;
+				energy -= 5;
+			} else if (answerIndex == 1)
+			{
+				happy -= 3;
+				energy += 1;
+			}
+			break;
+		/*
+		 * 1
+		 * Don't do it : lowers grade by 10, raises energy by 5, raises
+		 * happiness by 5
+		 * Study for 3 hours : raises grade by 5, lowers energy by 5
+		 * Stay up all night to study : raises grade by 10, lowers energy by
+		 * 10,
+		 * lowers happiness by 2
+		 */
+		case 1:
+			if (answerIndex == 0)
+			{
+				grades -= 10;
+				energy += 7;
+				happy += 5;
+			} else if (answerIndex == 1)
+			{
+				grades += 7;
+				energy -= 3;
+			} else if (answerIndex == 2)
+			{
+				grades += 15;
+				energy -= 15;
+				happy -= 2;
+			}
+			break;
+		/*
+		 * 2
+		 * Go to Doctor : $100, lowers grade by 5, raises energy by 5,
+		 * raises
+		 * happiness by 5
+		 * Stay sick : lowers grade by 5, lowers energy by 5, lowers
+		 * happiness
+		 * by 5
+		 */
+		case 2:
+			if (answerIndex == 0)
+			{
+				cash -= 100;
+				grades -= 5;
+				energy += 5;
+				happy += 5;
+			} else if (answerIndex == 1)
+			{
+				grades -= 5;
+				energy -= 5;
+				happy -= 5;
+			}
+			break;
+		/*
+		 * 3
+		 * Go out : $75, lowers grade by 2, lowers energy by 15, raises
+		 * happiness by 15
+		 * Stay in and study : raises grade by 10, raises energy by 10,
+		 * lowers
+		 * happiness by 5
+		 */
+		case 3:
+			if (answerIndex == 0)
+			{
+				cash -= 75;
+				grades -= 2;
+				energy -= 15;
+				happy += 15;
+			} else if (answerIndex == 1)
+			{
+				grades += 10;
+				energy += 10;
+				happy -= 5;
+			}
+			break;
+		/*
+		 * 4
+		 * Go home to visit your parents : $35, raises energy by 15, raises
+		 * happiness by 15
+		 * Stay and study all weekend : raises grade by 10, raises energy by
+		 * 10,
+		 * lowers happiness by 10
+		 */
+		case 4:
+			if (answerIndex == 0)
+			{
+				cash -= 35;
+				energy += 15;
+				happy += 15;
+			} else if (answerIndex == 1)
+			{
+				grades += 10;
+				energy += 10;
+				happy -= 10;
+			}
+			break;
+		/*
+		 * 5
+		 * Join clubs : $25, raises happiness by 5
+		 * Be antisocial : lowers happiness by 5
+		 */
+		case 5:
+			if (answerIndex == 0)
+			{
+				cash -= 25;
+				happy += 5;
+			} else if (answerIndex == 1)
+			{
+				happy -= 5;
+			}
+			break;
+		/*
+		 * 6
+		 * Give : $10, raises happiness by 10
+		 * Reject : lowers happiness by 5
+		 */
+		case 6:
+			if (answerIndex == 0)
+			{
+				cash += 10;
+				happy += 10;
+			} else if (answerIndex == 1)
+			{
+				happy -= 5;
+			}
+			break;
+		/*
+		 * 7
+		 * Love : $500, raises happiness by 30
+		 * Single : lowers happiness by 15
+		 */
+		case 7:
+			if (answerIndex == 0)
+			{
+				cash -= 500;
+				happy += 30;
+			} else if (answerIndex == 1)
+			{
+				happy -= 15;
+			}
+			break;
+		/*
+		 * 8
+		 * Go : $250, raises happiness by 5, raises grade by 15
+		 * Skip : lowers grade by 5
+		 */
+		case 8:
+			if (answerIndex == 0)
+			{
+				cash -= 250;
+				happy += 5;
+				grades += 15;
+			} else if (answerIndex == 1)
+			{
+				grades -= 5;
+			}
+			break;
+		/*
+		 * 9
+		 * Research : raises grade by 10, raises happiness by 3
+		 * Work : raise by $50, lowers grade by 3, lowers energy by 5,
+		 * lowers
+		 * happiness by 3
+		 */
+		case 9:
+			if (answerIndex == 0)
+			{
+				grades += 10;
+				happy += 3;
+			} else if (answerIndex == 1)
+			{
+				cash += 50;
+				grades -= 3;
+				happy -= 3;
+			}
+			break;
+		/*
+		 * 10
+		 * Semester : lowers cash by $500
+		 * Week : lowers cash by $100/week
+		 */
+		case 10:
+			if (answerIndex == 0)
+			{
+				cash -= 500;
+			} else if (answerIndex == 1)
+			{
+				/*------------------------------------------*/
+				// check this later, 3 is how many weeks left
+				cash -= constantExpenses(33-week, 100);
+			}
+			break;
+		/*
+		 * 11
+		 * Ticket : lowers cash by $100
+		 * Court : lowers cash by $50, lowers grade by 5, lowers happiness
+		 * by 5,
+		 * lowers energy by 5
+		 */
+		case 11:
+			if (answerIndex == 0)
+			{
+				cash -= 100;
+			} else if (answerIndex == 1)
+			{
+				cash -= 50;
+				grades -= 5;
+				happy -= 5;
+				energy -= 5;
+			}
+			break;
+		/*
+		 * 12
+		 * Party : lowers cash by $50, raises happiness by 10, lowers energy
+		 * by
+		 * 5
+		 * Skip : lowers happiness by 10
+		 */
+		case 12:
+			if (answerIndex == 0)
+			{
+				cash -= 50;
+				happy += 10;
+				energy -= 5;
+			} else if (answerIndex == 1)
+			{
+				happy -= 10;
+			}
+			break;
+		/*
+		 * 13
+		 * Party : lowers cash by $25, raises happiness by 10, lowers energy
+		 * by
+		 * 5
+		 * Skip : lowers happiness by 10
+		 */
+		case 13:
+			if (answerIndex == 0)
+			{
+				cash -= 25;
+				happy += 10;
+				energy -= 5;
+			} else if (answerIndex == 1)
+			{
+				happy -= 10;
+			}
+			break;
+		/*
+		 * 14
+		 * Class : lowers energy by 15, raises grade by 5, lower happiness
+		 * by 7
+		 * Skip : raises energy by 10, lowers grade by 10, raises happiness
+		 * by 3
+		 */
+		case 14:
+			if (answerIndex == 0)
+			{
+				energy -= 15;
+				grades += 5;
+				happy -= 7;
+			} else if (answerIndex == 1)
+			{
+				energy += 10;
+				grades -= 10;
+				happy += 3;
+			}
+			break;
+		/*
+		 * 15
+		 * Class : lowers energy by 15, raises grade by 5, lower happiness
+		 * by 7
+		 * Skip : raises energy by 10, lowers grade by 10, raises happiness
+		 * by 3
+		 */
+		case 15:
+			if (answerIndex == 0)
+			{
+				energy -= 15;
+				grades += 5;
+				happy -= 7;
+			} else if (answerIndex == 1)
+			{
+				energy += 10;
+				grades -= 10;
+				happy += 3;
+			}
+			break;
+		/*
+		 * 16
+		 * Class : lowers energy by 5, raises grade by 5, lower happiness by
+		 * 10
+		 * Skip : lowers grade by 10, raises happiness by 10
+		 */
+		case 16:
+			if (answerIndex == 0)
+			{
+				energy -= 5;
+				grades += 5;
+				happy -= 10;
+			} else if (answerIndex == 1)
+			{
+				grades -= 10;
+				happy += 10;
+			}
+			break;
+		/*
+		 * 17
+		 * Class : lowers energy by 5, raises grade by 5, lower happiness by
+		 * 10
+		 * Skip : lowers energy by 5, lowers grade by 10, raises happiness
+		 * by 10
+		 */
+		case 17:
+			if (answerIndex == 0)
+			{
+				energy -= 5;
+				grades += 5;
+				happy -= 10;
+			} else if (answerIndex == 1)
+			{
+				energy -= 5;
+				grades -= 10;
+				happy += 10;
+			}
+			break;
+		/*
+		 * 18
+		 * Pay : $50, raises grade by 5, raises energy by 5, raises
+		 * happiness by
+		 * 5
+		 * Stay : lowers energy by 10, raises grade by 10, lowers happiness
+		 * by
+		 * 10
+		 */
+		case 18:
+			if (answerIndex == 0)
+			{
+				cash -= 50;
+				grades += 5;
+				energy += 5;
+				happy += 5;
+			} else if (answerIndex == 1)
+			{
+				energy -= 10;
+				grades += 10;
+				happy -= 10;
+			}
+			break;
+		/*
+		 * 19
+		 * Do : raises cash by $50, raises grade by 5, lowers energy by 15,
+		 * raises happiness by 3
+		 * Sleep : raises energy by 10, lowers happiness by 2
+		 */
+		case 19:
+			if (answerIndex == 0)
+			{
+				cash += 50;
+				grades += 5;
+				energy -= 15;
+			} else if (answerIndex == 1)
+			{
+				energy += 10;
+				happy -= 2;
+			}
+			break;
+		/*
+		 * 20
+		 * Go       : lowers cash by $15, lowers grade by 5, lowers energy by 15, raises happiness by 10
+		 * Miss out : raises energy by 10, lowers happiness by 10, raises grade by 5
+		 */
+		case 20:
+			if (answerIndex == 0)
+			{
+				cash -= 15;
+				grades -= 5;
+				energy -= 15;
+				happy += 10;
+			} else if (answerIndex == 1)
+			{
+				energy += 10;
+				happy -= 10;
+				grades += 5;
+			}
+			break;
+		/*
+		 * 21
+		 * Doctor : lowers cash by $300, raises energy by 5, raises
+		 * happiness by
+		 * 10
+		 * Ignore : lowers energy by 20, lowers happiness by 20
+		 */
+		case 21:
+			if (answerIndex == 0)
+			{
+				cash -= 300;
+				energy += 5;
+				happy += 10;
+			} else if (answerIndex == 1)
+			{
+				energy -= 20;
+				happy -= 20;
+			}
+			break;
+		/*
+		 * 22
+		 * Help : raises cash by $20, lowers energy by 7, raises happiness
+		 * by 7
+		 * Sleep : raises energy by 5, lowers happiness by 5
+		 */
+		case 22:
+			if (answerIndex == 0)
+			{
+				cash += 20;
+				energy -= 7;
+				happy += 7;
+			} else if (answerIndex == 1)
+			{
+				energy += 5;
+				happy -= 5;
+			}
+			break;
+		/*
+		 * 23
+		 * Let them go : lowers happiness by 15
+		 * Stay : lowers cash by $25, raises happiness by 10
+		 */
+		case 23:
+			if (answerIndex == 0)
+			{
+				happy -= 15;
+			} else if (answerIndex == 1)
+			{
+				cash -= 25;
+				happy += 10;
+			}
+			break;
+		/*
+		 * 24
+		 * Write : raises grade by 10, lowers happiness by 5, lowers energy
+		 * by
+		 * 10
+		 * Don't : raises energy by 7
+		 */
+		case 24:
+			if (answerIndex == 0)
+			{
+				grades += 10;
+				happy -= 5;
+				energy -= 10;
+			} else if (answerIndex == 1)
+			{
+				energy += 7;
+			}
+			break;
+		/*
+		 * 25
+		 * Vacation : lowers cash $500, lowers grade by 15, raises happiness by 15, raises
+		 * energy
+		 * by 15
+		 * Study : lowers energy by 5, raises grade by 7, lowers happiness
+		 * by 25
+		 */
+		case 25:
+			if (answerIndex == 0)
+			{
+				grades -= 15;
+				happy += 15;
+				energy += 15;
+				cash -= 500;
+			} else if (answerIndex == 1)
+			{
+				energy -= 5;
+				grades += 7;
+				happy -= 25;
+			}
+			break;
+		/*
+		 * 26
+		 * Go : raises grade by 10, lowers happiness by 15, lowers energy by
+		 * 15
+		 * Stay : raises energy by 10, raises happiness by 15, grade lowers by 5
+		 */
+		case 26:
+			if (answerIndex == 0)
+			{
+				grades += 10;
+				happy -= 15;
+				energy -= 15;
+			} else if (answerIndex == 1)
+			{
+				energy += 10;
+				happy += 15;
+				grades -= 5;
+			}
+			break;
+		/*
+		 * 27
+		 * Participate : raises cash by $15, lowers happiness by 5
+		 * Don't go : lowers happiness by 2
+		 */
+		case 27:
+			if (answerIndex == 0)
+			{
+				cash += 15;
+				happy -= 5;
+			} else if (answerIndex == 1)
+			{
+				happy -= 2;
+			}
+			break;
+		/*
+		 * 28
+		 * Go : lowers cash by $350, raises happiness by 20
+		 * Miss : lowers happiness by 20
+		 */
+		case 28:
+			if (answerIndex == 0)
+			{
+				cash -= 350;
+				happy += 20;
+			} else if (answerIndex == 1)
+			{
+				happy -= 20;
+			}
+			break;
+		/*
+		 * 29
+		 * Buy : lowers cash by $150, raises grade by 5
+		 * Don't : lowers grade by 10
+		 */
+		case 29:
+			if (answerIndex == 0)
+			{
+				cash -= 150;
+				grades += 5;
+			} else if (answerIndex == 1)
+			{
+				grades -= 10;
+			}
+			break;
+		/*
+		 * 30
+		 * Study : raises grade by 10, lowers energy by 15
+		 * Work : raises cash by $150, lowers grade by 10, lowers energy by
+		 * 15
+		 */
+		case 30:
+			if (answerIndex == 0)
+			{
+				cash += 150;
+				grades -= 10;
+				energy -= 15;
+			} else if (answerIndex == 1)
+			{
+				grades += 10;
+				energy -= 15;
+			}
+			break;
+		/*
+		 * 31
+		 * Play : raises cash by $50, raises happiness by 10, lowers energy
+		 * by
+		 * 20
+		 * Study : raises grade by 5, raises energy by 5
+		 */
+		case 31:
+			if (answerIndex == 0)
+			{
+				cash += 50;
+				happy += 10;
+				energy -= 20;
+			} else if (answerIndex == 1)
+			{
+				grades += 5;
+				energy += 5;
+			}
+			break;
+		
+		/* 32
+		 * Every      : lowers cash by $500, lowers happiness by 10
+		 * Essentials : lowers cash by $250, lowers happiness by 10, lowers grade by 10
+		 */
+		case 32:
+			if (answerIndex == 0)
+			{
+				cash -= 500;
+				happy -= 10;
+			} else if (answerIndex == 1)
+			{
+				grades -= 10;
+				cash -= 250;
+				happy -= 10;
+			}
+			break;
+
+		/* 33
+		 * Call  : raises cash by random, raises happiness by 5, lowers energy by 7
+		 * Study : raises grade by 5, lowers energy by 5
+		 */
+		case 33:
+			if (answerIndex == 0)
+			{
+				cash += r.nextInt(51);
+				happy += 5;
+				energy -= 7;
+			} else if (answerIndex == 1)
+			{
+				grades += 5;
+				energy -= 5;
+			}
+			break;
+		}//switch
+		String hw = weeklyHW();
+		weeklyPaid();
+		checkStatus();
+		noOverload();
+		return hw;
+	}
+}
+
+public String updateDepend(int type, int answerIndex)
+{
+	message = "";
+	errorMessage = "";
+	String y = takeExam();
+	if (takeExam)
+	{
+		return y;
+	} else
+	{
+		week++;
+		switch (type)
+		{
+		/*
+		 * 0
+		 * Apply : if grade >= 95, get up to $5000, grade >= 90, get up to $2000, raise happiness by 10; else
+		 * lower
+		 * happiness by 10
+		 * Study : raise grade by 5, lower energy by 5
+		 * Message: if true
+		 * You won the scholarship, congrats!
+		 * else
+		 * You didn't get the scholarship, you feel depressed from defeat.
+		 */
+		case 0:
+			if (answerIndex == 0)
+			{
+				if (grades >= 95)
+				{
+					int x = 500 + r.nextInt(4500);
+					cash += x;
+					happy += 20;
+					message = "You won a $" + x + " scholarship, congrats!";
+				} 
+				else if(grades >= 90)
+				{
+					int x = 500 + r.nextInt(1500);
+					cash += x;
+					happy += 15;
+					message = "You won a $" + x + " scholarship, congrats!";
+				}
+				else
+				{
+					happy -= 10;
+					message = "You didn't get the scholarship, you feel depressed from defeat.";
+				}
+			} else if (answerIndex == 1)
+			{
+				grades += 15;
+				energy -= 7;
+			}
+			break;
+		/*
+		 * 1
+		 * Apply : if grade >= 85, raise happiness by 10;
+		 * else
+		 * lower happiness by 10
+		 * Study : raise grade by 5, lower energy by 5
+		 * Message: if true
+		 * You got into the honors college, congrats!
+		 * else
+		 * You didn't get into the honors college, you feel depressed from
+		 * defeat.
+		 */
+		case 1:
+			if (answerIndex == 0)
+			{
+				if (grades >= 85)
+				{
+					grades += 15;
+					happy += 10;
+					message = "You got into the honors college, congrats!";
+				} else
+				{
+					happy -= 10;
+					message = "You didn't get into the honors college, you feel depressed from defeat.";
+				}
+
+			} else if (answerIndex == 1)
+			{
+				grades += 10;
+				energy -= 7;
+			}
+			break;
+		/*
+		 * 2
+		 * Try Out : if energy >= 85 and happiness >= 85, raise happiness by
+		 * 10;
+		 * else lower happiness by 10
+		 * Practice : lower energy by 10, raise happiness by 5
+		 * Message: if true
+		 * You got the spot on the team, congrats!
+		 * else
+		 * You didn't get the spot on the team, you feel depressed from
+		 * defeat.
+		 */
+
+		case 2:
+			if (answerIndex == 0)
+			{
+				if (energy >= 85 && happy >= 85)
+				{
+					happy += 10;
+					energy -= 5;
+					message = "You got the spot on the team, congrats!";
+				} else
+				{
+					happy -= 10;
+					energy -= 10;
+					message = "You didn't get the spot on the team, you feel depressed from defeat.";
+				}
+			} else if (answerIndex == 1)
+			{
+				energy -= 10;
+				happy += 5;
+			}
+			break;
+		/*
+		 * 3
+		 * Apply : if grade >= 75 and happiness >= 80, raise happiness by
+		 * 10; else lower happiness by 10
+		 * Study : raise grade by 5, lower energy by 5
+		 * Message: if true
+		 * You got the position, congrats!
+		 * else
+		 * You didn't get the position, you feel depressed from defeat.
+		 */
+		case 3:
+			if (answerIndex == 0)
+			{
+				if (grades >= 75 && happy >= 80)
+				{
+					happy += 10;
+					message = "You got the position, congrats!";
+				} else
+				{
+					happy -= 10;
+					message = "You didn't get the position, you feel depressed from defeat.";
+				}
+			} else if (answerIndex == 1)
+			{
+				grades += 10;
+				energy -= 7;
+			}
+			break;
+		/*
+		 * 4
+		 * Eat : if happiness >= 70, raise happiness by 10, raise cash by
+		 * $10;
+		 * else lower happiness by 10
+		 * Watch : raise happiness by 10
+		 * 
+		 * Message: if true
+		 * You won the contest, congrats!
+		 * else
+		 * You lost the contest, you feel depressed from defeat.
+		 */
+		case 4:
+			if (answerIndex == 0)
+			{
+				if (happy >= 70)
+				{
+					happy += 10;
+					cash += 10;
+					energy += 7;
+					message = "You won the contest, congrats!";
+				} else
+				{
+					happy -= 10;
+					energy -= 2;
+					message = "You lost the contest, you feel depressed from defeat.";
+				}
+			} else if (answerIndex == 1)
+			{
+				happy += 10;
+			}
+			break;
+		/*
+		 * 5
+		 * Apply : if grade >= 95, get up to $5000, grade >= 90, get up to $2000, raise happiness by 10; else
+		 * lower
+		 * happiness by 10
+		 * Study : raise grade by 5, lower energy by 5
+		 * Message: if true
+		 * You won the scholarship, congrats!
+		 * else
+		 * You didn't get the scholarship, you feel depressed from defeat.
+		 */
+		case 5:
+			if (answerIndex == 0)
+			{
+				if (grades >= 95)
+				{
+					int x = 500 + r.nextInt(4500);
+					cash += x;
+					happy += 20;
+					message = "You won a $" + x + " scholarship, congrats!";
+				} 
+				else if(grades >= 90)
+				{
+					int x = 500 + r.nextInt(1500);
+					cash += x;
+					happy += 15;
+					message = "You won a $" + x + " scholarship, congrats!";
+				}
+				else
+				{
+					happy -= 10;
+					message = "You didn't get the scholarship, you feel depressed from defeat.";
+				}
+			} else if (answerIndex == 1)
+			{
+				grades += 10;
+				energy -= 7;
+			}
+			break;
+
+		}//switch
+		String hw = weeklyHW();
+		weeklyPaid();
+		checkStatus();
+		noOverload();
+		return hw;
+	}
+}
+
+public double getCash()
+{
+	return cash;
+}
+
+public int getHappy()
+{
+	return happy;
+}
+
+public int getGrades()
+{
+	return grades;
+}
+
+public int getEnergy()
+{
+	return energy;
+}
+
+public int getWeek()
+{
+	return week;
+}
+
+public double getLoan()
+{
+	return loan;
+}
+
+public void addCash(double x)
+{
+	cash += x;
+}
+
+public void addHappy(int x)
+{
+	happy += x;
+}
+
+public void addGrades(int x)
+{
+	grades += x;
+}
+
+public void addEnergy(int x)
+{
+	energy += x;
+}
+
+public void addWeek(int x)
+{
+	week += x;
+}
+
+public String getMsg()
+{
+	return message + '\n' + errorMessage;
+}
+
+public double constantExpenses(int num, double updateNum)
+{
+	return updateNum * num;
+}
+
+public void payOff(double howMuch)
+{
+	loan -= howMuch;
+}
+
+public String takeExam()
+{
+	String y = "";
+	takeExam = false;
+	if (week == 4 || week == 9 || week == 15 || week == 19 || week == 24
+			|| week == 31)
+	{
+		if (grades >= 90)
+		{
+			grades += 5;
+			happy += 5;
+			y = "raised";
+		} else if (grades >= 80)
+		{
+			grades += 3;
+			happy += 3;
+			y = "raised";
+		} else if (grades >= 70)
+		{
+			// stay the same
+		} else if (grades >= 65)
+		{
+			grades -= 3;
+			happy -= 3;
+			y = "lowered";
+		} else
+		{
+			grades -= 10;
+			happy -= 10;
+			y = "lowered";
+			//week++;
+		}
+		energy -= 15;
+		week++;
+		
+		checkStatus();
+		noOverload();
+		takeExam = true;
+		return "You had an exam this week. Your grade " + y + " to " + grades + "%.";
+	}
+	return y;
+}
+
+public void checkStatus()
+{
+	if(grades<=40)
+	{
+		cash-=250;
+		grades+=40;
+		energy-=15;
+		errorMessage +="Your grades are too low, you hired a tutor for $250."+'\n';
+	}
+	if(energy<=30)
+	{
+		energy+=35;
+		grades-=25;
+		errorMessage +="Your energy is too low, you slept through your classes."+'\n';
+	}
+	if(happy<=25)
+	{
+		cash-=250;
+		happy+=25;
+		errorMessage +="Your happiness is too low, you bought anti-depressants for $250."+'\n';
+	}
+	if(cash<=0)
+	{
+		loan+=1000;
+		cash+=1000;
+		errorMessage +="You do not have enough money, you take out a $1,000 loan.";
+	}
+}
+
+public void noOverload()
+{
+	
+	if(happy>=100)
+	{
+		happy=100;
+	}
+	if(energy>=100)
+	{
+		energy=100;
+	}
+	if(grades>=100)
+	{
+		grades=100;
+	}
+	
+}
+
+public Questions getQuestions() {
+	return questions;
+}
+
+public void weeklyPaid()
+{
+	if(workType == 1)
+	{
+		updateFirst(2,0);
+		
+	}
+	else if (workType == 2)
+	{
+		updateFirst(2,1);
+	}
+}
+
+public String weeklyHW()
+{
+	int ranScore = r.nextInt(46);
+	int HWGrade = 55+ranScore;
+	if(HWGrade <= 60)
+	{
+		grades -= 15;
+	}
+	else if(HWGrade <=70 && HWGrade>=61)
+	{
+		grades -= 7;
+	}
+	else if(HWGrade <=80 && HWGrade>=71)
+	{
+		grades += 3;
+	}
+	else if(HWGrade <=90 && HWGrade>=81)
+	{
+		grades += 7;
+	}
+	else 
+	{
+		grades += 15;
+	}
+	return "You got " + HWGrade+ "% on your homework for Week " + week;
+}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function Question() {
+	
+	var firstMap = {};
+	var firstArray = {"Do you want live on or off campus?",
+			"Do you want a car, a bike, or to just walk campus?",
+			"Time to pick a job",
+			"Classes start soon, you need books for class",
+			"Do you want a laptop for school?"
+			};
+	var arr0 = {"On ($2500)", "Off ($1500)"};
+	var arr1 = {"Car ($1000, $10/week)", "Bike ($150)", "Walk"};
+	var arr2 = {"On-campus: Tutor ($7/hour, 3 hours/day)", "Off-campus: Restaurant Server ($9/hour 5 hours/day)"};
+	var arr3 = {"Buy books ($350)", "Don't buy books"};
+	var arr4 = {"Buy laptop ($750)", "Don't buy laptop"};
+	firstMap[0] = arr0;
+	firstMap[1] = arr1;
+	firstMap[2] = arr2;
+	firstMap[3] = arr3;
+	firstMap[4] = arr4;
+	
+	var randMap = {};
+	var randArray = {"There is a volunteer opportunity on campus this week.",
+			"You have an assignment due for your hardest class.",
+			"You are very sick.",
+			"You have a free night tonight!",
+			"You have a free weekend!",
+			"Club Fest is on campus!",
+			"Your best friend asks you to borrow money for a book.",
+			"Someone lovely asks you out on a date",
+			"There is a conference in town that could benefit your career",
+			"There is a research opportunity this weekend for students in your major",
+			"You have run out of meals on your meal plan.",
+			"You borrowed your friend's car for the weekend and got a speeding ticket",
+			"Your friend got engaged, and they are having party!",
+			"Your friends birthday is tonight, and they are having party!",
+			"After a late night hanging out with friends, you don't have enough time to sleep before class",
+			"You stayed up too late marathoning your favorite TV show, you don't have enough time to sleep before class",
+			"Your crush invites you to breakfast during your morning class!",
+			"Your favorite band is playing at the local bar during your night class",
+			"You forgot to do an assignment due tomorrow, and your neighbor has it done",
+			"Your friend forgot to do an assignment due tomorrow, and you have it done",
+			"The midnight premiere for Hunger Games: Mocking Jay is Thursday night.",
+			"You slip on ice running to class and think you broke your arm",
+			"Your friend is moving and offers you $20 to help!",
+			"Your significant other wants to break up with you",
+			"Your teacher offers you extra credit if you write a research paper",
+			"Your friends want to take a vacation this weekend, missing two days of class",
+			"You got snowed in, it's a snowpocalypse",
+			"The psychology club is offering $15 to students who participate in their research",
+			"Beyonce is in town and is playing a concert for one night only",
+			"You lost your calculator and need to buy a new one for class",
+			"Your boss asks you to work the weekend. You have a study group planned for your project.",
+			"Your friends wants you to join their band- they have a gig tonight that pays $50 each",
+			"You left your backpack unattended at the library and it was stolen",
+			"You haven't called your parents in a while... Maybe they will give you cash?"
+		};
+	var arr00 = {"Volunteer", "Don't volunteer"};
+	var arr01 = {"Don't do it", "Study for 3 hours", "Stay up all night to study"};
+	var arr02 = {"Go to Doctor ($100)", "Stay sick"};
+	var arr03 = {"Go out and PARTY ($75)", "Stay in and study"};
+	var arr04 = {"Go home to visit your parents ($35)", "Stay and study all weekend"};
+	var arr05 = {"Join clubs! ($25)", "Be antisocial"};
+	var arr06 = {"Give it up ($10)", "Reject them"};
+	var arr07 = {"Have a love life ($500)", "Be single"};
+	var arr08 = {"Go to conference ($250)", "Skip the conference"};
+	var arr09 = {"Research", "Work extra hours this weekend"};
+	var arr010 = {"Buy meals for the semester ($500)", "Buy meals by the week ($100/week)"};
+	var arr011 = {"Pay the ticket ($100)", "Contest in court and miss class ($50)"};
+	var arr012 = {"Buy them a present ($50)", "Skip the party"};
+	var arr013 = {"Buy them a present ($25)", "Skip the party"};
+	var arr014 = {"Go to class", "Skip class"};
+	var arr015 = {"Go to class", "Skip class"};
+	var arr016 = {"Go to class", "Skip class"};
+	var arr017 = {"Go to class", "Skip class"};
+	var arr018 = {"Pay them to do it ($50)", "Stay up all night to do it"};
+	var arr019 = {"Offer to do it for $50", "Go to bed"};
+	var arr020 = {"Go watch the spectacle ($15)", "Stay in and study"};
+	var arr021 = {"Pay Hospital bill ($300)", "Ignore the pain"};
+	var arr022 = {"Help out", "Stay in and nap"};
+	var arr023 = {"Let them go", "Buy them a gift to stay ($25)"};
+	var arr024 = {"Write it", "Don't do it"};
+	var arr025 = {"Go on vacation! ($500)", "Stay behind and study"};
+	var arr026 = {"Weather the storm", "Stay in and skip class"};
+	var arr027 = {"Participate", "Don't go"};
+	var arr028 = {"Buy a ticket ($350)", "Miss out"};
+	var arr029 = {"Buy it ($150)", "Don't buy it"};
+	var arr030 = {"Go work ($150)", "Go study"};
+	var arr031 = {"Rock out", "Stay in and study"};
+	var arr032 = {"Replace everything ($500)", "Replace only the essentials ($250)"};
+	var arr033 = {"Call Mom and Dad", "Go study"};
+	
+	randMap[0] = arr00;
+	randMap[1] = arr01;
+	randMap[2] = arr02;
+	randMap[3] = arr03;
+	randMap[4] = arr04;
+	randMap[5] = arr05;
+	randMap[6] = arr06;
+	randMap[7] = arr07;
+	randMap[8] = arr08;
+	randMap[9] = arr09;
+	randMap[10] = arr010;
+	randMap[11] = arr011;
+	randMap[12] = arr012;
+	randMap[13] = arr013;
+	randMap[14] = arr014;
+	randMap[15] = arr015;
+	randMap[16] = arr016;
+	randMap[17] = arr017;
+	randMap[18] = arr018;
+	randMap[19] = arr019;
+	randMap[20] = arr020;
+	randMap[21] = arr021;
+	randMap[22] = arr022;
+	randMap[23] = arr023;
+	randMap[24] = arr024;
+	randMap[25] = arr025;
+	randMap[26] = arr026;
+	randMap[27] = arr027;
+	randMap[28] = arr028;
+	randMap[29] = arr029;
+	randMap[30] = arr030;
+	randMap[31] = arr031;
+	randMap[32] = arr032;
+	randMap[33] = arr033;
+	
+	
+	var dependMap = {};
+	var dependArray = {"Your guidance councelor emailed you a scholarship application",
+			"The honors college is looking for senior applicants.",
+			"The intramural sports team has one spot open!",
+			"There is a leadership position open in your major.",
+			"There is a pie-eating contest on central campus- winner gets $10!",
+			"Your guidance councelor emailed you a scholarship application"
+			};
+	var arr10 = {"Apply", "Study"};
+	var arr11 = {"Apply", "Study"};
+	var arr12 = {"Try out!", "Practice"};
+	var arr13 = {"Apply", "Study"};
+	var arr14 = {"Eat!", "Just watch"};
+	var arr15 = {"Apply", "Study"};
+	dependMap[0] = arr10;
+	dependMap[1] = arr11;
+	dependMap[2] = arr12;
+	dependMap[3] = arr13;
+	dependMap[4] = arr14;
+	dependMap[5] = arr15;
+	
+	
+	this.getQuestion = function(type, index) {
+		switch(type)
+		{
+			case 1:
+				return firstArray[index];
+			case 2:
+				return randArray[index];
+			case 3:
+				return dependArray[index];
+			default:
+				return randArray[index];
+		}
+	}
+	
+	this.getAnswer = function(type, index) {
+		switch(type)
+		{
+			case 1:
+				return firstMap[index];
+			case 2:
+				return randMap[index];
+			case 3:
+				return dependMap[index];
+			default:
+				return randMap[index];
+		}
+	}
+}
+
+
+	

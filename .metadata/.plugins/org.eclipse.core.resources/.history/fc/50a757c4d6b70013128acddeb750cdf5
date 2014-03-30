@@ -1,0 +1,198 @@
+function Player (money, happy, grade, energy, loan) {
+    this.money = money;
+    this.happy = happy;
+    this.grade = grade;
+    this.energy = energy;
+    this.loan = loan;
+    var week = 0;
+	var message = "";
+	var errorMessage = "";
+	var questions = new Questions();
+	//Math.floor((Math.random()*100)+1);      1 to 100
+	var workType = 0;
+	var takeExam = false;
+    this.getInfo = function() {
+        return this.color + ' ' + this.type + ' apple';
+    };
+}
+
+function Question() {
+	
+	var firstMap = {};
+	var firstArray = {"Do you want live on or off campus?",
+			"Do you want a car, a bike, or to just walk campus?",
+			"Time to pick a job",
+			"Classes start soon, you need books for class",
+			"Do you want a laptop for school?"
+			};
+	var arr0 = {"On ($2500)", "Off ($1500)"};
+	var arr1 = {"Car ($1000, $10/week)", "Bike ($150)", "Walk"};
+	var arr2 = {"On-campus: Tutor ($7/hour, 3 hours/day)", "Off-campus: Restaurant Server ($9/hour 5 hours/day)"};
+	var arr3 = {"Buy books ($350)", "Don't buy books"};
+	var arr4 = {"Buy laptop ($750)", "Don't buy laptop"};
+	firstMap[0] = arr0;
+	firstMap[1] = arr1;
+	firstMap[2] = arr2;
+	firstMap[3] = arr3;
+	firstMap[4] = arr4;
+	
+	var randMap = {};
+	var randArray = {"There is a volunteer opportunity on campus this week.",
+			"You have an assignment due for your hardest class.",
+			"You are very sick.",
+			"You have a free night tonight!",
+			"You have a free weekend!",
+			"Club Fest is on campus!",
+			"Your best friend asks you to borrow money for a book.",
+			"Someone lovely asks you out on a date",
+			"There is a conference in town that could benefit your career",
+			"There is a research opportunity this weekend for students in your major",
+			"You have run out of meals on your meal plan.",
+			"You borrowed your friend's car for the weekend and got a speeding ticket",
+			"Your friend got engaged, and they are having party!",
+			"Your friends birthday is tonight, and they are having party!",
+			"After a late night hanging out with friends, you don't have enough time to sleep before class",
+			"You stayed up too late marathoning your favorite TV show, you don't have enough time to sleep before class",
+			"Your crush invites you to breakfast during your morning class!",
+			"Your favorite band is playing at the local bar during your night class",
+			"You forgot to do an assignment due tomorrow, and your neighbor has it done",
+			"Your friend forgot to do an assignment due tomorrow, and you have it done",
+			"The midnight premiere for Hunger Games: Mocking Jay is Thursday night.",
+			"You slip on ice running to class and think you broke your arm",
+			"Your friend is moving and offers you $20 to help!",
+			"Your significant other wants to break up with you",
+			"Your teacher offers you extra credit if you write a research paper",
+			"Your friends want to take a vacation this weekend, missing two days of class",
+			"You got snowed in, it's a snowpocalypse",
+			"The psychology club is offering $15 to students who participate in their research",
+			"Beyonce is in town and is playing a concert for one night only",
+			"You lost your calculator and need to buy a new one for class",
+			"Your boss asks you to work the weekend. You have a study group planned for your project.",
+			"Your friends wants you to join their band- they have a gig tonight that pays $50 each",
+			"You left your backpack unattended at the library and it was stolen",
+			"You haven't called your parents in a while... Maybe they will give you cash?"
+		};
+	var arr00 = {"Volunteer", "Don't volunteer"};
+	var arr01 = {"Don't do it", "Study for 3 hours", "Stay up all night to study"};
+	var arr02 = {"Go to Doctor ($100)", "Stay sick"};
+	var arr03 = {"Go out and PARTY ($75)", "Stay in and study"};
+	var arr04 = {"Go home to visit your parents ($35)", "Stay and study all weekend"};
+	var arr05 = {"Join clubs! ($25)", "Be antisocial"};
+	var arr06 = {"Give it up ($10)", "Reject them"};
+	var arr07 = {"Have a love life ($500)", "Be single"};
+	var arr08 = {"Go to conference ($250)", "Skip the conference"};
+	var arr09 = {"Research", "Work extra hours this weekend"};
+	var arr010 = {"Buy meals for the semester ($500)", "Buy meals by the week ($100/week)"};
+	var arr011 = {"Pay the ticket ($100)", "Contest in court and miss class ($50)"};
+	var arr012 = {"Buy them a present ($50)", "Skip the party"};
+	var arr013 = {"Buy them a present ($25)", "Skip the party"};
+	var arr014 = {"Go to class", "Skip class"};
+	var arr015 = {"Go to class", "Skip class"};
+	var arr016 = {"Go to class", "Skip class"};
+	var arr017 = {"Go to class", "Skip class"};
+	var arr018 = {"Pay them to do it ($50)", "Stay up all night to do it"};
+	var arr019 = {"Offer to do it for $50", "Go to bed"};
+	var arr020 = {"Go watch the spectacle ($15)", "Stay in and study"};
+	var arr021 = {"Pay Hospital bill ($300)", "Ignore the pain"};
+	var arr022 = {"Help out", "Stay in and nap"};
+	var arr023 = {"Let them go", "Buy them a gift to stay ($25)"};
+	var arr024 = {"Write it", "Don't do it"};
+	var arr025 = {"Go on vacation! ($500)", "Stay behind and study"};
+	var arr026 = {"Weather the storm", "Stay in and skip class"};
+	var arr027 = {"Participate", "Don't go"};
+	var arr028 = {"Buy a ticket ($350)", "Miss out"};
+	var arr029 = {"Buy it ($150)", "Don't buy it"};
+	var arr030 = {"Go work ($150)", "Go study"};
+	var arr031 = {"Rock out", "Stay in and study"};
+	var arr032 = {"Replace everything ($500)", "Replace only the essentials ($250)"};
+	var arr033 = {"Call Mom and Dad", "Go study"};
+	
+	randMap[0] = arr00;
+	randMap[1] = arr01;
+	randMap[2] = arr02;
+	randMap[3] = arr03;
+	randMap[4] = arr04;
+	randMap[5] = arr05;
+	randMap[6] = arr06;
+	randMap[7] = arr07;
+	randMap[8] = arr08;
+	randMap[9] = arr09;
+	randMap[10] = arr010;
+	randMap[11] = arr011;
+	randMap[12] = arr012;
+	randMap[13] = arr013;
+	randMap[14] = arr014;
+	randMap[15] = arr015;
+	randMap[16] = arr016;
+	randMap[17] = arr017;
+	randMap[18] = arr018;
+	randMap[19] = arr019;
+	randMap[20] = arr020;
+	randMap[21] = arr021;
+	randMap[22] = arr022;
+	randMap[23] = arr023;
+	randMap[24] = arr024;
+	randMap[25] = arr025;
+	randMap[26] = arr026;
+	randMap[27] = arr027;
+	randMap[28] = arr028;
+	randMap[29] = arr029;
+	randMap[30] = arr030;
+	randMap[31] = arr031;
+	randMap[32] = arr032;
+	randMap[33] = arr033;
+	
+	
+	var dependMap = {};
+	var dependArray = {"Your guidance councelor emailed you a scholarship application",
+			"The honors college is looking for senior applicants.",
+			"The intramural sports team has one spot open!",
+			"There is a leadership position open in your major.",
+			"There is a pie-eating contest on central campus- winner gets $10!",
+			"Your guidance councelor emailed you a scholarship application"
+			};
+	var arr10 = {"Apply", "Study"};
+	var arr11 = {"Apply", "Study"};
+	var arr12 = {"Try out!", "Practice"};
+	var arr13 = {"Apply", "Study"};
+	var arr14 = {"Eat!", "Just watch"};
+	var arr15 = {"Apply", "Study"};
+	dependMap[0] = arr10;
+	dependMap[1] = arr11;
+	dependMap[2] = arr12;
+	dependMap[3] = arr13;
+	dependMap[4] = arr14;
+	dependMap[5] = arr15;
+	
+	
+	this.getQuestion = function(type, index) {
+		switch(type)
+		{
+			case 1:
+				return firstArray[index];
+			case 2:
+				return randArray[index];
+			case 3:
+				return dependArray[index];
+			default:
+				return randArray[index];
+		}
+	}
+	
+	this.getAnswer = function(type, index) {
+		switch(type)
+		{
+			case 1:
+				return firstMap[index];
+			case 2:
+				return randMap[index];
+			case 3:
+				return dependMap[index];
+			default:
+				return randMap[index];
+		}
+	}
+}
+
+
+	

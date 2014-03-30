@@ -3,7 +3,7 @@ import java.util.Random;
 public class Player
 {
 
-	public double cash;
+	public int cash;
 	public int happy;
 	public int grades;
 	public int energy;
@@ -16,7 +16,7 @@ public class Player
 	public boolean takeExam;
 	public Random r;
 
-	public Player(double money, int happiness, int grade, int ener, int loan)
+	public Player(int money, int happiness, int grade, int ener, int loan)
 	{
 		// week 1 money is $1000
 		cash = money;
@@ -1041,7 +1041,7 @@ public class Player
 		}
 	}
 
-	public double getCash()
+	public int getCash()
 	{
 		return cash;
 	}
@@ -1066,12 +1066,12 @@ public class Player
 		return week;
 	}
 
-	public double getLoan()
+	public int getLoan()
 	{
 		return loan;
 	}
 
-	public void addCash(double x)
+	public void addCash(int x)
 	{
 		cash += x;
 	}
@@ -1104,11 +1104,6 @@ public class Player
 	public double constantExpenses(int num, double updateNum)
 	{
 		return updateNum * num;
-	}
-
-	public void payOff(double howMuch)
-	{
-		loan -= howMuch;
 	}
 
 	public String takeExam()
@@ -1156,11 +1151,11 @@ public class Player
 	
 	public void checkStatus()
 	{
-		if(grades<=50)
+		if(grades<=40)
 		{
-			cash-=525;
-			grades+=35;
-			energy-=10;
+			cash-=250;
+			grades+=40;
+			energy-=15;
 			errorMessage +="Your grades are too low, you hired a tutor for $250."+'\n';
 		}
 		if(energy<=30)

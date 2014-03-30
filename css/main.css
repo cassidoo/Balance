@@ -12,7 +12,7 @@ body
 	padding: 10px;
 	font-size: 60px;
 	line-height: 50px;
-	background-color: #261919;
+	background-color: #181716;
 }
 
 #weeks
@@ -33,19 +33,101 @@ body
 /*Loan amount and job*/
 .info
 {
-	
+
 }
 
 /*Big question*/
 .question
 {
-	
+
 }
 
 /*Progress bars and paying loans*/
 .progress
 {
-	
+
+}
+
+.pb
+{
+	width: 70%;
+	margin: 10px;
+	height: 30px;
+	border: 1px solid #000;
+}
+
+.high
+{
+	background-color: #69B34E;
+}
+.medium
+{
+	background-color: #ede76d;
+}
+.low
+{
+	background-color: #dc5753;
+}
+
+.pb .level
+{
+	height: 100%;
+}
+
+.bub
+{
+	height: 100%;
+	width: 100%;
+	background-image: url("../assets/bubbles.png");
+	-webkit-animation: sparkle 1500ms linear infinite;
+	-moz-animation: sparkle 1500ms linear infinite;
+	-o-animation: sparkle 1500ms linear infinite;
+	animation: sparkle 1500ms linear infinite;
+	opacity: .2;
+}
+
+@-webkit-keyframes sparkle {
+from
+{
+	background-position: 0 0;
+}
+to
+{
+	background-position: 0 -64px;
+}
+}
+@-moz-keyframes
+sparkle
+{
+	from {
+	background-position: 0 0;
+}
+to
+{
+	background-position: 0 -64px;
+}
+}
+@-o-keyframes
+sparkle
+{
+	from {
+	background-position: 0 0;
+}
+to
+{
+	background-position: 0 -64px;
+}
+}
+@keyframes
+sparkle
+{
+	from {
+	background-position: 0 0;
+}
+to
+{
+	background-position: 0 -64px;
+}
 }
 
 @media only screen and (min-width: 36em)

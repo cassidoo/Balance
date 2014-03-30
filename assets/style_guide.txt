@@ -3,14 +3,12 @@ Style Guide
 Fonts: Droid Serif (http://www.google.com/fonts#UsePlace:use/Collection:Droid+Serif)
 
 Colors:
-#261919 (gray 0)
-rgb(38, 25, 25)
+#181716 (gray 0)
 
 #574c4c (gray 1)
 rgb(87,76,76)
 
-#8A7C6E (gray 2)
-rgb(138,124,110)
+#383632 (gray 2)
 
 #6e6762 (gray 3)
 rgb(110,103,98)

@@ -1,3 +1,5 @@
+import java.util.Random;
+
 public class Player
 {
 
@@ -10,6 +12,7 @@ public class Player
 	public String message;
 	public Questions questions;
 	public String errorMessage;
+	public int workType;
 
 	public Player(double money, int happiness, int grade, int ener, int loan)
 	{
@@ -23,6 +26,7 @@ public class Player
 		message = "";
 		errorMessage = "";
 		questions = new Questions();
+		workType = 0;
 	}
 
 	public void updateFirst(int type, int answerIndex)
@@ -93,13 +97,15 @@ public class Player
 				{
 
 					grades += 3;
+					//weekly paid
 					cash += constantExpenses(21, 7);
-
+					workType = 1;
 				} else if (answerIndex == 1)
 				{
 					grades -= 3;
 					energy -= 10;
 					cash += constantExpenses(35, 8.50);
+					workType = 2;
 				}
 				break;
 
@@ -356,7 +362,7 @@ public class Player
 				{
 					/*------------------------------------------*/
 					// check this later, 3 is how many weeks left
-					cash -= constantExpenses(3, 100);
+					cash -= constantExpenses(33-week, 100);
 				}
 				break;
 			/*
@@ -1070,10 +1076,51 @@ public class Player
 		{
 			grades=100;
 		}
+		weeklyHW();
+		weelyPaid();
 	}
 
 	public Questions getQuestions() {
 		return questions;
 	}
 	
+	public void weelyPaid()
+	{
+		if(workType == 1)
+		{
+			updateFirst(2,0);
+		}
+		else if (workType == 2)
+		{
+			updateFirst(2,1);
+		}
+	}
+	
+	public void weeklyHW()
+	{
+		Random r = new Random();
+		int ranScore = r.nextInt(46);
+		int HWGrade = 55+ranScore;
+		if(HWGrade <= 60)
+		{
+			grades-=20;
+		}
+		else if(HWGrade <=70 && HWGrade>=61)
+		{
+			grades-=10;
+		}
+		else if(HWGrade <=80 && HWGrade>=71)
+		{
+			
+		}
+		else if(HWGrade <=90 && HWGrade>=81)
+		{
+			grades+=3;
+		}
+		else 
+		{
+			grades+=5;
+		}
+		System.out.println("You got " + HWGrade+ "% on your homework for Week " + week );
+	}
 }

@@ -2,9 +2,6 @@ package com.example.gametest;
 
 import android.annotation.TargetApi;
 import android.app.ActionBar;
-import android.app.AlertDialog;
-import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -36,7 +33,8 @@ public class MainActivity extends Activity {
     private TextView moneyAmountView;
     private TextView loanAmountView;
     private TextView weekView;
-    private TextView QView;
+    private TextView QView, JobView, gradeScale,energyScale,happyScale;
+    
 
     private int moneyAmount;
     private int loanDebt;
@@ -44,15 +42,14 @@ public class MainActivity extends Activity {
     private int happyBarProgress;
     private int energyBarProgress;
     private int week;
-    public int count = 0;
-	final Context context = this;
-    
-    public int firstIndex = 0;
     
     private Player p;
     private String[] answers;
-    private Questions questions;
+    private String question;
     private Random r;
+    private Random r1;
+    private Random r2;
+    private int counter; 
     private final static int OTHER_SCREEN = 1;
     
 
@@ -63,10 +60,12 @@ public class MainActivity extends Activity {
 
 
         //Instantiate objects and values
-        //question="";
-       answers = new String[3];
+        question="";
+        answers = new String[3];
         r = new Random();
-        
+        r1 = new Random();
+        r2 = new Random();
+        counter=1;
         
         p = new Player(5000,100,100,100,12000);
         
@@ -77,38 +76,17 @@ public class MainActivity extends Activity {
     }
     
     
- 
-
-
-/*
-	@Override
-	protected void onResume() {
-    	super.onResume();  
-    	
-	}*/
-
-
+    
     public void instantiate()
     {
-    	questions = p.getQuestions();
-    	moneyAmount = p.getCash();
-        loanDebt = p.getLoan();
-        gradeBarProgress = p.getGrades();
-        happyBarProgress = p.getHappy();
-        energyBarProgress = p.getEnergy();
-        week = p.getWeek();
+    	getValue();
     	
     	btn_opt1 = (Button) findViewById(R.id.btn_opt1);
-    	btn_opt1.setText("Start");
+    	
     	
         btn_opt2 = (Button) findViewById(R.id.btn_opt2);
-        btn_opt2.setText("Exist");
+       
         
-    	if(week == 0)
-    	{
-    		btn_opt2.setVisibility(0);
-    	}
-        btn_opt3 = new Button(this);
         btn_payLoan = (Button) findViewById(R.id.pay_loan);
 
         gradeBar = (ProgressBar) findViewById(R.id.progressBar2);
@@ -125,123 +103,26 @@ public class MainActivity extends Activity {
 
         moneyAmountView = (TextView) findViewById(R.id.moneyAmount);
         //Temporary for Demo Purposes
-        moneyAmountView.setText("$" + moneyAmount);
         moneyAmountView.setTextSize(35);
-
         weekView = (TextView) findViewById(R.id.weekView);
-        weekView.setText("Week: " + week);
-
         loanAmountView = (TextView) findViewById(R.id.loanView);
-        loanAmountView.setText("Loans: $" + loanDebt);
         QView = (TextView)findViewById(R.id.situation);
+        JobView = (TextView)findViewById(R.id.jobView);
+        gradeScale = (TextView)findViewById(R.id.gradeScale);
+        energyScale = (TextView)findViewById(R.id.energyScale);
+        happyScale = (TextView)findViewById(R.id.happinessScale);
+        
+        setViews();
+        question = p.getQuestions().getQuestion(1, 0);
+		answers = p.getQuestions().getAnswer(1, 0);
+		btn_opt1.setText(answers[0]);
+		btn_opt2.setText(answers[1]);
 
-        gradeBar.setProgress(gradeBarProgress);
-        happyBar.setProgress(happyBarProgress);
-        energyBar.setProgress(energyBarProgress);
-        
-        
         btn_opt1.setOnClickListener(new View.OnClickListener() {
         	@Override
             public void onClick(View view) {
-                if(firstIndex == 0)
-                {
-            		btn_opt2.setVisibility(4);
-            		QView.setText(questions.getQuestion(1, firstIndex));
-            		btn_opt1.setText(questions.getAnswer(1, firstIndex)[0]);
-            		btn_opt2.setText(questions.getAnswer(1, firstIndex)[1]);
-            		p.updateFirst(firstIndex, 0);
-            		firstIndex++;
-                }
-                
-                if(firstIndex < 5)
-                {
-                	QView.setText(questions.getQuestion(1, firstIndex));
-            		btn_opt1.setText(questions.getAnswer(1, firstIndex)[0]);
-            		btn_opt2.setText(questions.getAnswer(1, firstIndex)[1]);
-            		if(firstIndex == 3)
-            		{
-                		String[] answer = questions.getAnswer(1, firstIndex-1);
-               			QView.setText(answer[0]);
-            		}
-            		p.updateFirst(firstIndex, 0);
-            		firstIndex++;
-                }
-        		
-        		if(count < 33)
-        		{
-        			int x = r.nextInt(10);
-        			if(x < 3)
-        			{
-        				int depRand = r.nextInt(6);
-        				QView.setText(questions.getQuestion(3, depRand));
-        				btn_opt1.setText(questions.getAnswer(3, depRand)[0]);
-                		btn_opt2.setText(questions.getAnswer(3, depRand)[1]);
-        				
-        				AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
-        		        // set title
-        			    alertDialogBuilder.setTitle("End of week");
-        		 
-        					// set dialog message
-        					alertDialogBuilder.setMessage(p.updateDepend(depRand, 0) + '\n' + p.getMsg())
-        						.setCancelable(false)
-        						.setPositiveButton("Ok",new DialogInterface.OnClickListener() {
-        							public void onClick(DialogInterface dialog,int id) {
-        								// if this button is clicked, close
-        								// current activity
-        								dialog.cancel();
-        							}
-        						  })
-        						/*.setNegativeButton("No",new DialogInterface.OnClickListener() {
-        							public void onClick(DialogInterface dialog,int id) {
-        								// if this button is clicked, just close
-        								// the dialog box and do nothing
-        								dialog.cancel();
-        							}
-        						})*/;
-        		 
-        						// create alert dialog
-        						AlertDialog alertDialog = alertDialogBuilder.create();
-        		 
-        						// show it
-        						alertDialog.show();
-        			}
-        			else
-        			{
-        				int randRand = r.nextInt(34);
-        				QView.setText(questions.getQuestion(2, randRand));
-        				btn_opt1.setText(questions.getAnswer(2, randRand)[0]);
-                		btn_opt2.setText(questions.getAnswer(2, randRand)[1]);
-        				
-        				AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
-        		        // set title
-        			    alertDialogBuilder.setTitle("End of week");
-        		 
-        					// set dialog message
-        					alertDialogBuilder.setMessage(p.updateRan(randRand, 0) + '\n' + p.getMsg())
-        						.setCancelable(false)
-        						.setPositiveButton("Ok",new DialogInterface.OnClickListener() {
-        							public void onClick(DialogInterface dialog,int id) {
-        								// if this button is clicked, close
-        								// current activity
-        								MainActivity.this.finish();
-        							}
-        						  })
-        						/*.setNegativeButton("No",new DialogInterface.OnClickListener() {
-        							public void onClick(DialogInterface dialog,int id) {
-        								// if this button is clicked, just close
-        								// the dialog box and do nothing
-        								dialog.cancel();
-        							}
-        						})*/;
-        		 
-        						// create alert dialog
-        						AlertDialog alertDialog = alertDialogBuilder.create();
-        		 
-        						// show it
-        						alertDialog.show();
-        			}
-        			count++;
-                }
+        		weeklyUpdate(0);
+        		counter++;
                 
             }
         });
@@ -249,105 +130,105 @@ public class MainActivity extends Activity {
         btn_opt2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(firstIndex == 0)
-                {
-            		btn_opt2.setVisibility(4);
-            		QView.setText(questions.getQuestion(1, firstIndex));
-            		btn_opt1.setText(questions.getAnswer(1, firstIndex)[0]);
-            		btn_opt2.setText(questions.getAnswer(1, firstIndex)[1]);
-            		p.updateFirst(firstIndex, 1);
-            		firstIndex++;
-                }
-                
-                if(firstIndex < 5)
-                {
-                	QView.setText(questions.getQuestion(1, firstIndex));
-            		btn_opt1.setText(questions.getAnswer(1, firstIndex)[0]);
-            		btn_opt2.setText(questions.getAnswer(1, firstIndex)[1]);
-            		if(firstIndex == 3)
-            		{
-                		String[] answer = questions.getAnswer(1, firstIndex-1);
-               			QView.setText(answer[0]);
-            		}
-            		p.updateFirst(firstIndex, 1);
-            		firstIndex++;
-                }
-        		
-                else if(count < 33)
-                {
-        			int x = r.nextInt(10);
-        			if(x < 3)
-        			{
-        				int depRand = r.nextInt(6);
-        				QView.setText(questions.getQuestion(3, depRand));
-        				btn_opt1.setText(questions.getAnswer(3, depRand)[0]);
-                		btn_opt2.setText(questions.getAnswer(3, depRand)[1]);
-        				
-        				AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
-        		        // set title
-        			    alertDialogBuilder.setTitle("End of week");
-        		 
-        					// set dialog message
-        					alertDialogBuilder.setMessage(p.updateDepend(depRand, 1) + '\n' + p.getMsg())
-        						.setCancelable(false)
-        						
-        						.setNegativeButton("Ok",new DialogInterface.OnClickListener() {
-        							public void onClick(DialogInterface dialog,int id) {
-        								// if this button is clicked, just close
-        								// the dialog box and do nothing
-        								dialog.cancel();
-        							}
-        						});
-        		 
-        						// create alert dialog
-        						AlertDialog alertDialog = alertDialogBuilder.create();
-        		 
-        						// show it
-        						alertDialog.show();
-        			}
-        			else
-        			{
-        				int randRand = r.nextInt(34);
-        				QView.setText(questions.getQuestion(2, randRand));
-        				btn_opt1.setText(questions.getAnswer(2, randRand)[0]);
-                		btn_opt2.setText(questions.getAnswer(2, randRand)[1]);
-        				
-        				AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
-        		        // set title
-        			    alertDialogBuilder.setTitle("End of week");
-        		 
-        					// set dialog message
-        					alertDialogBuilder.setMessage(p.updateRan(randRand, 1) + '\n' + p.getMsg())
-        						.setCancelable(false)
-        						.setPositiveButton("Ok",new DialogInterface.OnClickListener() {
-        							public void onClick(DialogInterface dialog,int id) {
-        								// if this button is clicked, close
-        								// current activity
-        								MainActivity.this.finish();
-        							}
-        						  })
-        						/*.setNegativeButton("No",new DialogInterface.OnClickListener() {
-        							public void onClick(DialogInterface dialog,int id) {
-        								// if this button is clicked, just close
-        								// the dialog box and do nothing
-        								dialog.cancel();
-        							}
-        						})*/;
-        		 
-        						// create alert dialog
-        						AlertDialog alertDialog = alertDialogBuilder.create();
-        		 
-        						// show it
-        						alertDialog.show();
-        			}
-        			count++;
-                }
-                
+            	weeklyUpdate(1);
+        		counter++;
             }
         });
   	 
     }
     
+    public void getValue()
+    {
+    	moneyAmount = p.getCash();
+        loanDebt = p.getLoan();
+        gradeBarProgress = p.getGrades();
+        happyBarProgress = p.getHappy();
+        energyBarProgress = p.getEnergy();
+        week = p.getWeek();
+    }
+    public void setViews()
+    {
+    	loanAmountView.setText("Loans: $" + loanDebt);
+    	moneyAmountView.setText("$" + moneyAmount);
+    	weekView.setText("Week: " + week);
+    	gradeBar.setProgress(gradeBarProgress);
+        happyBar.setProgress(happyBarProgress);
+        energyBar.setProgress(energyBarProgress);
+        gradeScale.setText(gradeBarProgress + "/100");
+        energyScale.setText(energyBarProgress + "/100");
+        happyScale.setText(happyBarProgress + "/100");
+    }
+    /**
+	 * Gets the question
+	 * @param type
+	 * 		  1 = First
+	 * 		  2 = Random
+	 * 		  3 = Dependent
+	 * @param index
+	 * 		  0 - 4 for First
+	 * 		  0 - 31 for Random
+	 * 		  0 - 4 for Dependent
+	 * @return
+	 *      Answer
+	 */
+    public void weeklyUpdate(int answerIndex)
+    {
+    	if(counter <5)
+    	{
+    		
+    			question = p.getQuestions().getQuestion(1, counter);
+    			answers = p.getQuestions().getAnswer(1, counter);
+    			btn_opt1.setText(answers[0]);
+    			btn_opt2.setText(answers[1]);
+    			//btn_opt3.setText(answers[2]);
+    			QView.setText(question);
+    			p.updateFirst(counter-1, answerIndex);
+    			if(counter == 3)
+    			{
+    				if(answerIndex == 0)
+    				{
+    					JobView.setText("Job: $7/hr");
+    				}
+    				else
+    				{
+    					JobView.setText("Job: $9/hr");
+    				}
+    			}
+    		
+       	}
+    	
+    	else if(counter<37)
+    	{
+    		int qType = r.nextInt(2)+2;
+    		int qIndex =0;
+    		if(qType == 2)
+    		{
+    			qIndex = r.nextInt(32);
+    			p.updateRan(qIndex, answerIndex);
+    		}
+    		else
+    		{
+    			qIndex = r.nextInt(5);
+    			p.updateDepend(qIndex, answerIndex);
+    		}
+    		question = p.getQuestions().getQuestion(qType, qIndex);
+			answers = p.getQuestions().getAnswer(qType, qIndex);
+			btn_opt1.setText(answers[0]);
+			btn_opt2.setText(answers[1]);
+			//btn_opt3.setText(answers[2]);
+			QView.setText(question);
+			
+			
+    	}
+    	else
+    	{
+    		// the end of the semester, check the loans.
+    	}
+    	getValue();
+    	setViews();
+    	
+    	
+    }
     
     
     

@@ -1,14 +1,5 @@
 var weekNums = [];
 
-/*function setLogo()
-{
-    var w = $(window).width();
-    if(w > 1600) w = 1600;
-    var position = (w / 2) - ($("#logoimage").width());
-    $("#logoimage").css("left", position);
-    console.log("positioned");
-}*/
-
 function populateWeeks()
 {
     for(var i = 0; i < 32; i++)

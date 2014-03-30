@@ -33,8 +33,7 @@ public class MainActivity extends Activity {
     private TextView moneyAmountView;
     private TextView loanAmountView;
     private TextView weekView;
-    private TextView QView, JobView, gradeScale,energyScale,happyScale;
-    
+    private TextView QView;
 
     private int moneyAmount;
     private int loanDebt;
@@ -47,9 +46,6 @@ public class MainActivity extends Activity {
     private String[] answers;
     private String question;
     private Random r;
-    private Random r1;
-    private Random r2;
-    private int counter; 
     private final static int OTHER_SCREEN = 1;
     
 
@@ -61,11 +57,9 @@ public class MainActivity extends Activity {
 
         //Instantiate objects and values
         question="";
-        answers = new String[3];
+       answers = new String[3];
         r = new Random();
-        r1 = new Random();
-        r2 = new Random();
-        counter=1;
+        
         
         p = new Player(5000,100,100,100,12000);
         
@@ -76,17 +70,53 @@ public class MainActivity extends Activity {
     }
     
     
+ 
+
+
+/*
+	@Override
+	protected void onResume() {
+    	super.onResume();  
+    	
+	}*/
+
+
+	public void weeklyUpdate(int answerIndex)
+    {
+    	if(week ==0)
+    	{
+    		for(int i = 0; i < 5; i++)
+    		{
+    			question = p.getQuestions().getQuestion(1, i);
+    			answers = p.getQuestions().getAnswer(1, i);
+    			btn_opt1.setText(answers[0]);
+    			btn_opt2.setText(answers[1]);
+    			//btn_opt3.setText(answers[2]);
+    			QView.setText(question);
+    			p.updateFirst(i, answerIndex);
+    		}
+    		
+    	}
+    	//clickEvent();
+    	
+    	
+    }
     
     public void instantiate()
     {
-    	getValue();
+    	moneyAmount = p.getCash();
+        loanDebt = p.getLoan();
+        gradeBarProgress = p.getGrades();
+        happyBarProgress = p.getHappy();
+        energyBarProgress = p.getEnergy();
+        week = p.getWeek();
     	
     	btn_opt1 = (Button) findViewById(R.id.btn_opt1);
-    	
+    	btn_opt1.setText("Start");
     	
         btn_opt2 = (Button) findViewById(R.id.btn_opt2);
-       
-        
+        btn_opt2.setText("Exist");
+        btn_opt3 = new Button(this);
         btn_payLoan = (Button) findViewById(R.id.pay_loan);
 
         gradeBar = (ProgressBar) findViewById(R.id.progressBar2);
@@ -103,26 +133,27 @@ public class MainActivity extends Activity {
 
         moneyAmountView = (TextView) findViewById(R.id.moneyAmount);
         //Temporary for Demo Purposes
+        moneyAmountView.setText("$" + moneyAmount);
         moneyAmountView.setTextSize(35);
+
         weekView = (TextView) findViewById(R.id.weekView);
+        weekView.setText("Week: " + week);
+
         loanAmountView = (TextView) findViewById(R.id.loanView);
+        loanAmountView.setText("Loans: $" + loanDebt);
         QView = (TextView)findViewById(R.id.situation);
-        JobView = (TextView)findViewById(R.id.jobView);
-        gradeScale = (TextView)findViewById(R.id.gradeScale);
-        energyScale = (TextView)findViewById(R.id.energyScale);
-        happyScale = (TextView)findViewById(R.id.happinessScale);
-        
-        setViews();
-        question = p.getQuestions().getQuestion(1, 0);
-		answers = p.getQuestions().getAnswer(1, 0);
-		btn_opt1.setText(answers[0]);
-		btn_opt2.setText(answers[1]);
+
+        gradeBar.setProgress(gradeBarProgress);
+        happyBar.setProgress(happyBarProgress);
+        energyBar.setProgress(energyBarProgress);
 
         btn_opt1.setOnClickListener(new View.OnClickListener() {
         	@Override
             public void onClick(View view) {
-        		weeklyUpdate(0);
-        		counter++;
+                for(int i = 0; i<33; i++)
+                {
+                	 
+                }
                 
             }
         });
@@ -131,104 +162,12 @@ public class MainActivity extends Activity {
             @Override
             public void onClick(View view) {
             	weeklyUpdate(1);
-        		counter++;
+            
             }
         });
   	 
     }
     
-    public void getValue()
-    {
-    	moneyAmount = p.getCash();
-        loanDebt = p.getLoan();
-        gradeBarProgress = p.getGrades();
-        happyBarProgress = p.getHappy();
-        energyBarProgress = p.getEnergy();
-        week = p.getWeek();
-    }
-    public void setViews()
-    {
-    	loanAmountView.setText("Loans: $" + loanDebt);
-    	moneyAmountView.setText("$" + moneyAmount);
-    	weekView.setText("Week: " + week);
-    	gradeBar.setProgress(gradeBarProgress);
-        happyBar.setProgress(happyBarProgress);
-        energyBar.setProgress(energyBarProgress);
-        gradeScale.setText(gradeBarProgress + "/100");
-        energyScale.setText(energyBarProgress + "/100");
-        happyScale.setText(happyBarProgress + "/100");
-    }
-    /**
-	 * Gets the question
-	 * @param type
-	 * 		  1 = First
-	 * 		  2 = Random
-	 * 		  3 = Dependent
-	 * @param index
-	 * 		  0 - 4 for First
-	 * 		  0 - 31 for Random
-	 * 		  0 - 4 for Dependent
-	 * @return
-	 *      Answer
-	 */
-    public void weeklyUpdate(int answerIndex)
-    {
-    	if(counter <5)
-    	{
-    		
-    			question = p.getQuestions().getQuestion(1, counter);
-    			answers = p.getQuestions().getAnswer(1, counter);
-    			btn_opt1.setText(answers[0]);
-    			btn_opt2.setText(answers[1]);
-    			//btn_opt3.setText(answers[2]);
-    			QView.setText(question);
-    			p.updateFirst(counter-1, answerIndex);
-    			if(counter == 3)
-    			{
-    				if(answerIndex == 0)
-    				{
-    					JobView.setText("Job: $7/hr");
-    				}
-    				else
-    				{
-    					JobView.setText("Job: $9/hr");
-    				}
-    			}
-    		
-       	}
-    	
-    	else if(counter<42)
-    	{
-    		int qType = r.nextInt(2)+2;
-    		int qIndex =0;
-    		if(qType == 2)
-    		{
-    			qIndex = r.nextInt(32);
-    			p.updateRan(qIndex, answerIndex);
-    		}
-    		else
-    		{
-    			qIndex = r.nextInt(5);
-    			p.updateDepend(qIndex, answerIndex);
-    		}
-    		question = p.getQuestions().getQuestion(qType, qIndex);
-			answers = p.getQuestions().getAnswer(qType, qIndex);
-			btn_opt1.setText(answers[0]);
-			btn_opt2.setText(answers[1]);
-			//btn_opt3.setText(answers[2]);
-			QView.setText(question);
-			
-			
-    	}
-    	else
-    	{
-    		// the end of the semester, check the loans.
-    	}
-    	getValue();
-    	setViews();
-    	
-    	
-    }
     
     
     

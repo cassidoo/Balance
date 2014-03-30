@@ -21,41 +21,38 @@ public final class R {
         public static final int activity_vertical_margin=0x7f040001;
     }
     public static final class drawable {
-        public static final int crissxcross=0x7f020000;
-        public static final int happy64=0x7f020001;
-        public static final int ic_launcher=0x7f020002;
-        public static final int lighting64=0x7f020003;
-        public static final int money64=0x7f020004;
-        public static final int school64=0x7f020005;
+        public static final int happy64=0x7f020000;
+        public static final int ic_launcher=0x7f020001;
+        public static final int lighting64=0x7f020002;
+        public static final int money64=0x7f020003;
+        public static final int school64=0x7f020004;
     }
     public static final class id {
-        public static final int action_settings=0x7f08001a;
-        public static final int back_button=0x7f080019;
+        public static final int action_settings=0x7f080018;
+        public static final int back_button=0x7f080017;
         public static final int btn_layout=0x7f080002;
         public static final int btn_opt1=0x7f080003;
         public static final int btn_opt2=0x7f080004;
-        public static final int dollarSign=0x7f080018;
-        public static final int energyScale=0x7f080011;
-        public static final int gradeScale=0x7f08000f;
-        public static final int happinessScale=0x7f080010;
+        public static final int dollarSign=0x7f080016;
         public static final int imageView=0x7f080007;
         public static final int imageView2=0x7f080008;
         public static final int imageView3=0x7f080009;
         public static final int imageView4=0x7f08000a;
-        public static final int jobView=0x7f080014;
+        public static final int jobView=0x7f080012;
+        public static final int loanAndWeek=0x7f080011;
         public static final int loanView=0x7f080006;
         public static final int moneyAmount=0x7f08000b;
-        public static final int payLoanMsg=0x7f080015;
-        public static final int pay_loan=0x7f080012;
+        public static final int payLoanMsg=0x7f080013;
+        public static final int pay_loan=0x7f08000f;
         public static final int progressBar2=0x7f08000c;
         public static final int progressBar3=0x7f08000d;
         public static final int progressBar4=0x7f08000e;
         public static final int scrollView=0x7f080000;
-        public static final int send=0x7f080016;
+        public static final int send=0x7f080014;
         public static final int situation=0x7f080001;
         public static final int stats=0x7f080005;
-        public static final int userPayAmount=0x7f080017;
-        public static final int weekView=0x7f080013;
+        public static final int userPayAmount=0x7f080015;
+        public static final int weekView=0x7f080010;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;

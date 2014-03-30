@@ -24,3 +24,42 @@ body
 {
 	margin-right: 70px;
 }
+
+.content
+{
+	text-align: center;
+}
+
+/*Loan amount and job*/
+.info
+{
+	
+}
+
+/*Big question*/
+.question
+{
+	
+}
+
+/*Progress bars and paying loans*/
+.progress
+{
+	
+}
+
+@media only screen and (min-width: 36em)
+{
+	.info
+	{
+		width: 25%;
+	}/* 7/12 */
+	.question
+	{
+		width: 50%;
+	}/* 5/12 */
+	.progress
+	{
+		width: 25%;
+	}
+}

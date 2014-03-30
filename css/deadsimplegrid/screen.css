@@ -46,21 +46,19 @@ iframe {
 	color: #888;
 }
 .intro {
-	border-bottom: 1px dotted #bbb;
 	padding-bottom: 1.5em;
 }
 .social {
-	border-top: 1px dotted #bbb;
 	padding-top: 1.5em;
 }
 
 /* minor responsive adjustments */
 
 .footer {
-	border-top: 1px dotted #aaa;
+	/*border-top: 1px dotted #aaa;*/
 }
 .content {
-	border-bottom: 1px dotted #aaa;
+	/*border-bottom: 1px dotted #aaa;*/
 	margin-bottom: 1.5em;
 }
 
@@ -70,7 +68,7 @@ iframe {
 	}
 	.feature:first-child,
 	.info:first-child {
-		border-right: 1px dotted #aaa;
+		/*border-right: 1px dotted #aaa;*/
 	}
 	.container {
 		padding: 1em;
@@ -86,7 +84,7 @@ iframe {
 @media only screen and (min-width: 54em) {
 	.content {
 		border: none;
-		border-right: 1px dotted #aaa;
+		/*border-right: 1px dotted #aaa;*/
 		margin-bottom: 0;
 	}
 	.info:first-child {
@@ -102,7 +100,7 @@ iframe {
 
 @media only screen and (min-width: 76em) {
 	.info:first-child {
-		border-right: 1px dotted #aaa;
+		/*border-right: 1px dotted #aaa;*/
 	}
 	h1 {
 		font-size: 3.2em;

@@ -13,7 +13,6 @@ INDEX VERSION 1.126+/Users/CamiWilliams/Documents/GitHub/Balance/.metadata/.plug
 3000285004.index
 3321539481.index
 4238209716.index
-157892590.index
 1833648217.index
 3004609673.index
 1819685514.index

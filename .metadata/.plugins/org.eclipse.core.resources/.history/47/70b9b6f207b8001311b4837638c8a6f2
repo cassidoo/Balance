@@ -2,9 +2,6 @@ package com.example.gametest;
 
 import android.annotation.TargetApi;
 import android.app.ActionBar;
-import android.app.AlertDialog;
-import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -38,8 +35,7 @@ public class MainActivity extends Activity {
     private TextView weekView;
     private TextView QView, JobView, gradeScale,energyScale,happyScale;
     
-    public Context context = this;
-    
+
     private int moneyAmount;
     private int loanDebt;
     private int gradeBarProgress;
@@ -203,18 +199,17 @@ public class MainActivity extends Activity {
     	
     	else if(counter<37)
     	{
-    		String mess = "";
     		int qType = r.nextInt(2)+2;
     		int qIndex =0;
     		if(qType == 2)
     		{
     			qIndex = r.nextInt(32);
-    			mess = p.updateRan(qIndex, answerIndex);
+    			p.updateRan(qIndex, answerIndex);
     		}
     		else
     		{
     			qIndex = r.nextInt(5);
-    			mess = p.updateDepend(qIndex, answerIndex);
+    			p.updateDepend(qIndex, answerIndex);
     		}
     		question = p.getQuestions().getQuestion(qType, qIndex);
 			answers = p.getQuestions().getAnswer(qType, qIndex);
@@ -222,24 +217,6 @@ public class MainActivity extends Activity {
 			btn_opt2.setText(answers[1]);
 			//btn_opt3.setText(answers[2]);
 			QView.setText(question);
-			
-			
-			AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
-	        alertDialogBuilder.setTitle("End of week");
-	        alertDialogBuilder.setMessage(mess + '\n' + p.getMsg()).setCancelable(false)
-					.setNegativeButton("Ok",new DialogInterface.OnClickListener() {
-						public void onClick(DialogInterface dialog,int id) {
-							// if this button is clicked, just close
-							// the dialog box and do nothing
-							dialog.cancel();
-						}
-					});
-	 
-					// create alert dialog
-					AlertDialog alertDialog = alertDialogBuilder.create();
-					// show it
-					alertDialog.show();
-			
 			
 			
     	}

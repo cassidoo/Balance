@@ -327,14 +327,6 @@ public class Questions {
 		String[] arr032 = {"Replace everything ($500)", "Replace only the essentials ($250)"};
 		randAnswers.put(32, arr032);
 		
-		/* 33
-		 * Call  : raises cash by random, raises happiness by 5, lowers energy by 7
-		 * Study : raises grade by 5, lowers energy by 5
-		 */
-		randQuestions.add("You haven't called your parents in a while... Maybe they will give you cash?");
-		String[] arr033 = {"Call Mom and Dad", "Go study"};
-		randAnswers.put(33, arr033);
-		
 		//----------------------------------------------------------------------------------------------------------------------------- THESE QUESTIONS NEED A MESSAGE AFTER THE ANSWER
 		/* 0
 		 * Apply : if grade >= 90, get $500, raise happiness by 10; else lower happiness by 10

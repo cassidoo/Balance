@@ -26,21 +26,6 @@ public class Tests {
 		while(overall < 33)
 		{
 			System.out.println("Week: " + p.getWeek() + " Cash: $" + p.getCash() + "0  Grade: %" + p.getGrades() + "  Happiness: %" + p.getHappy() + "  Energy: %" + p.getEnergy() + "  Loan: $" + p.getLoan() + "0");
-			System.out.println();
-			System.out.println("Pay loan? Y/N");
-			String yn = s.next();
-			
-			if(yn.toUpperCase().equals("Y"))
-			{
-				System.out.println("How much?");
-				int num = s.nextInt();
-				p.payLoan(num);
-				System.out.println("Week: " + p.getWeek() + " Cash: $" + p.getCash() + "0  Grade: %" + p.getGrades() + "  Happiness: %" + p.getHappy() + "  Energy: %" + p.getEnergy() + "  Loan: $" + p.getLoan() + "0");
-				
-			}
-			
-			System.out.println();
-			
 			//dependent
 			if(rand.nextInt(10) < 3)
 			{
@@ -50,7 +35,7 @@ public class Tests {
 					System.out.print(p.getQuestions().getAnswer(3, x)[j] + " ");
 				System.out.println();
 				int answer = s.nextInt();
-				System.out.println(p.updateDepend(x, answer));
+				p.updateDepend(x, answer);
 				System.out.println(p.getMsg());
 			}
 			//random
@@ -62,7 +47,7 @@ public class Tests {
 					System.out.print(p.getQuestions().getAnswer(2, x)[j] + " ");
 				System.out.println();
 				int answer = s.nextInt();
-				System.out.println(p.updateRan(x, answer));
+				p.updateRan(x, answer);
 				System.out.println(p.getMsg());
 			}
 			

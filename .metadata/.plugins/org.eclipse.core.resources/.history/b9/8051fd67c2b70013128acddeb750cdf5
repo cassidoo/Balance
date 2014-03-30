@@ -80,8 +80,8 @@ public class Player
 			 * Car : $1000, raises happiness by 10, increases energy by 5,
 			 * lowers
 			 * money by $10/week
-			 * Bike : $150, lowers energy by 5, lowers happiness by 5
-			 * Walk : Lowers energy by 15, lowers happiness by 15
+			 * Bike : $150, lowers energy by 5
+			 * Walk : Lowers energy by 10, lowers happiness by 5
 			 */
 			case 1:
 				if (answerIndex == 0)
@@ -96,11 +96,10 @@ public class Player
 				{
 					cash -= 150;
 					energy -= 5;
-					happy -= 5;
 				} else if (answerIndex == 2)
 				{
-					energy -= 15;
-					happy -= 15;
+					energy -= 10;
+					happy -= 5;
 				}
 				break;
 
@@ -772,40 +771,7 @@ public class Player
 					energy += 5;
 				}
 				break;
-			
-			/* 32
-			 * Every      : lowers cash by $500, lowers happiness by 10
-			 * Essentials : lowers cash by $250, lowers happiness by 10, lowers grade by 10
-			 */
-			case 32:
-				if (answerIndex == 0)
-				{
-					cash -= 500;
-					happy -= 10;
-				} else if (answerIndex == 1)
-				{
-					grades -= 10;
-					cash -= 250;
-					happy -= 10;
-				}
-				break;
 
-			/* 33
-			 * Call  : raises cash by random, raises happiness by 5, lowers energy by 7
-			 * Study : raises grade by 5, lowers energy by 5
-			 */
-			case 33:
-				if (answerIndex == 0)
-				{
-					cash += r.nextInt(51);
-					happy += 5;
-					energy -= 7;
-				} else if (answerIndex == 1)
-				{
-					grades += 5;
-					energy -= 5;
-				}
-				break;
 			}//switch
 			String hw = weeklyHW();
 			weeklyPaid();
@@ -917,12 +883,10 @@ public class Player
 					if (energy >= 85 && happy >= 85)
 					{
 						happy += 10;
-						energy -= 5;
 						message = "You got the spot on the team, congrats!";
 					} else
 					{
 						happy -= 10;
-						energy -= 10;
 						message = "You didn't get the spot on the team, you feel depressed from defeat.";
 					}
 				} else if (answerIndex == 1)

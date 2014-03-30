@@ -33,30 +33,16 @@ public class Player
 		takeExam = false;
 	}
 
-	public void payLoan(int num)
-	{
-		if(num > cash)
-		{
-			loan -= cash;
-			cash = 0;
-		}
-		else if(num < 0)
-		{
-			loan -= num;
-			cash -= num;
-		}
-		else
-		{
-			loan -= num;
-			cash -= num;
-		}
-	}
 	public void updateFirst(int type, int answerIndex)
 	{
 		//message = "";
 		//errorMessage = "";
-		
-		switch (type)
+		if (takeExam())
+		{
+			return;
+		} else
+		{
+			switch (type)
 			{
 			/*
 			 * 0
@@ -80,8 +66,8 @@ public class Player
 			 * Car : $1000, raises happiness by 10, increases energy by 5,
 			 * lowers
 			 * money by $10/week
-			 * Bike : $150, lowers energy by 5, lowers happiness by 5
-			 * Walk : Lowers energy by 15, lowers happiness by 15
+			 * Bike : $150, lowers energy by 5
+			 * Walk : Lowers energy by 10, lowers happiness by 5
 			 */
 			case 1:
 				if (answerIndex == 0)
@@ -96,11 +82,10 @@ public class Player
 				{
 					cash -= 150;
 					energy -= 5;
-					happy -= 5;
 				} else if (answerIndex == 2)
 				{
-					energy -= 15;
-					happy -= 15;
+					energy -= 10;
+					happy -= 5;
 				}
 				break;
 
@@ -165,14 +150,13 @@ public class Player
 			}//end switch
 			checkStatus();
 			noOverload();
-		
+		}
 	}
 
 	public String updateRan(int type, int answerIndex)
 	{
 		message = "";
 		errorMessage = "";
-		week++;
 		String x = takeExam();
 		if (takeExam)
 		{
@@ -772,57 +756,23 @@ public class Player
 					energy += 5;
 				}
 				break;
-			
-			/* 32
-			 * Every      : lowers cash by $500, lowers happiness by 10
-			 * Essentials : lowers cash by $250, lowers happiness by 10, lowers grade by 10
-			 */
-			case 32:
-				if (answerIndex == 0)
-				{
-					cash -= 500;
-					happy -= 10;
-				} else if (answerIndex == 1)
-				{
-					grades -= 10;
-					cash -= 250;
-					happy -= 10;
-				}
-				break;
 
-			/* 33
-			 * Call  : raises cash by random, raises happiness by 5, lowers energy by 7
-			 * Study : raises grade by 5, lowers energy by 5
-			 */
-			case 33:
-				if (answerIndex == 0)
-				{
-					cash += r.nextInt(51);
-					happy += 5;
-					energy -= 7;
-				} else if (answerIndex == 1)
-				{
-					grades += 5;
-					energy -= 5;
-				}
-				break;
 			}//switch
-			String hw = weeklyHW();
+			weeklyHW();
 			weeklyPaid();
 			checkStatus();
 			noOverload();
-			return hw;
+			return "";
 		}
 	}
 
-	public String updateDepend(int type, int answerIndex)
+	public void updateDepend(int type, int answerIndex)
 	{
 		message = "";
 		errorMessage = "";
-		String y = takeExam();
-		if (takeExam)
+		if (takeExam())
 		{
-			return y;
+			return;
 		} else
 		{
 			week++;
@@ -869,7 +819,7 @@ public class Player
 				break;
 			/*
 			 * 1
-			 * Apply : if grade >= 85, raise happiness by 10;
+			 * Apply : if grade >= 85, raise happiness by 10, raise grade by 5;
 			 * else
 			 * lower happiness by 10
 			 * Study : raise grade by 5, lower energy by 5
@@ -885,6 +835,7 @@ public class Player
 					if (grades >= 85)
 					{
 						happy += 10;
+						grades += 5;
 						message = "You got into the honors college, congrats!";
 					} else
 					{
@@ -917,12 +868,10 @@ public class Player
 					if (energy >= 85 && happy >= 85)
 					{
 						happy += 10;
-						energy -= 5;
 						message = "You got the spot on the team, congrats!";
 					} else
 					{
 						happy -= 10;
-						energy -= 10;
 						message = "You didn't get the spot on the team, you feel depressed from defeat.";
 					}
 				} else if (answerIndex == 1)
@@ -934,7 +883,8 @@ public class Player
 			/*
 			 * 3
 			 * Apply : if grade >= 75 and happiness >= 80, raise happiness by
-			 * 10; else lower happiness by 10
+			 * 10,
+			 * raise grade by 10; else lower happiness by 10
 			 * Study : raise grade by 5, lower energy by 5
 			 * Message: if true
 			 * You got the position, congrats!
@@ -947,6 +897,7 @@ public class Player
 					if (grades >= 75 && happy >= 80)
 					{
 						happy += 10;
+						grades += 10;
 						message = "You got the position, congrats!";
 					} else
 					{
@@ -991,11 +942,10 @@ public class Player
 				break;
 
 			}//switch
-			String hw = weeklyHW();
+			weeklyHW();
 			weeklyPaid();
 			checkStatus();
 			noOverload();
-			return hw;
 		}
 	}
 
@@ -1069,10 +1019,8 @@ public class Player
 		loan -= howMuch;
 	}
 
-	public String takeExam()
+	public boolean takeExam()
 	{
-		String y = "";
-		takeExam = false;
 		if (week == 4 || week == 9 || week == 15 || week == 19 || week == 24
 				|| week == 31)
 		{
@@ -1080,12 +1028,10 @@ public class Player
 			{
 				grades += 5;
 				happy += 5;
-				y = "raised";
 			} else if (grades >= 80)
 			{
 				grades += 3;
 				happy += 3;
-				y = "raised";
 			} else if (grades >= 70)
 			{
 				// stay the same
@@ -1093,22 +1039,19 @@ public class Player
 			{
 				grades -= 3;
 				happy -= 3;
-				y = "lowered";
 			} else
 			{
 				grades -= 10;
 				happy -= 10;
-				y = "lowered";
 			}
 			energy -= 15;
 			week++;
 			
 			checkStatus();
 			noOverload();
-			takeExam = true;
-			return "You had an exam this week. Your grade " + y + " to " + grades + "%.";
+			return true;
 		}
-		return y;
+		return false;
 	}
 	
 	public void checkStatus()
@@ -1175,7 +1118,7 @@ public class Player
 		}
 	}
 	
-	public String weeklyHW()
+	public void weeklyHW()
 	{
 		int ranScore = r.nextInt(46);
 		int HWGrade = 55+ranScore;
@@ -1199,6 +1142,6 @@ public class Player
 		{
 			grades+=5;
 		}
-		return "You got " + HWGrade+ "% on your homework for Week " + week;
+		System.out.println("You got " + HWGrade+ "% on your homework for Week " + week );
 	}
 }

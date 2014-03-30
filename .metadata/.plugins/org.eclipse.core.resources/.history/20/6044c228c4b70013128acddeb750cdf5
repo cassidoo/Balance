@@ -81,7 +81,7 @@ public class Player
 			 * lowers
 			 * money by $10/week
 			 * Bike : $150, lowers energy by 5, lowers happiness by 5
-			 * Walk : Lowers energy by 15, lowers happiness by 15
+			 * Walk : Lowers energy by 10, lowers happiness by 15
 			 */
 			case 1:
 				if (answerIndex == 0)
@@ -99,7 +99,7 @@ public class Player
 					happy -= 5;
 				} else if (answerIndex == 2)
 				{
-					energy -= 15;
+					energy -= 10;
 					happy -= 15;
 				}
 				break;

@@ -35,8 +35,6 @@ public class Tests {
 				System.out.println("How much?");
 				int num = s.nextInt();
 				p.payLoan(num);
-				System.out.println("Week: " + p.getWeek() + " Cash: $" + p.getCash() + "0  Grade: %" + p.getGrades() + "  Happiness: %" + p.getHappy() + "  Energy: %" + p.getEnergy() + "  Loan: $" + p.getLoan() + "0");
-				
 			}
 			
 			System.out.println();

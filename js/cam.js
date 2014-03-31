@@ -11,16 +11,38 @@ var takeE = false;
 
 function payLoan(num)
 {
-    if(num > cash)
+    if(num < 0)
     {
+        $("#message h3").text("You can't pay a negative amount, silly!");
+    }
+    else if(num >= cash)
+    {
+        $("#message h3").text("Paid $" + cash + " towards your loan.");
         loan -= cash;
         cash = 0;
     }
     else
     {
+        $("#message h3").text("Paid $" + num + " towards your loan.");
         loan -= num;
         cash -= num;
     }
+}
+
+function pay()
+{
+    var amount = document.getElementById("payloan").value;
+    console.log("Before paying: " + getLoan());
+    payLoan(amount);
+    console.log("After paying: " + getLoan());
+    var div = document.getElementById("loanNum");
+    div.innerHTML = "<h2>$" + getLoan() + "</h2>";
+
+    setProgress("moneybar", 100, getCash());
+    setProgress("gradebar", getGrades(), getGrades());
+    setProgress("happybar", getHappy(), getHappy());
+    setProgress("energybar", getEnergy(), getEnergy());
+    //amount.value = "";
 }
 
 function updateFirst(type, answerIndex)
@@ -804,7 +826,7 @@ function constantExpenses(num, updateNum)
 function takeExam()
 {
     var y = "";
-    
+
     takeE = false;
     if(week === 4 || week === 9 || week === 15 || week === 19 || week === 24 || week === 31)
     {
@@ -849,30 +871,30 @@ function takeExam()
 
 function checkStatus()
 {
-    if(grades <= 40)
+    if(grades <= 30)
     {
         cash -= 250;
         grades += 40;
         energy -= 15;
-        errorMessage += "Your grades are too low, you hired a tutor for $250." + '\n';
+        errorMessage += "Your grades are too low, so you hired a tutor for $250." + '\n';
     }
-    if(energy <= 30)
+    if(energy <= 20)
     {
         energy += 35;
         grades -= 25;
-        errorMessage += "Your energy is too low, you slept through your classes." + '\n';
+        errorMessage += "Your energy is too low, so you slept through your classes." + '\n';
     }
-    if(happy <= 25)
+    if(happy <= 20)
     {
         cash -= 250;
         happy += 25;
-        errorMessage += "Your happiness is too low, you bought anti-depressants for $250." + '\n';
+        errorMessage += "Your happiness is too low, so you bought anti-depressants for $250." + '\n';
     }
-    if(cash <= 0)
+    if(cash < 0)
     {
         loan += 1000;
         cash += 1000;
-        errorMessage += "You do not have enough money, you take out a $1,000 loan.";
+        errorMessage += "You do not have enough money, so you take out a $1,000 loan.";
     }
 }
 
@@ -933,9 +955,7 @@ function weeklyHW()
     return "You got " + HWGrade + "% on your homework for Week " + week;
 }
 
-var firstMap =
-{
-};
+var firstMap = [];
 var firstArray = ["Do you want live on or off campus?", "Do you want a car, a bike, or to just walk campus?", "Time to pick a job", "Classes start soon, you need books for class", "Do you want a laptop for school?"];
 var arr0 = ["On ($2500)", "Off ($1500)"];
 var arr1 = ["Car ($1000, $10/week)", "Bike ($150)"];
@@ -948,9 +968,7 @@ firstMap[2] = arr2;
 firstMap[3] = arr3;
 firstMap[4] = arr4;
 
-var randMap =
-{
-};
+var randMap = [];
 var randArray = ["There is a volunteer opportunity on campus this week.", "You have an assignment due for your hardest class.", "You are very sick.", "You have a free night tonight!", "You have a free weekend!", "Club Fest is on campus!", "Your best friend asks you to borrow money for a book.", "Someone lovely asks you out on a date", "There is a conference in town that could benefit your career", "There is a research opportunity this weekend for students in your major", "You have run out of meals on your meal plan.", "You borrowed your friend's car for the weekend and got a speeding ticket", "Your friend got engaged, and they are having party!", "Your friends birthday is tonight, and they are having party!", "After a late night hanging out with friends, you don't have enough time to sleep before class", "You stayed up too late marathoning your favorite TV show, you don't have enough time to sleep before class", "Your crush invites you to breakfast during your morning class!", "Your favorite band is playing at the local bar during your night class", "You forgot to do an assignment due tomorrow, and your neighbor has it done", "Your friend forgot to do an assignment due tomorrow, and you have it done", "The midnight premiere for Hunger Games: Mocking Jay is Thursday night.", "You slip on ice running to class and think you broke your arm", "Your friend is moving and offers you $20 to help!", "Your significant other wants to break up with you", "Your teacher offers you extra credit if you write a research paper", "Your friends want to take a vacation this weekend, missing two days of class", "You got snowed in, it's a snowpocalypse", "The psychology club is offering $15 to students who participate in their research", "Beyonce is in town and is playing a concert for one night only", "You lost your calculator and need to buy a new one for class", "Your boss asks you to work the weekend. You have a study group planned for your project.", "Your friends wants you to join their band- they have a gig tonight that pays $50 each", "You left your backpack unattended at the library and it was stolen", "You haven't called your parents in a while... Maybe they will give you cash?"];
 var arr00 = ["Volunteer", "Don't volunteer"];
 var arr01 = ["Don't do it", "Study for 3 hours"];
@@ -1022,9 +1040,7 @@ randMap[31] = arr031;
 randMap[32] = arr032;
 randMap[33] = arr033;
 
-var dependMap =
-{
-};
+var dependMap = [];
 var dependArray = ["Your guidance councelor emailed you a scholarship application", "The honors college is looking for senior applicants.", "The intramural sports team has one spot open!", "There is a leadership position open in your major.", "There is a pie-eating contest on central campus- winner gets $10!", "Your guidance councelor emailed you a scholarship application"];
 var arr10 = ["Apply", "Study"];
 var arr11 = ["Apply", "Study"];
@@ -1161,13 +1177,13 @@ function determine(butt)
             {
                 setText(2, randRand, "change");
                 setButtons(2, randRand, "left", "center", "right");
-                updateRan(depRand, butt);             
+                updateRan(depRand, butt);
                 //getMsg();
                 $("#message h2").text("");
                 $("#message h3").text(updateRan(randRand, butt) + '\n' + getMsg());
                 nextWeek();
             }
-            
+
             setProgress("moneybar", 100, getCash());
             setProgress("gradebar", getGrades(), getGrades());
             setProgress("happybar", getHappy(), getHappy());
@@ -1182,22 +1198,6 @@ function setText(kind, index, type)
     var div = document.getElementById(type);
 
     div.innerHTML = getQuestion(kind, index);
-}
-
-function pay()
-{
-    var amount = document.getElementById("payloan").value;
-    console.log("Before paying: " + getLoan());
-    payLoan(amount);
-    console.log("After paying: " + getLoan());
-    var div = document.getElementById("loanNum");
-    div.innerHTML = "<h2>$" + getLoan() + "</h2>";
-
-    setProgress("moneybar", 100, getCash());
-    setProgress("gradebar", getGrades(), getGrades());
-    setProgress("happybar", getHappy(), getHappy());
-    setProgress("energybar", getEnergy(), getEnergy());
-    //amount.value = "";
 }
 
 function setButtons(kind, index, type1, type2, type3)

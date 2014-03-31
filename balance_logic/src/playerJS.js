@@ -996,7 +996,7 @@
 	randMap[33] = arr033;
 	
 	
-	var dependMap = ]};
+	var dependMap = [];
 	var dependArray = ["Your guidance councelor emailed you a scholarship application",
 			"The honors college is looking for senior applicants.",
 			"The intramural sports team has one spot open!",

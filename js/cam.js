@@ -29,6 +29,11 @@ function payLoan(num)
     }
 }
 
+function changeMessage(msg)
+{
+    $("#message h3").append(msg);
+}
+
 function pay()
 {
     var amount = document.getElementById("payloan").value;
@@ -610,19 +615,22 @@ function updateDepend(type, answerIndex)
                         var x = 500 + Math.floor((Math.random() * 4500) + 1);
                         cash += x;
                         happy += 20;
-                        message = "You won a $" + x + " scholarship, congrats!";
+                        //message = "You won a $" + x + " scholarship, congrats!";
+                        changeMessage("You won a $" + x + " scholarship, congrats!");
                     }
                     else if(grades >= 90)
                     {
                         var x = 500 + Math.floor((Math.random() * 1500) + 1);
                         cash += x;
                         happy += 15;
-                        message = "You won a $" + x + " scholarship, congrats!";
+                        //message = "You won a $" + x + " scholarship, congrats!";
+                        changeMessage("You won a $" + x + " scholarship, congrats!");
                     }
                     else
                     {
                         happy -= 10;
-                        message = "You didn't get the scholarship, you feel depressed from defeat.";
+                        //message = "You didn't get the scholarship, you feel depressed from defeat.";
+                        changeMessage("You didn't get the scholarship, you feel depressed from defeat.");
                     }
                 }
                 else if(answerIndex === 1)
@@ -638,12 +646,14 @@ function updateDepend(type, answerIndex)
                     {
                         grades += 15;
                         happy += 10;
-                        message = "You got into the honors college, congrats!";
+                        //message = "You got into the honors college, congrats!";
+                        changeMessage("You got into the honors college, congrats!");
                     }
                     else
                     {
                         happy -= 10;
-                        message = "You didn't get into the honors college, you feel depressed from defeat.";
+                        //message = "You didn't get into the honors college, you feel depressed from defeat.";
+                        changeMessage("You didn't get into the honors college, you feel depressed from defeat.");
                     }
 
                 }
@@ -660,13 +670,15 @@ function updateDepend(type, answerIndex)
                     {
                         happy += 10;
                         energy -= 5;
-                        message = "You got the spot on the team, congrats!";
+                        //message = "You got the spot on the team, congrats!";
+                        changeMessage("You got the spot on the team, congrats!");
                     }
                     else
                     {
                         happy -= 10;
                         energy -= 10;
-                        message = "You didn't get the spot on the team, you feel depressed from defeat.";
+                        //message = "You didn't get the spot on the team, you feel depressed from defeat.";
+                        changeMessage("You didn't get the spot on the team, you feel depressed from defeat.");
                     }
                 }
                 else if(answerIndex === 1)
@@ -681,12 +693,14 @@ function updateDepend(type, answerIndex)
                     if(grades >= 75 && happy >= 80)
                     {
                         happy += 10;
-                        message = "You got the position, congrats!";
+                        //message = "You got the position, congrats!";
+                        changeMessage("You got the position, congrats!");
                     }
                     else
                     {
                         happy -= 10;
-                        message = "You didn't get the position, you feel depressed from defeat.";
+                        //message = "You didn't get the position, you feel depressed from defeat.";
+                        changeMessage("You didn't get the position, you feel depressed from defeat.");
                     }
                 }
                 else if(answerIndex === 1)
@@ -704,12 +718,14 @@ function updateDepend(type, answerIndex)
                         cash += 10;
                         energy += 7;
                         message = "You won the contest, congrats!";
+                        //changeMessage("You won the contest, congrats!");
                     }
                     else
                     {
                         happy -= 10;
                         energy -= 2;
-                        message = "You lost the contest, you feel depressed from defeat.";
+                        //message = "You lost the contest, you feel depressed from defeat.";
+                        changeMessage("You lost the contest, you feel depressed from defeat.");
                     }
                 }
                 else if(answerIndex === 1)
@@ -725,19 +741,22 @@ function updateDepend(type, answerIndex)
                         var x = 500 + Math.floor((Math.random() * 4500) + 1);
                         cash += x;
                         happy += 20;
-                        message = "You won a $" + x + " scholarship, congrats!";
+                        //message = "You won a $" + x + " scholarship, congrats!";
+                        changeMessage("You won a $" + x + " scholarship, congrats!");
                     }
                     else if(grades >= 90)
                     {
                         var x = 500 + Math.floor((Math.random() * 1500) + 1);
                         cash += x;
                         happy += 15;
-                        message = "You won a $" + x + " scholarship, congrats!";
+                        //message = "You won a $" + x + " scholarship, congrats!";
+                        changeMessage("You won a $" + x + " scholarship, congrats!");
                     }
                     else
                     {
                         happy -= 10;
-                        message = "You didn't get the scholarship, you feel depressed from defeat.";
+                        //message = "You didn't get the scholarship, you feel depressed from defeat.";
+                        changeMessage("You didn't get the scholarship, you feel depressed from defeat.");
                     }
                 }
                 else if(answerIndex === 1)

@@ -31,7 +31,7 @@ function payLoan(num)
 
 function changeMessage(msg)
 {
-    $("#message h3").append(msg);
+    $("#submessage").text(msg);
 }
 
 function pay()
@@ -883,27 +883,29 @@ function takeExam()
         checkStatus();
         noOverload();
         takeE = true;
-        return "You had an exam this week. Your grade " + y + " to " + grades + "%.";
+        changeMessage("You had an exam this week. Your grade " + y + " to " + grades + "%.");
     }
-    return y;
+    //return y;
 }
 
 function checkStatus()
 {
-    if(grades <= 30)
+    errorMessage = "";
+    
+    if(grades < 30)
     {
         cash -= 250;
         grades += 40;
         energy -= 15;
         errorMessage += "Your grades are too low, so you hired a tutor for $250." + '\n';
     }
-    if(energy <= 20)
+    if(energy < 20)
     {
         energy += 35;
         grades -= 25;
         errorMessage += "Your energy is too low, so you slept through your classes." + '\n';
     }
-    if(happy <= 20)
+    if(happy < 20)
     {
         cash -= 250;
         happy += 25;
@@ -971,7 +973,7 @@ function weeklyHW()
     {
         grades += 15;
     }
-    return "You got " + HWGrade + "% on your homework for Week " + week;
+    return "You got " + HWGrade + "% on your homework for Week " + week + ". ";
 }
 
 var firstMap = [];

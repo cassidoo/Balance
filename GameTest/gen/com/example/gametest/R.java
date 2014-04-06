@@ -42,7 +42,7 @@ public final class R {
         public static final int imageView2=0x7f080008;
         public static final int imageView3=0x7f080009;
         public static final int imageView4=0x7f08000a;
-        public static final int jobView=0x7f080014;
+        public static final int jobView=0x7f080013;
         public static final int loanView=0x7f080006;
         public static final int moneyAmount=0x7f08000b;
         public static final int payLoanMsg=0x7f080015;
@@ -55,7 +55,7 @@ public final class R {
         public static final int situation=0x7f080001;
         public static final int stats=0x7f080005;
         public static final int userPayAmount=0x7f080017;
-        public static final int weekView=0x7f080013;
+        public static final int weekView=0x7f080014;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;

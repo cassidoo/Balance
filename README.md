@@ -1,16 +1,14 @@
 Balance
 =======
 
+A web+Android game in which players have to get through college while staying out of debt.  Players have an initial loan, pocket money, grades, happiness, and energy, and are faced with choices in which said values can go up or down.  The objective of the game is to pay off all loans while maintaining balance in other aspects of life.
+
 ##Who
 
  - [Me](https://github.com/cassidoo): Front end web
  - [zplata](https://github.com/zplata): Front end Android
  - [CamiWilliams](https://github.com/CamiWilliams): Back end 
  - [shirley-wang](https://github.com/shirley-wang): Back end
-
-##What
-
-A web+Android game in which players have to get through college while staying out of debt.  Players have an initial loan, pocket money, grades, happiness, and energy, and are faced with choices in which said values can go up or down.  The objective of the game is to pay off all loans while maintaining balance in other aspects of life.
 
 ##Where
 
